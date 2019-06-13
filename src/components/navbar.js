@@ -1,15 +1,9 @@
 import React from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
 import { rhythm } from "../utils/typography"
-
-const StyledLink = styled(props => <Link {...props} />)`
-    padding: 0 .5rem;
-    color: #5755d9;
-    outline: none;
-    text-decoration: none;
-`;
+import { BaseLink, BrandLink } from "./base"
 
 const NavBase = styled.header`
     display: flex;
@@ -32,13 +26,7 @@ const NavContainer = styled.section`
     padding-left: 1rem;
 `
 
-const NavItem = ({ linkTo, children }) => (
-    <StyledLink to={linkTo}>
-        {children}
-    </StyledLink>
-)
-
-var LogoImage = () => (
+const LogoImage = () => (
     <StaticQuery
         query={NavbarQuery}
         render={data => (
@@ -58,14 +46,27 @@ var LogoImage = () => (
     />
 )
 
+const NavItem = ({ linkTo, children }) => (
+    <BaseLink to={linkTo}>
+        {children}
+    </BaseLink>
+)
+
+
+const NavBrand = ({ linkTo, children }) => (
+    <BrandLink to={linkTo}>
+        {children}
+    </BrandLink>
+)
+
 const Navbar = ({ pathname }) => {
     return (
         <NavBase>
             <NavContainer>
                 <LogoImage />
-                <NavItem linkTo="/">Home</NavItem>
+                <NavBrand linkTo="/">SeA:</NavBrand>
                 <NavItem linkTo="/blog">Blog</NavItem>
-                <NavItem linkTo="/blog"></NavItem>
+                <NavItem linkTo="/works">Works</NavItem>
             </NavContainer>
             <NavContainer />
         </NavBase>

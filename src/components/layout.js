@@ -2,20 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Navbar from "../components/navbar"
-import { rhythm } from "../utils/typography"
+
+import { BaseContainer } from "./base"
+
 
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
-
-    if (location.pathname === rootPath) {
-      header = (
-        <Navbar pathname="1919" />
-      )
-    } else {
-      header = (
+    let contentsHeader
+    return (
+      <BaseContainer>
         <h3
           style={{
             marginTop: 0,
@@ -32,25 +29,12 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h3>
-      )
-    }
-    return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
+        <header><Navbar /></header>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © 2017-{new Date().getFullYear()} SeA: All rights reserved.
         </footer>
-      </div>
+      </BaseContainer>
     )
   }
 }

@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `team-seadrive.com`,
+    author: `AokabiC`,
+    description: `碧黴(あおかび)の運営する個人サークル「SeA:」の公式Webサイト`,
+    siteUrl: `https://team-seadrive.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `AokabiC`,
     },
+    icon: `content/assets/Team_SeAdrive_logo.png`,
   },
   plugins: [
     {
@@ -57,13 +58,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Team SeAdrive Website`,
+        short_name: `SeAdriveWeb`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/Team_SeAdrive_logo.png`,
       },
     },
     `gatsby-plugin-offline`,
@@ -74,5 +75,16 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'material icons',
+          'roboto:300,400,500,700',
+        ],
+      },
+    },
+    'gatsby-plugin-styled-components',
   ],
 }

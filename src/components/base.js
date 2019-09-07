@@ -1,34 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled, { keyframes } from "styled-components"
-import { rhythm } from "../utils/typography"
+import styled from "styled-components"
 
-const fadeColor = keyframes`
-    to {
-        color: deepskyblue;
-    }
-`
-
-const BaseLink = styled(props => <Link {...props} />)`
-    font-size: .9rem;
-    margin: 0 .5rem;
-    color: royalblue;
-    outline: none;
+export const BaseLink = styled(props => <Link {...props} />)`
     text-decoration: none;
-    &:hover{
-        animation: ${fadeColor} .5s linear forwards;
-    }
+    color: inherit;
 `;
 
-const BrandLink = styled(BaseLink)`
-    font-size: 1.1rem;
-`
+export const Basea = BaseLink.withComponent("a");
 
-const BaseContainer = styled.div`
-    max-width: 48rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 4rem 0 1.5rem;
+export const BaseContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    max-width: 1200px;
+    min-height: calc(100vh - 6rem);
+    margin: auto;
+    padding-top: 4rem;
 `
-
-export { BaseLink, BrandLink, BaseContainer }

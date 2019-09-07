@@ -1,13 +1,18 @@
 import Typography from "typography"
-import Noriega from "typography-theme-noriega"
 
-const typography = new Typography(Noriega)
-
-// Hot reload typography in development.
-if (process.env.NODE_ENV !== `production`) {
-  typography.injectStyles()
-}
+const typography = new Typography({
+  baseFontSize: "18px",
+  baseLineHeight: 1.666,
+  headerFontFamily: [
+    "Noto Sans JP",
+    "Avenir Next",
+    "Helvetica Neue",
+    "Segoe UI",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+  ],
+  bodyFontFamily: ["Noto Serif JP","Georgia", "serif"],
+})
 
 export default typography
-export const rhythm = typography.rhythm
-export const scale = typography.scale

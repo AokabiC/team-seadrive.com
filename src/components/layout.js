@@ -1,10 +1,16 @@
 import React from "react"
-import { Link } from "gatsby"
-
+import styled from "styled-components"
 import Navbar from "../components/navbar"
-
+import Footerbar from "../components/footerbar"
 import { BaseContainer } from "./base"
+import GlobalStyle from "../utils/basestyle"
+const LayoutStyle = styled.div`
+`
 
+const LocationName = styled.h3`
+    text-align: center;
+    letter-spacing: .5rem;
+`
 
 class Layout extends React.Component {
   render() {
@@ -12,29 +18,19 @@ class Layout extends React.Component {
     const rootPath = `${__PATH_PREFIX__}/`
     let contentsHeader
     return (
-      <BaseContainer>
-        <h3
-          style={{
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-        <header><Navbar /></header>
-        <main>{children}</main>
-        <footer>
-          © 2017-{new Date().getFullYear()} SeA: All rights reserved.
-        </footer>
-      </BaseContainer>
+    <React.Fragment>
+        <GlobalStyle />
+        <LayoutStyle>
+            <BaseContainer>
+            <Navbar/>
+            <main>
+                <LocationName> {title} </LocationName>
+                {children}
+            </main>
+            <Footerbar/>
+        </BaseContainer>
+        </LayoutStyle>
+    </React.Fragment>
     )
   }
 }

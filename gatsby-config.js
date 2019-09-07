@@ -68,12 +68,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
+        resolve: `gatsby-plugin-typography`,
+        options: {
+            pathToConfigModule: `src/utils/typography`,
+        }
     },
     'gatsby-plugin-react-helmet',
     {
@@ -81,7 +80,8 @@ module.exports = {
       options: {
         fonts: [
           'material icons',
-          'roboto:300,400,500,700',
+          'Noto Serif JP',
+          'Noto Sans JP',
         ],
       },
     },

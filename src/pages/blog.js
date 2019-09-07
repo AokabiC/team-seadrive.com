@@ -5,32 +5,24 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
-import SlideShow from "../components/slideshow"
 import { BaseLink } from "../components/base"
 
-class Index extends React.Component {
+class BlogIndex extends React.Component {
     render() {
         const { data } = this.props
-        const siteTitle = this.props.data.site.siteMetadata.title
+        const siteTitle = "Blog"
         const posts = data.allMarkdownRemark.edges
         return (
             <Layout location={this.props.location} title={siteTitle}>
-                <SEO title="SeA:"/>
+                <SEO title="All posts" />
                 <div>
-                <SlideShow initialWidth={960} initialHeight={597}/>
-
-                {/* ブログコンテンツ */}
-
                 {posts.map(({ node }) => {
                     const title = node.frontmatter.title || node.fields.slug
                     return (
                         <Card
                             key={node.fields.slug}
-                            title={
-                                <BaseLink to={node.fields.slug}>
-                                    {title}
-                                </BaseLink>
-                            }
+                            to={node.fields.slug}
+                            title={title}
                             label={node.frontmatter.date}
                             subtitle={node.frontmatter.subtitle}>
                             <p
@@ -48,7 +40,7 @@ class Index extends React.Component {
     }
 }
 
-export default Index
+export default BlogIndex
 
 export const pageQuery = graphql`
   query {

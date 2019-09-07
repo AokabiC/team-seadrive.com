@@ -1,6 +1,7 @@
 ---
 title: ブログを作った
-date: "2019-06-13T22:40:32.169Z"
+subtitle: お知らせ
+date: "2019-07-15T22:40:32.170Z"
 description: none
 ---
 

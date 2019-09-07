@@ -1,8 +1,20 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import styled from "styled-components"
+import Color from "./const/color"
+import { Basea } from "../components/base";
 
-import { rhythm } from "../utils/typography"
+const BioImage = styled(Image)`
+    margin-bottom: 0;
+    margin-right: 1rem;
+    min-width: 50;
+    border-radius: 100%;
+`;
+
+const BioName = styled(Basea)`
+    color: ${Color.primary_dark};
+`;
 
 function Bio() {
   return (
@@ -13,28 +25,21 @@ function Bio() {
         return (
           <div
             style={{
-              display: `flex`,
-              marginBottom: rhythm(2.5),
+                maxWidth: "80px"
             }}
           >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
+            <BioImage
+              fluid={data.avatar.childImageSharp.fluid}
               alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
               imgStyle={{
                 borderRadius: `50%`,
               }}
             />
             <p>
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
+              <BioName href={`https://twitter.com/${social.twitter}`}>
               碧黴(あおかび)
-              </a>
+              </BioName>
               <br/>
               Illustrator, Competitive programmer
             </p>
@@ -49,8 +54,8 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
       childImageSharp {
-        fixed(width: 80, height: 80) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 80, maxHeight: 80) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

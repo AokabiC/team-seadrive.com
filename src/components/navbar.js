@@ -1,9 +1,29 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import Color from "../components/const/color"
 import Image from "gatsby-image"
-import { rhythm } from "../utils/typography"
-import { BaseLink, BrandLink } from "./base"
+import { BaseLink } from "./base"
+
+const fadeColor = keyframes`
+    to {
+    color: ${Color.primary_faded};
+    }
+`
+
+const NavLink = styled(BaseLink)`
+    font-size: .9rem;
+    margin: 0 .5rem;
+    color: ${Color.primary};
+    outline: none;
+    &:hover{
+        animation: ${fadeColor} .5s linear forwards;
+    }
+`
+
+const BrandLink = styled(NavLink)`
+    font-size: 1.1rem;
+`
 
 const NavBase = styled.header`
     display: flex;
@@ -13,6 +33,7 @@ const NavBase = styled.header`
     left: 0;
     right: 0;
     width: 100%;
+    padding: .4rem 0;
     z-index: 100;
 `
 
@@ -24,6 +45,7 @@ const NavContainer = styled.section`
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-left: 1rem;
+    font-family: "Segoe UI";
 `
 
 const LogoImage = () => (
@@ -33,7 +55,7 @@ const LogoImage = () => (
                 <Image
                     fixed={data.logo.childImageSharp.fixed}
                     style={{
-                        marginRight: rhythm(1 / 2),
+                        marginRight: 0,
                         marginBottom: 0,
                         minWidth: 50,
                         borderRadius: `100%`,
@@ -47,9 +69,9 @@ const LogoImage = () => (
 )
 
 const NavItem = ({ linkTo, children }) => (
-    <BaseLink to={linkTo}>
+    <NavLink to={linkTo}>
         {children}
-    </BaseLink>
+    </NavLink>
 )
 
 

@@ -5,16 +5,30 @@ import styled from "styled-components"
 import Color from "./const/color"
 import { Basea } from "../components/base";
 
+const Base = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+`
+
 const BioImage = styled(Image)`
     margin-bottom: 0;
     margin-right: 1rem;
-    min-width: 50;
-    border-radius: 100%;
+    max-width: 80px;
+    border-radius: 50%;
+    flex-grow: 1;
 `;
 
 const BioName = styled(Basea)`
     color: ${Color.primary_dark};
 `;
+
+const BioText = styled.div`
+`
+
+
 
 function Bio() {
   return (
@@ -23,27 +37,16 @@ function Bio() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div
-            style={{
-                maxWidth: "80px"
-            }}
-          >
+          <Base>
             <BioImage
-              fluid={data.avatar.childImageSharp.fluid}
+              fixed={data.avatar.childImageSharp.fixed}
               alt={author}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
             />
-            <p>
-              {` `}
-              <BioName href={`https://twitter.com/${social.twitter}`}>
-              碧黴(あおかび)
-              </BioName>
-              <br/>
+            <BioText>
+              <BioName href={`https://twitter.com/${social.twitter}`}>碧黴(あおかび)</BioName><br/>
               Illustrator, Competitive programmer
-            </p>
-          </div>
+            </BioText>
+          </Base>
         )
       }}
     />
@@ -54,8 +57,8 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
       childImageSharp {
-        fluid(maxWidth: 80, maxHeight: 80) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 80, height: 80) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

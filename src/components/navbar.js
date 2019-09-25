@@ -56,13 +56,12 @@ const LogoImage = () => (
                     fixed={data.logo.childImageSharp.fixed}
                     style={{
                         marginRight: 0,
-                        marginBottom: 0,
-                        minWidth: 50,
-                        borderRadius: `100%`,
+                        marginBottom: 0
                     }}
                     imgStyle={{
                         borderRadius: `50%`,
                     }}
+                    fadeIn={true}
                 />
         )}
     />
@@ -90,7 +89,6 @@ const Navbar = ({ pathname }) => {
                 <NavItem linkTo="/blog">Blog</NavItem>
                 <NavItem linkTo="/works">Works</NavItem>
             </NavContainer>
-            <NavContainer />
         </NavBase>
     )
 }
@@ -100,7 +98,7 @@ const NavbarQuery = graphql`
         logo: file(absolutePath: { regex: "/Team_SeAdrive_logo.png/" }) {
             childImageSharp {
                 fixed(width: 50, height: 50) {
-                ...GatsbyImageSharpFixed
+                ...GatsbyImageSharpFixed_noBase64
                 }
             }
         }
@@ -108,3 +106,4 @@ const NavbarQuery = graphql`
 `
 
 export default Navbar
+

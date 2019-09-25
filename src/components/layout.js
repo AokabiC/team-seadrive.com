@@ -4,6 +4,7 @@ import Navbar from "../components/navbar"
 import Footerbar from "../components/footerbar"
 import { BaseContainer } from "./base"
 import GlobalStyle from "../utils/basestyle"
+// import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 const LayoutStyle = styled.div`
 `
 
@@ -28,7 +29,7 @@ class Layout extends React.Component {
                 {children}
             </main>
             <Footerbar/>
-        </BaseContainer>
+            </BaseContainer>
         </LayoutStyle>
     </React.Fragment>
     )

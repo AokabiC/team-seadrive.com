@@ -8,11 +8,9 @@ import { BaseLink } from "./base";
 const Base = styled.div`
     background: ${Color.light};
     border-radius: ${Sizes.border_radius};
-    display: flex;
-    flex-direction: column;
     padding: 1.6rem;
-    flex: 1;
-    margin: 2rem 1rem;
+    flex-grow: 1;
+    margin: 1rem 1rem;
     &:last-of-type {
         margin-bottom: 4rem;
     }
@@ -23,7 +21,6 @@ const Header = styled.div`
 `
 
 const Footer = styled.div`
-    flex-direction: row;
 `
 
 const Label = styled.span`

@@ -29,9 +29,14 @@ class Works extends React.Component {
         const posts = data.allMarkdownRemark.edges
         return (
             <Layout location={this.props.location} title={siteTitle}>
-                <NavLink to="/compro_with_arisa">
-                    銀髪赤眼の後輩と学ぶ競技プログラミング
-                </NavLink>
+                <p>書籍サポート</p>
+                <ul>
+                    <li>
+                        <NavLink to="/compro_with_arisa">
+                            銀髪赤眼の後輩と学ぶ競技プログラミング
+                         </NavLink>
+                    </li>
+                </ul>
             </Layout>
         )
     }

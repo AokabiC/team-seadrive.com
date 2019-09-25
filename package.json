@@ -26,6 +26,7 @@
     "gatsby-remark-prismjs": "^3.3.14",
     "gatsby-remark-responsive-iframe": "^2.2.18",
     "gatsby-remark-smartypants": "^2.1.9",
+    "gatsby-remark-toc": "^1.2.0",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-remark": "^2.6.24",
     "gatsby-transformer-sharp": "^2.2.17",
@@ -34,6 +35,7 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
+    "rehype-react": "^4.0.1",
     "styled-components": "^4.4.0",
     "typeface-lato": "0.0.54",
     "typeface-merriweather": "0.0.72",
@@ -42,6 +44,8 @@
     "typography-theme-noriega": "^0.16.19"
   },
   "devDependencies": {
+    "gatsby-remark-autolink-headers": "^2.1.11",
+    "gatsby-remark-code-titles": "^1.1.0",
     "prettier": "^1.18.2"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

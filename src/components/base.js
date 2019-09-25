@@ -13,7 +13,7 @@ export const BaseContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-flow: column;
-    max-width: 1200px;
+    max-width: 1000px;
     min-height: calc(100vh - 6rem);
     margin: auto;
     padding-top: 4rem;

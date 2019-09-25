@@ -1,9 +1,32 @@
 import React from "react"
+import RehypeReact from "rehype-react"
 import { Link, graphql } from "gatsby"
-
+import Color from "../components/const/color"
+import styled from "styled-components"
 import Bio from "../components/bio"
+import Heading from "../components/heading"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
+const Label = styled.span`
+    border-radius: 5rem;
+    padding: .1rem .4rem;
+    margin-right: .4rem;
+    background: ${Color.base_light};
+`
+
+const Title = styled.h2`
+    /* margin-bottom: .5rem; */
+    font-weight: 500;
+    color: ${Color.text_black};
+`
+
+const renderAst = new RehypeReact({
+    createElement: React.createElement,
+    components: {
+      h2: Heading.H2
+    }
+  }).Compiler
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -17,11 +40,13 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h2>{post.frontmatter.title}</h2>
-        <p>
+        <Title>{post.frontmatter.title}</Title>
+        <p><Label>
           {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Label></p>
+        {
+            renderAst(post.htmlAst)
+        }
         <hr/>
         {/* <Bio /> */}
 
@@ -67,7 +92,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       frontmatter {
         title
         subtitle

@@ -4,9 +4,13 @@ import Navbar from "../components/navbar"
 import Footerbar from "../components/footerbar"
 import { BaseContainer } from "./base"
 import GlobalStyle from "../utils/basestyle"
-// import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import Color from "./const/color"
+
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import '../utils/style.css'
 const LayoutStyle = styled.div`
 `
+
 
 const LocationName = styled.h3`
     text-align: center;

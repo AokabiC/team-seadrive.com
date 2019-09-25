@@ -1,12 +1,18 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
+const fadein = keyframes`
+  0% {opacity: 0}
+  100% {opacity: 1}
+`
 
 const SlideImage = styled(Image)`
     min-width: auto;
-    margin: 1rem;
+    margin: 1rem 0;
     flex-grow: 1;
+    animation: ${fadein} .8s linear forwards;
 `;
 
 
@@ -44,21 +50,21 @@ const slideshowQuery = graphql`
   query Slideshow {
     sl1: file(absolutePath: { regex: "/slideshow/sl1.png/" }) {
       childImageSharp {
-        fluid(maxWidth: 800, quality: 100) {
+        fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
     sl2: file(absolutePath: { regex: "/slideshow/sl2.png/" }) {
       childImageSharp {
-        fluid(maxWidth: 800, quality: 100) {
+        fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
     sl3: file(absolutePath: { regex: "/slideshow/sl3.png/" }) {
       childImageSharp {
-        fluid(maxWidth: 800, quality: 100) {
+        fluid(maxWidth: 1200, quality: 100) {
           ...GatsbyImageSharpFluid_noBase64
         }
       }

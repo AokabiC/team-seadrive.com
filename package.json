@@ -66,6 +66,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "gatsby build && echo \"team-seadrive.com\" > public/CNAME && gh-pages -d public"
   }
 }

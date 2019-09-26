@@ -27,7 +27,7 @@ class BlogIndex extends React.Component {
                             subtitle={node.frontmatter.subtitle}>
                             <p
                                 dangerouslySetInnerHTML={{
-                                    __html: node.excerpt,
+                                    __html: node.frontmatter.description || node.excerpt,
                                 }}
                             />
                         </Card>

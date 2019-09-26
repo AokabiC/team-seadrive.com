@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Slideshow from "../components/slideshow"
 import Card from "../components/card"
+import Links from "../components/links"
 import styled from "styled-components"
 import { BaseLink } from "../components/base"
 
@@ -13,7 +14,6 @@ const Base = styled.div`
     display: flex;
     flex-direction: column;
 `
-
 
 class Index extends React.Component {
     render() {
@@ -39,12 +39,14 @@ class Index extends React.Component {
                             subtitle={node.frontmatter.subtitle}>
                             <p
                                 dangerouslySetInnerHTML={{
-                                    __html: node.excerpt,
+                                    __html: node.frontmatter.description || node.excerpt,
                                 }}
                             />
                         </Card>
                     )
                 })}
+
+                <Links/>
                 </Base>
                 <Bio />
             </Layout>
@@ -61,7 +63,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+        limit: 3,
+        sort: {
+            fields: [frontmatter___date],
+            order: DESC
+        },
+        filter: {
+            frontmatter: {subtitle: {nin: ["書籍サポート"]}}
+        }
+    ) {
       edges {
         node {
           excerpt

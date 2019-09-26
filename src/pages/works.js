@@ -32,8 +32,13 @@ class Works extends React.Component {
                 <p>書籍サポート</p>
                 <ul>
                     <li>
-                        <NavLink to="/compro_with_arisa">
+                        <NavLink to="/compro_with_arisa/">
                             銀髪赤眼の後輩と学ぶ競技プログラミング
+                         </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/compro_with_arisa2/">
+                            銀髪赤眼の後輩と学ぶ競技プログラミング2
                          </NavLink>
                     </li>
                 </ul>

@@ -1,8 +1,8 @@
 ---
 title: ブログを作った
 subtitle: お知らせ
-date: "2019-07-15T22:40:32.170Z"
-description: none
+date: "2019-09-25T22:20:32.170Z"
+description:
 ---
 
 碧黴(あおかび)です。

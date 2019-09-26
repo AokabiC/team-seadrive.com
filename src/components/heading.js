@@ -5,6 +5,7 @@ import Color from "./const/color"
 const BaseHeader = styled.span`
     font-weight: 500;
     color: ${Color.text_black};
+    margin: 2rem 0 1rem;
 `
 
 const H1 = styled(BaseHeader.withComponent('h1'))`

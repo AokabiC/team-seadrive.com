@@ -24,7 +24,10 @@ const Title = styled.h2`
 const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: {
-      h2: Heading.H2
+      h1: Heading.H1,
+      h2: Heading.H2,
+      h3: Heading.H3,
+      h4: Heading.H4,
     }
   }).Compiler
 

@@ -1,7 +1,7 @@
 import Typography from "typography"
 
 const typography = new Typography({
-  baseFontSize: "18px",
+  baseFontSize: "17px",
   baseLineHeight: 1.666,
   headerFontFamily: [
     "Noto Sans JP",
@@ -12,7 +12,7 @@ const typography = new Typography({
     "Arial",
     "sans-serif",
   ],
-  bodyFontFamily: ["Noto Serif JP","Georgia", "serif"],
+  bodyFontFamily: ["Noto Serif JP", "serif"],
 })
 
 export default typography

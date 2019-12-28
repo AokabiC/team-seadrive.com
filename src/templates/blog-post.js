@@ -7,6 +7,7 @@ import Bio from "../components/bio"
 import Heading from "../components/heading"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+require(`katex/dist/katex.min.css`)
 
 const Label = styled.span`
     border-radius: 5rem;
@@ -21,6 +22,11 @@ const Title = styled.h2`
     color: ${Color.text_black};
 `
 
+const Paragraph = styled.p`
+    text-indent: 0em; 
+`
+
+
 const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: {
@@ -28,6 +34,7 @@ const renderAst = new RehypeReact({
       h2: Heading.H2,
       h3: Heading.H3,
       h4: Heading.H4,
+      p: Paragraph,
     }
   }).Compiler
 

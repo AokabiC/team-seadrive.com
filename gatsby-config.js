@@ -65,6 +65,7 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-katex`,
         ],
       },
     },
@@ -100,11 +101,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: [
-          'material icons',
-          'Noto Serif JP',
-          'Noto Sans JP',
-        ],
+        fonts: [ 'Noto Sans JP', 'Noto Serif JP']
       },
     },
     'gatsby-plugin-twitter',

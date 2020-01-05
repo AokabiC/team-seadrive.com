@@ -27,7 +27,6 @@ const Paragraph = styled.p`
     text-indent: 0em; 
 `
 
-
 const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: {

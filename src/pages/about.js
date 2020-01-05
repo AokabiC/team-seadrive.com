@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled, { keyframes } from "styled-components"
+import SEO from "../components/seo"
 import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import Links from "../components/links"
@@ -29,6 +30,7 @@ class Works extends React.Component {
         const posts = data.allMarkdownRemark.edges
         return (
             <Layout location={this.props.location} title={siteTitle}>
+                <SEO title={siteTitle}/>
                 <section>
                 <dl>
                     <dt>名前</dt>

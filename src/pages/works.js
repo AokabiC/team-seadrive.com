@@ -23,6 +23,7 @@ class Works extends React.Component {
         const siteTitle = "Works"
         return (
             <Layout location={this.props.location} title={siteTitle}>
+                <SEO title={siteTitle}/>
                 <section><dl>
                 <dt>書籍サポート</dt>
                 <dd><Ul>

@@ -7,7 +7,7 @@ import { BaseLink } from "./base"
 
 const fadeColor = keyframes`
     to {
-    color: ${Color.primary_faded};
+        color: ${Color.primary_faded};
     }
 `
 
@@ -86,8 +86,8 @@ const Navbar = ({ pathname }) => {
             <NavContainer>
                 <LogoImage />
                 <NavBrand linkTo="/">SeA:</NavBrand>
-                <NavItem linkTo="/blog">Blog</NavItem>
                 <NavItem linkTo="/about">About</NavItem>
+                <NavItem linkTo="/blog">Blog</NavItem>
                 <NavItem linkTo="/works">Works</NavItem>
             </NavContainer>
         </NavBase>

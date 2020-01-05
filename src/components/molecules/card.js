@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import Color from "./const/color"
-import Sizes from "./const/sizes"
-import Button from "./button"
-import { BaseLink } from "./base";
+import Color from "../const/color"
+import Sizes from "../const/sizes"
+import Button from "../atoms/button"
+import { BaseLink } from "../base";
 
 const Base = styled.div`
     background: ${Color.light};

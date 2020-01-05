@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
+import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Card from "../components/card"
+import Card from "../components/molecules/card"
 import { BaseLink } from "../components/base"
 
 class BlogIndex extends React.Component {

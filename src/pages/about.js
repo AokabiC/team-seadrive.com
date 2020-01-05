@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled, { keyframes } from "styled-components"
-import Bio from "../components/bio"
+import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import Links from "../components/links"
 import Color from "../components/const/color"
-import { BaseLink } from "../components/base";
-import Ul from "../components/list";
+import { BaseLink } from "../components/base"
+import Ul from "../components/atoms/list"
 
 const fadeColor = keyframes`
     to {

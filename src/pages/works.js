@@ -1,26 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled, { keyframes } from "styled-components"
-import Bio from "../components/bio"
+import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
+import Anchor from "../components/atoms/anchor"
 import Links from "../components/links"
 import Color from "../components/const/color"
 import SEO from "../components/seo"
-import Card from "../components/card"
+import Card from "../components/molecules/card"
 import { BaseLink } from "../components/base";
-import Ul from "../components/list";
+import Ul from "../components/atoms/list";
 
 const fadeColor = keyframes`
     to {
     color: ${Color.primary_faded};
-    }
-`
-
-const NavLink = styled(BaseLink)`
-    color: ${Color.primary};
-    outline: none;
-    &:hover{
-        animation: ${fadeColor} .5s linear forwards;
     }
 `
 
@@ -34,20 +27,20 @@ class Works extends React.Component {
                 <dt>書籍サポート</dt>
                 <dd><Ul>
                     <li>
-                        <NavLink to="/compro_with_arisa/">
+                        <Anchor.In to="/compro_with_arisa/">
                             銀髪赤眼の後輩と学ぶ競技プログラミング
-                         </NavLink>
+                         </Anchor.In>
                     </li>
                     <li>
-                        <NavLink to="/compro_with_arisa2/">
+                        <Anchor.In to="/compro_with_arisa2/">
                             銀髪赤眼の後輩と学ぶ競技プログラミング2
-                         </NavLink>
+                         </Anchor.In>
                     </li>
                 </Ul></dd>
                 <dt>通販など</dt>
                 <dd><Ul>
-                    <li><a href="https://team-seadrive.booth.pm">BOOTH</a></li>
-                    <li><a href="https://www.melonbooks.co.jp/circle/index.php?circle_id=41118">メロンブックス</a></li>
+                    <li><Anchor.Ext href="https://team-seadrive.booth.pm">BOOTH</Anchor.Ext></li>
+                    <li><Anchor.Ext href="https://www.melonbooks.co.jp/circle/index.php?circle_id=41118">メロンブックス</Anchor.Ext></li>
                 </Ul></dd>
                 </dl>
                 </section>

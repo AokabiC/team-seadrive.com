@@ -3,8 +3,9 @@ import RehypeReact from "rehype-react"
 import { Link, graphql } from "gatsby"
 import Color from "../components/const/color"
 import styled from "styled-components"
-import Bio from "../components/bio"
-import Heading from "../components/heading"
+import Bio from "../components/molecules/bio"
+import Anchor from "../components/atoms/anchor"
+import Heading from "../components/atoms/heading"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 require(`katex/dist/katex.min.css`)
@@ -35,6 +36,7 @@ const renderAst = new RehypeReact({
       h3: Heading.H3,
       h4: Heading.H4,
       p: Paragraph,
+      a: Anchor.Ext,
     }
   }).Compiler
 
@@ -71,16 +73,16 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Anchor.In to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
-              </Link>
+              </Anchor.In>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Anchor.In to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
-              </Link>
+              </Anchor.In>
             )}
           </li>
         </ul>

@@ -3,10 +3,12 @@ import { graphql } from "gatsby"
 import styled, { keyframes } from "styled-components"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
+import Links from "../components/links"
 import Color from "../components/const/color"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import { BaseLink } from "../components/base";
+import Ul from "../components/list";
 
 const fadeColor = keyframes`
     to {
@@ -26,11 +28,11 @@ class Works extends React.Component {
     render() {
         const { data } = this.props
         const siteTitle = "Works"
-        const posts = data.allMarkdownRemark.edges
         return (
             <Layout location={this.props.location} title={siteTitle}>
-                <p>書籍サポート</p>
-                <ul>
+                <section><dl>
+                <dt>書籍サポート</dt>
+                <dd><Ul>
                     <li>
                         <NavLink to="/compro_with_arisa/">
                             銀髪赤眼の後輩と学ぶ競技プログラミング
@@ -41,7 +43,14 @@ class Works extends React.Component {
                             銀髪赤眼の後輩と学ぶ競技プログラミング2
                          </NavLink>
                     </li>
-                </ul>
+                </Ul></dd>
+                <dt>通販など</dt>
+                <dd><Ul>
+                    <li><a href="https://team-seadrive.booth.pm">BOOTH</a></li>
+                    <li><a href="https://www.melonbooks.co.jp/circle/index.php?circle_id=41118">メロンブックス</a></li>
+                </Ul></dd>
+                </dl>
+                </section>
             </Layout>
         )
     }
@@ -49,28 +58,3 @@ class Works extends React.Component {
 
 export default Works
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY/MM/DD")
-            title
-            subtitle
-            description
-          }
-        }
-      }
-    }
-  }
-`

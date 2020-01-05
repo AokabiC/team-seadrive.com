@@ -87,6 +87,7 @@ const Navbar = ({ pathname }) => {
                 <LogoImage />
                 <NavBrand linkTo="/">SeA:</NavBrand>
                 <NavItem linkTo="/blog">Blog</NavItem>
+                <NavItem linkTo="/about">About</NavItem>
                 <NavItem linkTo="/works">Works</NavItem>
             </NavContainer>
         </NavBase>

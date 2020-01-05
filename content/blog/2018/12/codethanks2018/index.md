@@ -1,5 +1,5 @@
 ---
-title: CODE THANKS FESTIVAL 2018に参加しました
+title: CODE THANKS FESTIVAL 2018に出場しました
 subtitle: 参加記
 date: "2018-12-05T22:40:32.169Z"
 description:

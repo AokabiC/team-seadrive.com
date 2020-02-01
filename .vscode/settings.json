@@ -1,4 +1,4 @@
 {
     "eslint.enable": false,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "afterDelay"
 }

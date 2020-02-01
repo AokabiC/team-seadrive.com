@@ -39,7 +39,7 @@ class Works extends React.Component {
                     <dd>東北大学工学部 機械知能・航空工学科 3年 (2017/04 入学)</dd>
                     <dt>略歴(情報関係)</dt>
                     <dd><Ul>
-                        <li>2020/01 : DISCO presents ディスカバリーチャンネル コードコンテスト2020本選 出場予定</li>
+                        <li>2020/01 : DISCO presents ディスカバリーチャンネル コードコンテスト2020本戦 出場</li>
                         <li>2019/11 : ACM-ICPC Asia Yokohama Regional 2019 16位 (Aobayama_dropout)</li>
                         <li>2019/11 : ACM-ICPC Asia Bangkok Regional 2019 19位 (Aobayama_dropout)</li>
                         <li>2019/09 : 第一回日本最強プログラマー学生選手権決勝 出場</li>

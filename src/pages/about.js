@@ -43,7 +43,7 @@ class Works extends React.Component {
                         <li>2019/11 : ACM-ICPC Asia Yokohama Regional 2019 16位 (Aobayama_dropout)</li>
                         <li>2019/11 : ACM-ICPC Asia Bangkok Regional 2019 19位 (Aobayama_dropout)</li>
                         <li>2019/09 : 第一回日本最強プログラマー学生選手権決勝 出場</li>
-                        <li>2019/08 : 株式会社モイ ツイキャスサマーインターンシップ</li>
+                        <li>2019/08 : モイ株式会社 ツイキャスサマーインターンシップ 参加</li>
                         <li>2018/12 : ACM-ICPC Asia Yokohama Regional 2018 21位 (Aobayama_dropout)</li>
                         <li>2018/11 : CODE THANKS FESTIVAL 2018 出場</li>
                     </Ul></dd>

@@ -2,19 +2,28 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import Navbar from "../components/navbar"
 import Footerbar from "../components/footerbar"
-import { BaseContainer } from "./base"
 
 import "ress"
 import "typeface-noto-sans"
 import "typeface-noto-serif"
-import "prismjs/plugins/line-numbers/prism-line-numbers.css"
-import "../utils/style.css"
 
 const GlobalStyle = createGlobalStyle`
   body{
       font-family: Noto sans;
       background-color: whitesmoke;
   }
+`
+
+const BaseContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: auto;
+    padding-top: 4rem;
+    padding-left: 15px;
+    padding-right: 15px;
 `
 
 const LocationName = styled.h3`

@@ -54,10 +54,13 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "rehype-react": "^4.0.1",
+    "ress": "^2.0.4",
     "styled-components": "^4.4.0",
     "typeface-lato": "0.0.54",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.54",
+    "typeface-noto-sans": "0.0.72",
+    "typeface-noto-serif": "0.0.72",
     "typography": "^0.16.19",
     "typography-theme-noriega": "^0.16.19"
   },

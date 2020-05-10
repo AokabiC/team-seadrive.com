@@ -91,13 +91,6 @@ module.exports = {
         icon: `content/assets/Team_SeAdrive_logo.png`,
       },
     },
-    `gatsby-plugin-offline`,
-    {
-        resolve: `gatsby-plugin-typography`,
-        options: {
-            pathToConfigModule: `src/utils/typography`,
-        }
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-fonts',

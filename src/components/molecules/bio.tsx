@@ -2,8 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
-import Color from "../const/color"
-import { Basea } from "../base"
+import Anchor from "@/components/atoms/anchor"
 
 const Bio: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -30,13 +29,14 @@ const Bio: React.FC = () => {
   return (
     <Base>
       <BioImage fixed={data.avatar.childImageSharp.fixed} alt={author} />
-      <BioText>
-        <BioName href={`https://twitter.com/${social.twitter}`}>
-          碧黴(あおかび)
-        </BioName>
-        <br />
-        Illustrator, Competitive programmer
-      </BioText>
+      <div>
+        <p>
+          <Anchor.Ext href={`https://twitter.com/${social.twitter}`}>
+            碧黴(あおかび)
+          </Anchor.Ext>
+        </p>
+        <p>Illustrator, Competitive programmer</p>
+      </div>
     </Base>
   )
 }
@@ -56,11 +56,5 @@ const BioImage = styled(Image)`
   border-radius: 50%;
   flex-grow: 1;
 `
-
-const BioName = styled(Basea)`
-  color: ${Color.primary_dark};
-`
-
-const BioText = styled.div``
 
 export default Bio

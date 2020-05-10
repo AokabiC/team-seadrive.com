@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "team-seadrive.com_v2",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "team-seadrive.com - The portfolio of AokabiC; Made with GatsbyJS",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "AokabiC <team.seadrive@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },

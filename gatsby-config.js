@@ -10,6 +10,7 @@ module.exports = {
     icon: `content/assets/Team_SeAdrive_logo.png`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -107,6 +108,6 @@ module.exports = {
     'gatsby-plugin-twitter',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect' // make sure this is always the last one
-
   ],
 }
+// require("ts-node").register();

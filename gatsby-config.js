@@ -91,13 +91,6 @@ module.exports = {
         icon: `content/assets/Team_SeAdrive_logo.png`,
       },
     },
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: [ 'Noto Sans JP', 'Noto Serif JP']
-      },
-    },
     'gatsby-plugin-twitter',
     'gatsby-redirect-from',
     'gatsby-plugin-meta-redirect' // make sure this is always the last one

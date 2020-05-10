@@ -10,7 +10,7 @@ const Base = styled.div`
     border-radius: ${Sizes.border_radius};
     padding: 1.6rem;
     flex-grow: 1;
-    margin: 1rem 1rem;
+    margin: 1rem 0;
     &:last-of-type {
         margin-bottom: 4rem;
     }

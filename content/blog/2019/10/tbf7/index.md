@@ -28,6 +28,6 @@ https://techbookfest.org/event/tbf07/circle/5142151130251264
 最近のABCでは、全探索(bitによる集合全探索、DFSなども含む)の他、modや素数、GCDなどの数学的事項の出題がかなり多いです。今回の本ではそのあたりを重点的に押さえている他、方針の立て方や基本的なDPの解説なども含むので、きっと力になれると思います。
 
 ## 通販
-書籍版: https://team-seadrive.booth.pm/items/1573891  
+書籍版: https://team-seadrive.booth.pm/items/1983074  
 PDF版: https://team-seadrive.booth.pm/items/1582824
 

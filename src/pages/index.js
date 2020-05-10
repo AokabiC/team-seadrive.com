@@ -8,7 +8,6 @@ import Slideshow from "../components/molecules/slideshow"
 import Card from "../components/molecules/card"
 import Links from "../components/links"
 import styled from "styled-components"
-import { BaseLink } from "../components/base"
 
 const Base = styled.div`
     display: flex;

@@ -1,33 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled, { keyframes } from "styled-components"
 import SEO from "../components/seo"
-import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import Links from "../components/links"
-import Color from "../components/const/color"
-import { BaseLink } from "../components/base"
 import Ul from "../components/atoms/list"
 
-const fadeColor = keyframes`
-    to {
-    color: ${Color.primary_faded};
-    }
-`
 
-const NavLink = styled(BaseLink)`
-    color: ${Color.primary};
-    outline: none;
-    &:hover{
-        animation: ${fadeColor} .5s linear forwards;
-    }
-`
 
 class Works extends React.Component {
     render() {
-        const { data } = this.props
         const siteTitle = "About"
-        const posts = data.allMarkdownRemark.edges
         return (
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO title={siteTitle}/>
@@ -36,7 +18,7 @@ class Works extends React.Component {
                     <dt>名前</dt>
                     <dd>碧黴(あおかび)</dd>
                     <dt>所属</dt>
-                    <dd>東北大学工学部 機械知能・航空工学科 3年 (2017/04 入学)</dd>
+                    <dd>東北大学工学部 機械知能・航空工学科 4年 (2017/04 入学)</dd>
                     <dt>略歴(情報関係)</dt>
                     <dd><Ul>
                         <li>2020/01 : DISCO presents ディスカバリーチャンネル コードコンテスト2020本戦 出場</li>

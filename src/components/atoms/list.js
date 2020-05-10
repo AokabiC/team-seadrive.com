@@ -1,6 +1,4 @@
-import React from "react"
 import styled from "styled-components"
-import Color from "../const/color"
 
 const Ul = styled.ul`
     list-style-type: none;

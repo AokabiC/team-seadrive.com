@@ -4,11 +4,11 @@ import Navbar from "../components/navbar"
 import Footerbar from "../components/footerbar"
 import { BaseContainer } from "./base"
 import GlobalStyle from "../utils/basestyle"
-import Color from "./const/color"
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import '../utils/style.css'
 const LayoutStyle = styled.div`
+    margin: 0
 `
 
 
@@ -19,9 +19,7 @@ const LocationName = styled.h3`
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let contentsHeader
+    const { title, children } = this.props
     return (
     <React.Fragment>
         <GlobalStyle />

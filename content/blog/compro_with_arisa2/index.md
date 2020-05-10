@@ -14,11 +14,23 @@ description: 技術書典7で頒布した「銀髪赤眼の後輩と学ぶ競技
 ## 誤植
 |ページ|誤|正|備考|
 |---|---|---|---|
-|p.16 解法15行目 | (less-1)/(100*(i+1))+1 | (less+100\*(i+1)-1)/(100*(i+1))|どちらもfloor()です。|
+|p.10 解法22行目 | floor(H/a_max) : H/max以上の最大の整数 | ans += ceil(H/a_max) : H/max以上の最大の整数 |3/6追記|
+|p.15 解法28行目 | floor(less/(1問あたりの点数)) | ceil(less/(1問あたりの点数)) |3/6追記|
+|p.16 解法15行目 | (less-1)/(100*(i+1))+1 | (less+100\*(i+1)-1)/(100*(i+1))|どちらもceil()です。|
+|p.19 解法2行目 | const LL INF = 1e12; | const LL INF = 1e10; |3/6追記|
 |p.29 注釈7 | C++では整数型どうしの割り算はこれに... | C++では整数型どうしの**正の**割り算はこれに... | 小数部分が切り捨てられる。 |
+|p.31 modの性質 | a≡b, c≡d | a≡c, b≡d |3/6追記|
 |p.32|この計算、ans の値は最大で1e9+8 になります|この計算途中の ans の値は最大で1e9+6 になります||
+|p.44 写像12相 | 箱、玉ともに区別する場合、nPr = n!/(n-r)!通り | rPn = r!/(r-n)!通り |3/6追記|
+|p.44 写像12相 | 箱は区別し、玉を区別しない場合、nCr = n!/r!(n-r)!通り | rCn = r!/n!(r-n)!通り |3/6追記|
+|p.44 写像12相 | ただし、n<kならば0通り。 | ただし、n>rならば0通り。 |3/6追記|
+|p.44 | 玉の並べ方違いのr!パターンをn!/(n-r)!から除く | 玉の並べ方違いのn!パターンをr!/(r-n)!から除く |3/6追記|
 |p.45 注釈11 | r → r-i | **i** → r-i | |
 |p.53|dp[i][j]=max(dp[i-1]][j]+(j以外の活動の幸福度)) | dp[i][k]=max(dp[i-1]][j]+(j以外の活動**k**の幸福度)) |
+
+p.23 図(本文と対応するようにしました)
+![4-4-2](./6.jpg)
+
 ## 1章
 [Otoshidama](https://atcoder.jp/contests/abc085/submissions/7580918)
 
@@ -185,6 +197,20 @@ struct ModInt {
         return ModInt(a);
     }
 };
+```
+
+> 補足  
+> modint型の数値 `a` をcoutするには `a.x`とするか、ostream型演算子<<をオーバーロードします。
+```cpp
+    friend ostream &operator<<(ostream &os, const ModInt<mod> &p) {
+        return os << p.x;
+    }
+    friend istream &operator>>(istream &is, ModInt<mod> &a) {
+        long long x;
+        is >> x;
+        a = ModInt<mod>(x);
+        return (is);
+    }
 ```
 
 ## 3章

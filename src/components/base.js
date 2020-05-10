@@ -17,4 +17,6 @@ export const BaseContainer = styled.div`
     min-height: calc(100vh - 6rem);
     margin: auto;
     padding-top: 4rem;
+    padding-left: 15px;
+    padding-right: 15px;
 `

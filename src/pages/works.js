@@ -1,25 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
-import styled, { keyframes } from "styled-components"
-import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import Anchor from "../components/atoms/anchor"
-import Links from "../components/links"
-import Color from "../components/const/color"
 import SEO from "../components/seo"
-import Card from "../components/molecules/card"
-import { BaseLink } from "../components/base";
 import Ul from "../components/atoms/list";
 
-const fadeColor = keyframes`
-    to {
-    color: ${Color.primary_faded};
-    }
-`
 
 class Works extends React.Component {
     render() {
-        const { data } = this.props
         const siteTitle = "Works"
         return (
             <Layout location={this.props.location} title={siteTitle}>

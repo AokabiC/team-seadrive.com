@@ -1,9 +1,8 @@
 import React from "react"
 import RehypeReact from "rehype-react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Color from "../components/const/color"
 import styled from "styled-components"
-import Bio from "../components/molecules/bio"
 import Anchor from "../components/atoms/anchor"
 import Heading from "../components/atoms/heading"
 import Layout from "../components/layout"
@@ -68,6 +67,7 @@ class BlogPostTemplate extends React.Component {
             justifyContent: `space-between`,
             listStyle: `none`,
             padding: 0,
+            margin: 0
           }}
         >
           <li>

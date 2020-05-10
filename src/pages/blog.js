@@ -5,7 +5,6 @@ import Bio from "../components/molecules/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/molecules/card"
-import { BaseLink } from "../components/base"
 
 class BlogIndex extends React.Component {
     render() {

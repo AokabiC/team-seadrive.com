@@ -27,7 +27,7 @@ class Slideshow extends React.Component {
             <StaticQuery
             query={slideshowQuery}
             render={data => {
-                const { author, social } = data.site.siteMetadata
+                const { author } = data.site.siteMetadata
                 const sl = [
                     data.sl1.childImageSharp.fluid,
                     data.sl2.childImageSharp.fluid,

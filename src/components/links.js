@@ -17,8 +17,10 @@ class Links extends React.Component {
         Twitter
         </Link> / <Link href="https://pixiv.me/aokabic" target="_blank">
         pixiv
-        </Link> / <Link href="https://marshmallow-qa.com/aokabic" target="_blank">
-        マシュマロ(質問・メッセージはこちら)
+        </Link> / <Link href="https://www.pixiv.net/fanbox/creator/6669817" target="_blank">
+        FANBOX
+        </Link> / <Link href="https://team-seadrive.booth.pm/" target="_blank">
+        BOOTH
         </Link>
         </p>
         <p>
@@ -30,7 +32,9 @@ class Links extends React.Component {
         Qiita
         </Link>
         </p>
-        <p><Link href="http://amzn.asia/guNCWpJ" target="_blank">
+        <p><Link href="https://marshmallow-qa.com/aokabic" target="_blank">
+        マシュマロ(質問・メッセージはこちら)
+        </Link> / <Link href="http://amzn.asia/guNCWpJ" target="_blank">
         ほしいものリスト
         </Link>
         </p>

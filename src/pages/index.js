@@ -59,8 +59,8 @@ export const pageQuery = graphql`
   query {
     backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
       childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid
+        fluid(quality: 100, jpegProgressive: false, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }

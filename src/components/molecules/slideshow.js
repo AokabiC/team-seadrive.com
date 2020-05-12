@@ -51,21 +51,21 @@ const slideshowQuery = graphql`
     sl1: file(absolutePath: { regex: "/slideshow/sl1.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1200, quality: 100) {
-          ...GatsbyImageSharpFluid_noBase64
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     sl2: file(absolutePath: { regex: "/slideshow/sl2.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1200, quality: 100) {
-          ...GatsbyImageSharpFluid_noBase64
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }
     sl3: file(absolutePath: { regex: "/slideshow/sl3.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1200, quality: 100) {
-          ...GatsbyImageSharpFluid_noBase64
+          ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

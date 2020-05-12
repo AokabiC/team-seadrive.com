@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
+import { useSpring, animated } from "react-spring"
 import Img from "gatsby-image"
 import Navbar from "../components/navbar"
 import Footerbar from "../components/footerbar"
@@ -22,8 +23,9 @@ const Background = styled(Img)`
   left: 0;
   right: 0;
   width: 100vw;
-  /* min-height: 100vh; */
+  position: fixed !important;
 `
+const AnimatedBackground = animated(Background)
 
 const BaseContainer = styled.div`
   position: relative;
@@ -34,7 +36,7 @@ const BaseContainer = styled.div`
   max-width: 1000px;
   min-height: 100vh;
   margin: auto;
-  padding-top: 100vh;
+  margin-top: 101vh;
   padding-left: 15px;
   padding-right: 15px;
 `
@@ -47,15 +49,15 @@ const LocationName = styled.h3`
 const Layout: React.FC<any> = ({ title, image, children }) => {
   const target = React.useRef(null)
   const topscroll = useIntersect(target)
+  const opac = useSpring({ opacity: topscroll ? 0.1 : 1 })
   return (
     <React.Fragment>
       <GlobalStyle />
-      {!topscroll && <Background fluid={image} style={{ position: `fixed` }} />}
-      <p>{topscroll ? "Yes" : "No"}</p>
-      <BaseContainer>
-        <Navbar />
+      {image && <AnimatedBackground fluid={image} style={opac} />}
+      <Navbar />
+      <BaseContainer ref={target}>
         <main>
-          <LocationName ref={target}> {title} </LocationName>
+          <LocationName> {title} </LocationName>
           {children}
         </main>
         <Footerbar />

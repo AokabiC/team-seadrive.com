@@ -13,7 +13,6 @@ const Base = styled.div`
   flex-direction: column;
 `
 
-
 class Index extends React.Component {
   render() {
     const { data } = this.props
@@ -22,7 +21,11 @@ class Index extends React.Component {
     return (
       <>
         {/* <Background /> */}
-        <Layout image={data.backgroundImage.childImageSharp.fluid} location={this.props.location} title={siteTitle}>
+        <Layout
+          image={data.backgroundImage.childImageSharp.fluid}
+          location={this.props.location}
+          title={siteTitle}
+        >
           <SEO title="SeA:" />
           <Base>
             {posts.map(({ node }) => {
@@ -35,11 +38,7 @@ class Index extends React.Component {
                   label={node.frontmatter.date}
                   subtitle={node.frontmatter.subtitle}
                 >
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
+                  {node.frontmatter.description || node.excerpt}
                 </Card>
               )
             })}
@@ -59,8 +58,8 @@ export const pageQuery = graphql`
   query {
     backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
       childImageSharp {
-        fluid(quality: 100, jpegProgressive: false, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_noBase64
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

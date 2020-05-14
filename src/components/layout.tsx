@@ -9,6 +9,7 @@ import "ress"
 import "typeface-noto-sans"
 import "typeface-noto-serif"
 import useIntersect from "@/utils/useintersect"
+import TopMessage from "./molecules/topmessage"
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -55,6 +56,7 @@ const Layout: React.FC<any> = ({ title, image, children }) => {
       <GlobalStyle />
       {image && <AnimatedBackground fluid={image} style={spring} />}
       <Navbar />
+      <TopMessage />
       <BaseContainer ref={target}>
         <main>
           <LocationName> {title} </LocationName>

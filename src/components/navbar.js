@@ -27,7 +27,7 @@ const BrandLink = styled(NavLink)`
 
 const NavBase = styled.header`
     display: flex;
-    background: rgba(248, 249, 250, .8);
+    background: rgba(248, 249, 250, .0);
     position: fixed;
     top: 0;
     left: 0;
@@ -80,7 +80,7 @@ const NavBrand = ({ linkTo, children }) => (
     </BrandLink>
 )
 
-const Navbar = ({ pathname }) => {
+const Navbar = () => {
     return (
         <NavBase>
             <NavContainer>

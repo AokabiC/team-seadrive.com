@@ -24,7 +24,7 @@ class Index extends React.Component {
         <Layout
           image={data.backgroundImage.childImageSharp.fluid}
           location={this.props.location}
-          title={siteTitle}
+          title={"index"}
         >
           <SEO title="SeA:" />
           <Base>

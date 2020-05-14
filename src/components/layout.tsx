@@ -9,7 +9,7 @@ import "ress"
 import "typeface-noto-sans"
 import "typeface-noto-serif"
 import useIntersect from "@/utils/useintersect"
-import TopMessage from "./molecules/topmessage"
+import Hero from "./organisms/hero"
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -37,7 +37,6 @@ const BaseContainer = styled.div`
   max-width: 1000px;
   min-height: 100vh;
   margin: auto;
-  margin-top: 101vh;
   padding-left: 15px;
   padding-right: 15px;
 `
@@ -49,17 +48,17 @@ const LocationName = styled.h3`
 
 const Layout: React.FC<any> = ({ title, image, children }) => {
   const target = React.useRef(null)
-  const intersect = useIntersect(target)
+  const intersect = useIntersect(target, 0.05)
   const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
   return (
     <React.Fragment>
       <GlobalStyle />
       {image && <AnimatedBackground fluid={image} style={spring} />}
       <Navbar />
-      <TopMessage />
+      {title == "index" && <Hero />}
       <BaseContainer ref={target}>
         <main>
-          <LocationName> {title} </LocationName>
+          {title != "index" && <LocationName> {title} </LocationName>}
           {children}
         </main>
         <Footerbar />

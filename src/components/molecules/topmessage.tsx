@@ -6,19 +6,20 @@ const items = "team-seadrive.com".split("")
 
 const Container = styled.div`
   position: relative;
-  width: 100%;
   height: 4rem;
+  width: 100%;
+  padding-right: 1rem;
   overflow: hidden;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `
 
 const Text = styled.div`
   position: relative;
   line-height: 80px;
-  color: white;
+  color: rgba(0, 0, 0, 0.8);
   font-size: 4rem;
   font-weight: 500;
   will-change: transform, opacity;

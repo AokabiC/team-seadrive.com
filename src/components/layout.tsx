@@ -48,12 +48,12 @@ const LocationName = styled.h3`
 
 const Layout: React.FC<any> = ({ title, image, children }) => {
   const target = React.useRef(null)
-  const topscroll = useIntersect(target)
-  const opac = useSpring({ opacity: topscroll ? 0.1 : 1 })
+  const intersect = useIntersect(target)
+  const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
   return (
     <React.Fragment>
       <GlobalStyle />
-      {image && <AnimatedBackground fluid={image} style={opac} />}
+      {image && <AnimatedBackground fluid={image} style={spring} />}
       <Navbar />
       <BaseContainer ref={target}>
         <main>

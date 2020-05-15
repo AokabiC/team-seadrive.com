@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { withTheme } from "styled-components"
+import styled from "styled-components"
 import LogoImage from "@/components/atoms/logo"
 import { useSpring, animated } from "react-spring"
 import { Link } from "gatsby"

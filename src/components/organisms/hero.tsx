@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import TopMessage from "../molecules/topmessage"
+import Divider from "../atoms/divider"
 
 const Hero: React.FC = () => {
   return (
@@ -8,12 +9,13 @@ const Hero: React.FC = () => {
       <Flex flex={3} />
       <Flex flex={1}>
         <TopMessage />
+        <Divider />
       </Flex>
     </Container>
   )
 }
 
-const Container = styled.article`
+const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-flow: column;

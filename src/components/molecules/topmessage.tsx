@@ -48,10 +48,10 @@ const TopMessage: React.FC<any> = () => {
     <Container>
       {trail.map(({ x, height, ...rest }, index) => (
         <AnimatedText
-          key={items[index]}
+          key={index}
           style={{
             ...rest,
-            transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+            transform: x.to(x => `translate3d(0,${x}px,0)`),
           }}
         >
           {items[index]}

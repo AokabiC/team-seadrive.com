@@ -16,7 +16,6 @@ const Base = styled.div`
 class Index extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = this.props.data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     return (
       <>

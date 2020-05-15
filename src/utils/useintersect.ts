@@ -8,20 +8,20 @@ const useIntersect = (
   // Refを与えて、その要素がintersectしているかどうかを返す
   const [intersect, setIntersect] = useState(false)
 
-  const callback: IntersectionObserverCallback = entries => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (once) setIntersect(intersect || entry.isIntersecting)
-      else setIntersect(entry.isIntersecting)
-    })
-  }
-
   useEffect(() => {
     if (target.current == null) {
       return
     }
 
     const options = { threshold }
-    const observer = new IntersectionObserver(callback, options)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        setIntersect(entry.isIntersecting)
+        if (once && entry.isIntersecting && target.current != null) {
+          observer.unobserve(target.current)
+        }
+      })
+    }, options)
     observer.observe(target.current)
 
     return () => {

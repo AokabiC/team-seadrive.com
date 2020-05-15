@@ -7,7 +7,7 @@ import Button from "../atoms/button"
 import Anchor from "@/components/atoms/anchor"
 import useIntersect from "@/utils/useintersect"
 
-const Base = styled.div`
+const Base = styled(animated.div)`
   background: ${Color.light};
   border-radius: ${Sizes.border_radius};
   padding: 1.6rem;
@@ -17,7 +17,6 @@ const Base = styled.div`
     margin-bottom: 4rem;
   }
 `
-const AnimatedBase = animated(Base)
 
 const Header = styled.div`
   margin: 0.1rem 0;
@@ -50,7 +49,7 @@ const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
     transform: intersect ? "0" : "translateY(60px)",
   })
   return (
-    <AnimatedBase style={spring} ref={target}>
+    <Base style={spring} ref={target}>
       <Title>
         <Anchor.In to={to}>{title}</Anchor.In>
       </Title>
@@ -62,7 +61,7 @@ const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
       <Footer>
         <Button to={to}>See more…</Button>
       </Footer>
-    </AnimatedBase>
+    </Base>
   )
 }
 

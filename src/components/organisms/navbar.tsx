@@ -1,8 +1,8 @@
 import React from "react"
 import styled, { withTheme } from "styled-components"
 import LogoImage from "@/components/atoms/logo"
-import Anchor from "@/components/atoms/anchor"
 import { useSpring, animated } from "react-spring"
+import { Link } from "gatsby"
 
 const Base = styled.header`
   background: rgba(248, 249, 250, 0);
@@ -26,10 +26,12 @@ const Container = styled.nav`
 
 const NavItem: React.FC<any> = ({ to, toggle, children }) => {
   const Div = styled.div``
-  const Text = animated(Anchor.In)
+  const Text = styled(animated(Link))`
+    text-decoration: none;
+  `
 
   const spring = useSpring({
-    color: toggle ? "white" : "black",
+    color: toggle ? "black" : "white",
   })
 
   return (

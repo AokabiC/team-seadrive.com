@@ -16,7 +16,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-const Text = styled.div`
+const Text = styled(animated.div)`
   position: relative;
   line-height: 80px;
   color: rgba(0, 0, 0, 0.8);
@@ -26,7 +26,6 @@ const Text = styled.div`
   overflow: hidden;
   padding: 1rem;
 `
-const AnimatedText = animated(Text)
 
 const TopMessage: React.FC<any> = () => {
   const [toggle, set] = useState(false)
@@ -47,7 +46,7 @@ const TopMessage: React.FC<any> = () => {
   return (
     <Container>
       {trail.map(({ x, height, ...rest }, index) => (
-        <AnimatedText
+        <Text
           key={index}
           style={{
             ...rest,
@@ -55,7 +54,7 @@ const TopMessage: React.FC<any> = () => {
           }}
         >
           {items[index]}
-        </AnimatedText>
+        </Text>
       ))}
     </Container>
   )

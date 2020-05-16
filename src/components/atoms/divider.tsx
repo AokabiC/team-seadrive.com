@@ -10,7 +10,7 @@ const Container = styled.div`
 `
 
 const Progress = styled(animated.div)`
-  background: rgba(0, 0, 0, 0.8);
+  background: white;
   height: 2px;
 `
 

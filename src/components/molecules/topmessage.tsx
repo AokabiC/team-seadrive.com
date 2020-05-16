@@ -19,7 +19,7 @@ const Container = styled.div`
 const Text = styled(animated.div)`
   position: relative;
   line-height: 80px;
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
   font-size: 4rem;
   font-weight: 500;
   will-change: transform, opacity;

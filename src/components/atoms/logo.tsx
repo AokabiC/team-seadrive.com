@@ -26,7 +26,7 @@ const LogoQuery = graphql`
   query LogoQuery {
     logo: file(absolutePath: { regex: "/Team_SeAdrive_logo.png/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 60, height: 60) {
           ...GatsbyImageSharpFixed_noBase64
         }
       }

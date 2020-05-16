@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react"
 const useIntersect = (
   target: React.RefObject<Element>,
   threshold?: number,
-  once?: boolean
+  once?: boolean,
+  defaultIntersect?: boolean
 ) => {
   // Refを与えて、その要素がintersectしているかどうかを返す
-  const [intersect, setIntersect] = useState(false)
+  const [intersect, setIntersect] = useState(defaultIntersect == true)
 
   useEffect(() => {
     if (target.current == null) {

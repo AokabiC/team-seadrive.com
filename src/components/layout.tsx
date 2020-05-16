@@ -2,7 +2,10 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { useSpring, animated } from "react-spring"
 import Img from "gatsby-image"
-import Navbar from "../components/organisms/navbar"
+import {
+  NavbarVertical,
+  NavbarHorizontal,
+} from "../components/organisms/navbar"
 import Footerbar from "../components/footerbar"
 
 import "ress"
@@ -48,14 +51,14 @@ const LocationName = styled.h3`
 
 const Layout: React.FC<any> = ({ title, image, children }) => {
   const target = React.useRef(null)
-  const intersect = useIntersect(target, 0.05, false)
+  const intersect = useIntersect(target, 0.05, false, title != "index")
   const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
   return (
     <React.Fragment>
       <GlobalStyle />
       {image && <AnimatedBackground fluid={image} style={spring} />}
-      <Navbar toggle={intersect} />
       {title == "index" && <Hero />}
+      <NavbarVertical toggle={intersect} />
       <BaseContainer ref={target}>
         <main>
           {title != "index" && <LocationName> {title} </LocationName>}

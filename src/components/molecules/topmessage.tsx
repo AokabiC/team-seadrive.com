@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react"
 const items = "team-seadrive.com".split("")
 
 const Container = styled.div`
-  position: relative;
   height: 4rem;
   width: 100%;
   padding-right: 1rem;
@@ -17,7 +16,6 @@ const Container = styled.div`
 `
 
 const Text = styled(animated.div)`
-  position: relative;
   line-height: 80px;
   color: white;
   font-size: 4rem;

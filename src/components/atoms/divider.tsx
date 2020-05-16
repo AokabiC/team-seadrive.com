@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { animated, useSpring, config } from "react-spring"
 
 const Container = styled.div`
-  position: relative;
   width: 100%;
   height: 2px;
   margin-top: 1rem;

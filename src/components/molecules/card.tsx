@@ -43,7 +43,7 @@ const Subtitle = styled.span`
 
 const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
   const target = React.useRef(null)
-  const intersect = useIntersect(target, 0.5, true)
+  const intersect = useIntersect(target, 0.2, true)
   const spring = useSpring({
     opacity: intersect ? 1 : 0,
     transform: intersect ? "0" : "translateY(60px)",

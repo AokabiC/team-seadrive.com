@@ -27,6 +27,7 @@ const ALink = animated(Link)
 const NavLink = styled(ALink)`
   text-decoration: none;
   font-weight: 500;
+  font-family: montserrat alternates;
 `
 
 const items = [

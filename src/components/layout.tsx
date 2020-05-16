@@ -2,15 +2,14 @@ import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 import { useSpring, animated } from "react-spring"
 import Img from "gatsby-image"
-import {
-  NavbarVertical,
-  NavbarHorizontal,
-} from "../components/organisms/navbar"
+import { TopNav } from "../components/organisms/topnav"
+import { LeftNav } from "../components/organisms/leftnav"
 import Footerbar from "../components/footerbar"
 
 import "ress"
 import "typeface-noto-sans"
 import "typeface-noto-serif"
+import "typeface-montserrat-alternates"
 import useIntersect from "@/utils/useintersect"
 import Hero from "./organisms/hero"
 
@@ -21,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Background = styled(Img)`
+const Background = styled(animated(Img))`
   top: 0;
   bottom: 0;
   left: 0;
@@ -29,19 +28,29 @@ const Background = styled(Img)`
   width: 100vw;
   position: fixed !important;
 `
-const AnimatedBackground = animated(Background)
 
-const BaseContainer = styled.div`
-  position: relative;
-  z-index: 2;
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 120px 1fr 120px;
+  grid-template-columns:
+    minmax(120px, 160px)
+    minmax(600px, 1000px)
+    minmax(120px, 160px);
+  grid-template-areas:
+    "leftnav topnav rightnav"
+    "....... content ......."
+    "....... footer ........";
+  justify-content: space-between;
+`
+
+const BaseContainer = styled.div<{ isIndex: boolean }>`
+  grid-area: content;
   display: flex;
   justify-content: center;
   flex-flow: column;
-  max-width: 1000px;
-  min-height: 100vh;
-  margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: ${props => (props.isIndex ? "calc(100vh - 120px)" : "0")};
 `
 
 const LocationName = styled.h3`
@@ -56,16 +65,20 @@ const Layout: React.FC<any> = ({ title, image, children }) => {
   return (
     <React.Fragment>
       <GlobalStyle />
-      {image && <AnimatedBackground fluid={image} style={spring} />}
-      {title == "index" && <Hero />}
-      <NavbarVertical toggle={intersect} />
-      <BaseContainer ref={target}>
-        <main>
-          {title != "index" && <LocationName> {title} </LocationName>}
-          {children}
-        </main>
-        <Footerbar />
-      </BaseContainer>
+      {image && <Background fluid={image} style={spring} />}
+      <GridWrapper>
+        <LeftNav toggle={intersect} />
+        <TopNav isVisible={!intersect} />
+        {title == "index" && <Hero />}
+        <BaseContainer isIndex={title == "index"} ref={target}>
+          <main>
+            {title != "index" && <LocationName> {title} </LocationName>}
+            {children}
+          </main>
+          <Footerbar />
+        </BaseContainer>
+        <div></div>
+      </GridWrapper>
     </React.Fragment>
   )
 }

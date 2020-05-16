@@ -16,6 +16,8 @@ const Hero: React.FC = () => {
 }
 
 const Container = styled.div`
+  grid-row: 1/4;
+  grid-column: 1/4;
   height: 100vh;
   display: flex;
   flex-flow: column;

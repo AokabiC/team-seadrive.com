@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { BaseLink } from "../base"
 import Color from "../const/color"
 import Sizes from "../const/sizes"
+import Anchor from "./anchor"
 
-const Button = styled(props => <BaseLink {...props} />)`
+const Button = styled(Anchor.In)`
     background: ${Color.primary_dark};
     color: white;
     border-radius: ${Sizes.border_radius};

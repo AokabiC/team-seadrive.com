@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring"
 import Img from "gatsby-image"
 import { TopNav } from "../components/organisms/topnav"
 import { LeftNav } from "../components/organisms/leftnav"
-import Footerbar from "../components/footerbar"
+import Footerbar from "./organisms/footerbar"
 
 import "ress"
 import "typeface-noto-sans"
@@ -31,7 +31,7 @@ const Background = styled(animated(Img))`
 
 const GridWrapper = styled.div`
   display: grid;
-  grid-template-rows: 120px 1fr 120px;
+  grid-template-rows: 120px minmax(calc(100vh - 240px), 1fr) 120px;
   grid-template-columns:
     minmax(120px, 160px)
     minmax(600px, 1000px)
@@ -43,10 +43,9 @@ const GridWrapper = styled.div`
   justify-content: space-between;
 `
 
-const BaseContainer = styled.div<{ isIndex: boolean }>`
+const Container = styled.div<{ isIndex: boolean }>`
   grid-area: content;
   display: flex;
-  justify-content: center;
   flex-flow: column;
   padding-left: 15px;
   padding-right: 15px;
@@ -70,14 +69,13 @@ const Layout: React.FC<any> = ({ title, image, children }) => {
         <LeftNav toggle={intersect} />
         <TopNav isVisible={!intersect} />
         {title == "index" && <Hero />}
-        <BaseContainer isIndex={title == "index"} ref={target}>
+        <Container isIndex={title == "index"} ref={target}>
           <main>
             {title != "index" && <LocationName> {title} </LocationName>}
             {children}
           </main>
-          <Footerbar />
-        </BaseContainer>
-        <div></div>
+        </Container>
+        <Footerbar />
       </GridWrapper>
     </React.Fragment>
   )

@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["src/*"]
+    },
     "esModuleInterop": true,
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
@@ -15,8 +19,7 @@
     "target": "esnext",
     "allowJs": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
   },
-  "exclude": ["node_modules"],
-  "include": ["./src/**/*"]
+  "exclude": ["node_modules"]
 }

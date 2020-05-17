@@ -1,11 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { Basea } from "../components/base";
 import Color from "../components/const/color"
+import Anchor from "./atoms/anchor";
 
-const Link = styled(Basea)`
-    color: ${Color.primary_dark};
-`;
+const Link = Anchor.Ext;
 
 
 class Links extends React.Component {

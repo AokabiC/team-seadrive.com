@@ -17,7 +17,7 @@ const Container = styled.nav`
 const items = [
   {
     name: "Twitter",
-    link: "https://twitter.com/AokabiC?lang=ja",
+    link: "https://twitter.com/AokabiC",
     icon: faTwitter,
   },
   {
@@ -32,7 +32,7 @@ const items = [
   },
 ]
 
-const LinkList: React.FC<any> = ({ toggle }) => {
+const LinkIconList: React.FC<any> = ({ toggle }) => {
   return (
     <Container>
       {items.map(item => (
@@ -44,4 +44,4 @@ const LinkList: React.FC<any> = ({ toggle }) => {
   )
 }
 
-export default LinkList
+export default LinkIconList

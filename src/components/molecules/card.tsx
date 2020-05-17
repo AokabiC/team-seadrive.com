@@ -11,7 +11,7 @@ const Base = styled(animated.div)`
   border-radius: 0.2rem;
   padding: 1.6rem;
   flex-grow: 1;
-  margin: 1rem 0;
+  margin-bottom: 1.6rem;
   &:last-of-type {
     margin-bottom: 4rem;
   }

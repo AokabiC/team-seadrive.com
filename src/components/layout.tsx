@@ -59,6 +59,7 @@ const LocationName = styled.h3`
   font-size: 1.5rem;
   letter-spacing: 0.4rem;
   font-family: zilla slab;
+  margin-bottom: 1.6rem;
 `
 
 const Layout: React.FC<any> = ({ title, image, children }) => {

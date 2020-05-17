@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Dt = styled.dt`
   font-weight: 500;
   margin-top: 2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   border-bottom: dashed 1px;
 `
 

@@ -1,7 +1,7 @@
 import React from "react"
 import SEO from "../components/seo"
 import Layout from "../components/layout"
-import Ul from "../components/atoms/list"
+import { Ul, Dt, Dd, Li } from "../components/atoms/list"
 
 // TODO: https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb で型を縛る
 const About: React.FC<any> = ({ location }) => {
@@ -49,15 +49,15 @@ const About: React.FC<any> = ({ location }) => {
               content = (
                 <Ul>
                   {data.text.map(elm => (
-                    <li>{elm}</li>
+                    <Li>{elm}</Li>
                   ))}
                 </Ul>
               )
             }
             return (
               <>
-                <dt>{data.label}</dt>
-                <dd>{content}</dd>
+                <Dt>{data.label}</Dt>
+                <Dd>{content}</Dd>
               </>
             )
           })}

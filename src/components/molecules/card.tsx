@@ -2,14 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
 import Color from "../const/color"
-import Sizes from "../const/sizes"
 import Button from "../atoms/button"
 import Anchor from "@/components/atoms/anchor"
 import useIntersect from "@/utils/useintersect"
 
 const Base = styled(animated.div)`
   background: ${Color.light};
-  border-radius: ${Sizes.border_radius};
+  border-radius: 0.2rem;
   padding: 1.6rem;
   flex-grow: 1;
   margin: 1rem 0;
@@ -18,11 +17,15 @@ const Base = styled(animated.div)`
   }
 `
 
-const Header = styled.div`
-  margin: 0.1rem 0;
+const Title = styled.h3`
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: ${Color.text_black};
 `
 
-const Footer = styled.div``
+const Header = styled.div`
+  margin-bottom: 0.5rem;
+`
 
 const Label = styled.span`
   border-radius: 5rem;
@@ -31,15 +34,15 @@ const Label = styled.span`
   background: ${Color.base_light};
 `
 
-const Title = styled.h3`
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: ${Color.text_black};
-`
-
 const Subtitle = styled.span`
   color: ${Color.text_gray};
 `
+
+const Content = styled.p`
+  margin-bottom: 1rem;
+`
+
+const Footer = styled.div``
 
 const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
   const target = React.useRef(null)
@@ -57,7 +60,7 @@ const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
         <Label>{label}</Label>
         <Subtitle>{subtitle}</Subtitle>
       </Header>
-      <p>{children}</p>
+      <Content>{children}</Content>
       <Footer>
         <Button to={to}>See more…</Button>
       </Footer>
@@ -65,4 +68,4 @@ const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
   )
 }
 
-export default animated(Card)
+export default Card

@@ -13,42 +13,37 @@ const Base = styled.div`
   flex-direction: column;
 `
 
-class Index extends React.Component {
-  render() {
-    const { data } = this.props
-    const posts = data.allMarkdownRemark.edges
-    return (
-      <>
-        {/* <Background /> */}
-        <Layout
-          image={data.backgroundImage.childImageSharp.fluid}
-          location={this.props.location}
-          title={"index"}
-        >
-          <SEO title="SeA:" />
-          <Base>
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <Card
-                  key={node.fields.slug}
-                  to={node.fields.slug}
-                  title={title}
-                  label={node.frontmatter.date}
-                  subtitle={node.frontmatter.subtitle}
-                >
-                  {node.frontmatter.description || node.excerpt}
-                </Card>
-              )
-            })}
-
-            <Links />
-          </Base>
-          <Bio />
-        </Layout>
-      </>
-    )
-  }
+const Index: React.FC<any> = ({ data, location }) => {
+  const posts = data.allMarkdownRemark.edges
+  return (
+    <React.Fragment>
+      <Layout
+        image={data.backgroundImage.childImageSharp.fluid}
+        location={location}
+        title={"index"}
+      >
+        <SEO title="Top" />
+        <Base>
+          {posts.map(({ node }: any) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <Card
+                key={node.fields.slug}
+                to={node.fields.slug}
+                title={title}
+                label={node.frontmatter.date}
+                subtitle={node.frontmatter.subtitle}
+              >
+                {node.frontmatter.description || node.excerpt}
+              </Card>
+            )
+          })}
+          <Links />
+        </Base>
+        <Bio />
+      </Layout>
+    </React.Fragment>
+  )
 }
 
 export default Index

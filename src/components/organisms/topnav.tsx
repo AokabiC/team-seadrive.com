@@ -14,7 +14,7 @@ const Base = styled.header`
 
 const NavLinkWrapper = styled.div`
   display: flex; /* スライドインアニメーションに必要 */
-  padding-right: 2rem;
+  padding-left: 2rem;
 `
 
 const ALink = animated(Link)

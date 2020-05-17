@@ -27,6 +27,7 @@ const Background = styled(animated(Img))`
   right: 0;
   width: 100vw;
   position: fixed !important;
+  z-index: -100;
 `
 
 const GridWrapper = styled.div`
@@ -49,7 +50,7 @@ const Container = styled.div<{ isIndex: boolean }>`
   flex-flow: column;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: ${props => (props.isIndex ? "calc(100vh - 120px)" : "0")};
+  margin-top: ${props => (props.isIndex ? "calc(105vh - 120px)" : "0")};
 `
 
 const LocationName = styled.h3`

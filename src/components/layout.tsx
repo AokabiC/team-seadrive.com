@@ -7,15 +7,15 @@ import { LeftNav } from "../components/organisms/leftnav"
 import Footerbar from "./organisms/footerbar"
 
 import "ress"
-import "typeface-noto-sans"
-import "typeface-noto-serif"
+import "typeface-notosans-jp"
+import "typeface-noto-serif-jp"
 import "typeface-zilla-slab"
 import useIntersect from "@/utils/useintersect"
 import Hero from "./organisms/hero"
 
 const GlobalStyle = createGlobalStyle`
   body{
-      font-family: Noto sans;
+      font-family: Noto sans JP;
       background-color: whitesmoke;
   }
 `

@@ -5,6 +5,7 @@ import Color from "../const/color"
 
 const In = styled(Link)`
     text-decoration: none;
+    font-family: Noto sans JP;
     color: ${Color.primary_dark};
 `;
 

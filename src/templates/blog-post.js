@@ -23,7 +23,10 @@ const Title = styled.h2`
 `
 
 const Paragraph = styled.p`
-    text-indent: 0em; 
+    text-indent: 0em;
+    margin-bottom: 1.5rem;
+    font-family: Noto serif JP;
+    color: black;
 `
 
 const renderAst = new RehypeReact({

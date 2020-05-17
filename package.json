@@ -66,6 +66,8 @@
     "typeface-montserrat": "0.0.54",
     "typeface-noto-sans": "0.0.72",
     "typeface-noto-serif": "0.0.72",
+    "typeface-noto-serif-jp": "0.0.75",
+    "typeface-notosans-jp": "^1.0.1",
     "typeface-zilla-slab": "0.0.72",
     "typography": "^0.16.19",
     "typography-theme-noriega": "^0.16.19"

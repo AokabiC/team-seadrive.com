@@ -9,7 +9,7 @@ import Footerbar from "./organisms/footerbar"
 import "ress"
 import "typeface-noto-sans"
 import "typeface-noto-serif"
-import "typeface-montserrat-alternates"
+import "typeface-zilla-slab"
 import useIntersect from "@/utils/useintersect"
 import Hero from "./organisms/hero"
 
@@ -55,7 +55,10 @@ const Container = styled.div<{ isIndex: boolean }>`
 
 const LocationName = styled.h3`
   text-align: center;
-  letter-spacing: 0.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  font-family: zilla slab;
 `
 
 const Layout: React.FC<any> = ({ title, image, children }) => {

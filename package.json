@@ -64,9 +64,9 @@
     "typeface-lato": "0.0.54",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.54",
-    "typeface-montserrat-alternates": "0.0.72",
     "typeface-noto-sans": "0.0.72",
     "typeface-noto-serif": "0.0.72",
+    "typeface-zilla-slab": "0.0.72",
     "typography": "^0.16.19",
     "typography-theme-noriega": "^0.16.19"
   },

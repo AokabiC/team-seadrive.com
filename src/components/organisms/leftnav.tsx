@@ -3,6 +3,8 @@ import styled from "styled-components"
 import LogoImage from "@/components/atoms/logo"
 import { useSpring, useTrail, animated } from "react-spring"
 import { Link } from "gatsby"
+import CircleButton from "../atoms/circlebutton"
+import LinkList from "../molecules/linklist"
 
 const Base = styled.header`
   grid-area: leftnav;
@@ -12,6 +14,7 @@ const Base = styled.header`
   transform: translateY(70px);
   display: flex;
   flex-direction: column;
+  /* justify-content */
   align-items: flex-end;
   z-index: 1;
 `
@@ -63,6 +66,7 @@ export const LeftNav = ({ toggle }: any) => {
           </NavLink>
         </NavLinkWrapper>
       ))}
+      <LinkList toggle={toggle} />
     </Base>
   )
 }

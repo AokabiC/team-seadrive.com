@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { LogoImageMobile } from "@/components/atoms/logo"
+import { LogoImage } from "@/components/atoms/logo"
 import BurgerMenu from "./burgermenu"
 
 const Base = styled.header`
@@ -30,7 +30,7 @@ const Base = styled.header`
 export const TopNavMobile = () => {
   return (
     <Base>
-      <LogoImageMobile />
+      <LogoImage mobile />
       <BurgerMenu />
     </Base>
   )

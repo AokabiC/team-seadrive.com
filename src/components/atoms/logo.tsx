@@ -3,32 +3,19 @@ import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
 import Anchor from "@/components/atoms/anchor"
 
-export const LogoImage = () => {
+export const LogoImage: React.FC<any> = ({ mobile }) => {
   const data = useStaticQuery(LogoQuery)
   return (
     <Anchor.In to="/">
       <Image
-        fixed={data.logo.childImageSharp.fixed}
+        fixed={
+          mobile
+            ? data.logoMobile.childImageSharp.fixed
+            : data.logo.childImageSharp.fixed
+        }
         style={{
           marginRight: 0,
           marginBottom: 0,
-        }}
-        fadeIn={true}
-      />
-    </Anchor.In>
-  )
-}
-
-export const LogoImageMobile = () => {
-  const data = useStaticQuery(LogoQuery)
-  return (
-    <Anchor.In to="/">
-      <Image
-        fixed={data.logoMobile.childImageSharp.fixed}
-        style={{
-          marginRight: 0,
-          marginBottom: 0,
-          zIndex: 2,
         }}
         fadeIn={true}
       />

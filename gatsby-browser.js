@@ -1,4 +1,5 @@
 // custom typefaces
-import "typeface-lato"
-import "typeface-merriweather"
+import "ress"
+import "typeface-notosans-jp"
+import "typeface-zilla-slab"
 import 'prismjs/themes/prism-tomorrow.css'

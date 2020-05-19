@@ -16,6 +16,10 @@ const Base = styled.header`
   align-items: flex-end;
   justify-content: space-between;
   z-index: 1;
+
+  @media (max-width: 860px) {
+    display: none;
+  }
 `
 
 const NavLinkList = styled.div`
@@ -60,7 +64,7 @@ export const LeftNav = ({ toggle }: any) => {
       <NavLinkList>
         <LogoImage />
         {trail.map(({ x, ...rest }, index) => (
-          <NavLinkWrapper>
+          <NavLinkWrapper key={index}>
             <NavLink
               to={items[index].to}
               style={{
@@ -68,6 +72,7 @@ export const LeftNav = ({ toggle }: any) => {
                 ...rest,
                 transform: x.to(x => `translateX(${x}px)`),
               }}
+              key={index}
             >
               {items[index].text}
             </NavLink>

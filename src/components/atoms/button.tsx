@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Color from "../const/color"
+import Color from "../../utils/color"
 import Anchor from "./anchor"
 
 const Button = styled(Anchor.In)`

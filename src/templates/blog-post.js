@@ -1,7 +1,7 @@
 import React from "react"
 import RehypeReact from "rehype-react"
 import { graphql } from "gatsby"
-import Color from "../components/const/color"
+import Color from "../utils/color"
 import styled from "styled-components"
 import Anchor from "../components/atoms/anchor"
 import Heading from "../components/atoms/heading"

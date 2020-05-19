@@ -10,6 +10,10 @@ const Base = styled.header`
   flex-direction: row;
   align-items: flex-end;
   z-index: 1;
+
+  @media (max-width: 860px) {
+    display: none;
+  }
 `
 
 const NavLinkWrapper = styled.div`
@@ -31,7 +35,7 @@ const items = [
   { to: "/works", text: "Works" },
 ]
 
-export const TopNav = ({ isVisible }: any) => {
+export const TopNavDesktop = ({ isVisible }: any) => {
   const spring = useSpring({
     color: isVisible ? "black" : "white",
   })
@@ -44,7 +48,7 @@ export const TopNav = ({ isVisible }: any) => {
   return (
     <Base>
       {trail.map(({ y, ...rest }, index) => (
-        <NavLinkWrapper>
+        <NavLinkWrapper key={index}>
           <NavLink
             to={items[index].to}
             style={{
@@ -52,6 +56,7 @@ export const TopNav = ({ isVisible }: any) => {
               ...rest,
               transform: y.to(y => `translateY(${y}px)`),
             }}
+            key={index}
           >
             {items[index].text}
           </NavLink>

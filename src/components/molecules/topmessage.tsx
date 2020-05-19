@@ -10,6 +10,10 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+
+  @media (max-width: 860px) {
+    display: none;
+  }
 `
 
 const Text = styled(animated.div)`
@@ -24,7 +28,7 @@ const Text = styled(animated.div)`
   padding: 1rem;
 `
 
-export const TopMessage: React.FC<any> = () => {
+export const TopMessageDesktop: React.FC<any> = () => {
   const [toggle, set] = useState(false)
   const items = "team-seadrive.com".split("")
 
@@ -60,10 +64,14 @@ export const TopMessage: React.FC<any> = () => {
 }
 
 const ContainerMobile = styled(Container)`
-  height: 100%;
   padding: 0;
-  align-items: flex-end;
   flex-direction: column;
+
+  display: none;
+
+  @media (max-width: 860px) {
+    display: flex;
+  }
 `
 
 const TextMobile = styled(Text)`

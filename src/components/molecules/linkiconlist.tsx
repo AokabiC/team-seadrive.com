@@ -38,9 +38,9 @@ const items = [
 export const LinkIconList: React.FC<any> = ({ toggle }) => {
   return (
     <Container>
-      {items.map(item => (
-        <CircleButton toggle={toggle} to={item.link}>
-          <FontAwesomeIcon icon={item.icon} />
+      {items.map((item, index) => (
+        <CircleButton toggle={toggle} to={item.link} key={index}>
+          <FontAwesomeIcon icon={item.icon} key={index} />
         </CircleButton>
       ))}
     </Container>
@@ -56,9 +56,9 @@ const ContainerMobile = styled(Container)`
 export const LinkIconListMobile: React.FC<any> = ({ toggle }) => {
   return (
     <ContainerMobile>
-      {items.map(item => (
-        <CircleButtonMobile toggle={toggle} to={item.link}>
-          <FontAwesomeIcon icon={item.icon} />
+      {items.map((item, index) => (
+        <CircleButtonMobile toggle={toggle} to={item.link} key={index}>
+          <FontAwesomeIcon icon={item.icon} key={index} />
         </CircleButtonMobile>
       ))}
     </ContainerMobile>

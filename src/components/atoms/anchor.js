@@ -1,7 +1,6 @@
-import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import Color from "../const/color"
+import Color from "../../utils/color"
 
 const In = styled(Link)`
     text-decoration: none;

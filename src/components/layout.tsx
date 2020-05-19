@@ -12,31 +12,38 @@ import useIntersect from "@/utils/useintersect"
 
 const Layout: React.FC<any> = ({ title, children }) => {
   const target = React.useRef(null)
-  const intersect = useIntersect(target, 0.05, false, title != "index")
-  const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
+  const isIndex = title == "index"
+  const isIntersect = useIntersect(target, 0.05, false, !isIndex)
+  const spring = useSpring({ opacity: isIntersect ? 0.1 : 1 })
   const data = useStaticQuery(backgroundQuery)
   return (
     <React.Fragment>
       <GlobalStyle />
-      <BackgroundMobile
-        fluid={data.backgroundImageMobile.childImageSharp.fluid}
-        style={spring}
-      />
-      <BackgroundNarrow
-        fluid={data.backgroundImageNarrow.childImageSharp.fluid}
-        style={spring}
-      />
-      <Background
-        fluid={data.backgroundImage.childImageSharp.fluid}
-        style={spring}
-      />
+      {isIndex && (
+        <BackgroundMobile
+          fluid={data.backgroundImageMobile.childImageSharp.fluid}
+          style={spring}
+        />
+      )}
+      {isIndex && (
+        <BackgroundNarrow
+          fluid={data.backgroundImageNarrow.childImageSharp.fluid}
+          style={spring}
+        />
+      )}
+      {isIndex && (
+        <Background
+          fluid={data.backgroundImage.childImageSharp.fluid}
+          style={spring}
+        />
+      )}
 
       <GridWrapper>
-        <LeftNav toggle={intersect} />
-        <TopNavDesktop isVisible={!intersect} />
+        <LeftNav toggle={isIntersect} />
+        <TopNavDesktop isVisible={!isIntersect} />
         <TopNavMobile />
-        {title == "index" && <Hero />}
-        <Container marginTop={title == "index"} ref={target}>
+        {isIndex && <Hero />}
+        <Container marginTop={isIndex} ref={target}>
           <main>
             {title != "index" && <LocationName> {title} </LocationName>}
             {children}

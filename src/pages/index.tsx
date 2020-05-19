@@ -17,11 +17,7 @@ const Index: React.FC<any> = ({ data, location }) => {
   const posts = data.allMarkdownRemark.edges
   return (
     <React.Fragment>
-      <Layout
-        image={data.backgroundImage.childImageSharp.fluid}
-        location={location}
-        title={"index"}
-      >
+      <Layout location={location} title={"index"}>
         <SEO title="Top" />
         <Base>
           {posts.map(({ node }: any) => {

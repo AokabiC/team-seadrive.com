@@ -28,6 +28,12 @@ const Paragraph = styled.p`
     color: black;
 `
 
+const Hr = styled.hr`
+	background-color: #fff;
+	border-top: 1px dashed #8c8b8b;
+    margin-bottom: 2rem;
+`
+
 const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: {
@@ -37,6 +43,7 @@ const renderAst = new RehypeReact({
       h4: Heading.H4,
       p: Paragraph,
       a: Anchor.Ext,
+      hr: Hr
     }
   }).Compiler
 
@@ -59,7 +66,7 @@ class BlogPostTemplate extends React.Component {
         {
             renderAst(post.htmlAst)
         }
-        <hr/>
+        <Hr/>
         {/* <Bio /> */}
 
         <ul

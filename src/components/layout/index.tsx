@@ -60,6 +60,7 @@ const Layout: React.FC<any> = props => {
     Result = LayoutDesktopNarrow
     background = data.backgroundImageNarrow.childImageSharp.fluid
   }
+  if (props.title != "index") background = null
   return (
     <React.Fragment>
       <GlobalStyle />

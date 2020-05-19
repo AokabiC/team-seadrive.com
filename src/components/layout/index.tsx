@@ -1,13 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { useMediaQuery } from "react-responsive"
 import LayoutMoblie from "./layoutmobile"
 import { LayoutDesktop, LayoutDesktopNarrow } from "./layoutdesktop"
 import { createGlobalStyle } from "styled-components"
-
-import "ress"
-import "typeface-notosans-jp"
-import "typeface-zilla-slab"
 
 const GlobalStyle = createGlobalStyle`
   body{

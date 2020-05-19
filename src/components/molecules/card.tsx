@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
-import Color from "../const/color"
+import Color from "../../utils/color"
 import Button from "../atoms/button"
 import Anchor from "@/components/atoms/anchor"
 import useIntersect from "@/utils/useintersect"

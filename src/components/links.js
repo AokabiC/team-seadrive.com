@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Color from "../components/const/color"
+import Color from "../utils/color"
 import Anchor from "./atoms/anchor";
 
 const Link = Anchor.Ext;

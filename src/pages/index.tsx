@@ -46,13 +46,6 @@ export default Index
 
 export const pageQuery = graphql`
   query {
-    backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
-      childImageSharp {
-        fluid(quality: 100, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
-        }
-      }
-    }
     site {
       siteMetadata {
         title

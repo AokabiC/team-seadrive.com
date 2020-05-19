@@ -10,14 +10,27 @@ import Footerbar from "@/components/organisms/footerbar"
 import { Hero } from "@/components/organisms/hero"
 import useIntersect from "@/utils/useintersect"
 
-const Layout: React.FC<any> = ({ title, image, children }) => {
+const Layout: React.FC<any> = ({ title, children }) => {
   const target = React.useRef(null)
   const intersect = useIntersect(target, 0.05, false, title != "index")
   const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
+  const data = useStaticQuery(backgroundQuery)
   return (
     <React.Fragment>
       <GlobalStyle />
-      {image && <Background fluid={image} style={spring} />}
+      <BackgroundMobile
+        fluid={data.backgroundImageMobile.childImageSharp.fluid}
+        style={spring}
+      />
+      <BackgroundNarrow
+        fluid={data.backgroundImageNarrow.childImageSharp.fluid}
+        style={spring}
+      />
+      <Background
+        fluid={data.backgroundImage.childImageSharp.fluid}
+        style={spring}
+      />
+
       <GridWrapper>
         <LeftNav toggle={intersect} />
         <TopNavDesktop isVisible={!intersect} />
@@ -52,6 +65,30 @@ const Background = styled(animated(Img))`
   width: 100vw;
   position: fixed !important;
   z-index: -100;
+
+  @media (max-width: 1600px) {
+    display: none;
+  }
+`
+
+const BackgroundNarrow = styled(Background)`
+  display: none;
+
+  @media (max-width: 1600px) {
+    display: block;
+  }
+
+  @media (max-width: 860px) {
+    display: none;
+  }
+`
+
+const BackgroundMobile = styled(Background)`
+  display: none;
+
+  @media (max-width: 860px) {
+    display: block;
+  }
 `
 
 const GridWrapper = styled.div`
@@ -95,6 +132,10 @@ const Container = styled.div<{ marginTop: boolean }>`
   padding-left: 15px;
   padding-right: 15px;
   margin-top: ${props => (props.marginTop ? "calc(105vh - 120px)" : "0")};
+
+  @media (max-width: 860px) {
+    margin-top: 0;
+  }
 `
 
 const LocationName = styled.h3`
@@ -106,30 +147,30 @@ const LocationName = styled.h3`
   margin-bottom: 1.6rem;
 `
 
-// const data = useStaticQuery(graphql`
-//   query {
-//     backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
-//       childImageSharp {
-//         fluid(quality: 100, maxWidth: 1920) {
-//           ...GatsbyImageSharpFluid_withWebp_noBase64
-//         }
-//       }
-//     }
-//     backgroundImageNarrow: file(
-//       absolutePath: { regex: "/bg_narrowdesktop.jpeg/" }
-//     ) {
-//       childImageSharp {
-//         fluid(quality: 100, maxWidth: 1400) {
-//           ...GatsbyImageSharpFluid_withWebp_noBase64
-//         }
-//       }
-//     }
-//     backgroundImageMobile: file(absolutePath: { regex: "/bg_mobile.jpeg/" }) {
-//       childImageSharp {
-//         fluid(quality: 100, maxWidth: 800) {
-//           ...GatsbyImageSharpFluid_withWebp_noBase64
-//         }
-//       }
-//     }
-//   }
-// `)
+const backgroundQuery = graphql`
+  query {
+    backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    backgroundImageNarrow: file(
+      absolutePath: { regex: "/bg_narrowdesktop.jpeg/" }
+    ) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1400) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+    backgroundImageMobile: file(absolutePath: { regex: "/bg_mobile.jpeg/" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 800) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
+  }
+`

@@ -9,7 +9,7 @@ const Base = styled.header`
   grid-area: topnav;
   width: 100%;
   height: 100%;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -19,9 +19,15 @@ const Base = styled.header`
   padding-bottom: 0.1rem;
   z-index: 1;
   background: rgba(245, 245, 245, 0.7);
+
+  display: none;
+
+  @media (max-width: 860px) {
+    display: flex;
+  }
 `
 
-const TopNavMobile = ({ isVisible }: any) => {
+export const TopNavMobile = () => {
   return (
     <Base>
       <LogoImageMobile />
@@ -29,5 +35,3 @@ const TopNavMobile = ({ isVisible }: any) => {
     </Base>
   )
 }
-
-export default TopNavMobile

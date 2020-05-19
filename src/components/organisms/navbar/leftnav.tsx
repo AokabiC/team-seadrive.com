@@ -16,6 +16,10 @@ const Base = styled.header`
   align-items: flex-end;
   justify-content: space-between;
   z-index: 1;
+
+  @media (max-width: 860px) {
+    display: none;
+  }
 `
 
 const NavLinkList = styled.div`

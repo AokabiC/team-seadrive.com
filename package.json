@@ -22,7 +22,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "@types/react-responsive": "^8.0.2",
     "@types/styled-components": "^5.1.0",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.21.21",

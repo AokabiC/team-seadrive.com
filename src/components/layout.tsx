@@ -1,0 +1,135 @@
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+import styled, { createGlobalStyle } from "styled-components"
+import { useSpring, animated } from "react-spring"
+import { TopNavDesktop } from "@/components/organisms/navbar/topnavdesktop"
+import { TopNavMobile } from "@/components/organisms/navbar/topnavmobile"
+import { LeftNav } from "@/components/organisms/navbar/leftnav"
+import Footerbar from "@/components/organisms/footerbar"
+import { Hero } from "@/components/organisms/hero"
+import useIntersect from "@/utils/useintersect"
+
+const Layout: React.FC<any> = ({ title, image, children }) => {
+  const target = React.useRef(null)
+  const intersect = useIntersect(target, 0.05, false, title != "index")
+  const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
+  return (
+    <React.Fragment>
+      <GlobalStyle />
+      {image && <Background fluid={image} style={spring} />}
+      <GridWrapper>
+        <LeftNav toggle={intersect} />
+        <TopNavDesktop isVisible={!intersect} />
+        <TopNavMobile />
+        {title == "index" && <Hero />}
+        <Container marginTop={title == "index"} ref={target}>
+          <main>
+            {title != "index" && <LocationName> {title} </LocationName>}
+            {children}
+          </main>
+        </Container>
+        <Footerbar />
+      </GridWrapper>
+    </React.Fragment>
+  )
+}
+
+export default Layout
+
+const GlobalStyle = createGlobalStyle`
+  body{
+      font-family: "Noto Sans JP";
+      background-color: whitesmoke;
+  }
+`
+
+const Background = styled(animated(Img))`
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  position: fixed !important;
+  z-index: -100;
+`
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns:
+    minmax(120px, 160px)
+    minmax(600px, 1000px)
+    120px;
+  grid-template-rows:
+    120px
+    minmax(calc(100vh - 240px), 1fr)
+    120px;
+  grid-template-areas:
+    "leftnav topnav rightnav"
+    "....... content ......."
+    "....... footer ........";
+  justify-content: space-between;
+
+  @media (max-width: 1600px) {
+    /* NarrowDesktop */
+    grid-template-columns:
+      120px
+      minmax(600px, 1000px)
+      0px;
+    grid-column-gap: 30px;
+  }
+
+  @media (max-width: 860px) {
+    /* mobile */
+    display: flex; /* 縦長すぎるとGridが崩壊するので */
+    flex-direction: column;
+    justify-content: space-between;
+  }
+`
+
+const Container = styled.div<{ marginTop: boolean }>`
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: ${props => (props.marginTop ? "calc(105vh - 120px)" : "0")};
+`
+
+const LocationName = styled.h3`
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  font-family: zilla slab;
+  margin-bottom: 1.6rem;
+`
+
+// const data = useStaticQuery(graphql`
+//   query {
+//     backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
+//       childImageSharp {
+//         fluid(quality: 100, maxWidth: 1920) {
+//           ...GatsbyImageSharpFluid_withWebp_noBase64
+//         }
+//       }
+//     }
+//     backgroundImageNarrow: file(
+//       absolutePath: { regex: "/bg_narrowdesktop.jpeg/" }
+//     ) {
+//       childImageSharp {
+//         fluid(quality: 100, maxWidth: 1400) {
+//           ...GatsbyImageSharpFluid_withWebp_noBase64
+//         }
+//       }
+//     }
+//     backgroundImageMobile: file(absolutePath: { regex: "/bg_mobile.jpeg/" }) {
+//       childImageSharp {
+//         fluid(quality: 100, maxWidth: 800) {
+//           ...GatsbyImageSharpFluid_withWebp_noBase64
+//         }
+//       }
+//     }
+//   }
+// `)

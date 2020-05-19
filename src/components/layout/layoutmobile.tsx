@@ -1,24 +1,11 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
 import Img from "gatsby-image"
-import { TopNav } from "../components/organisms/topnav"
-import { LeftNav } from "../components/organisms/leftnav"
-import Footerbar from "./organisms/footerbar"
-
-import "ress"
-import "typeface-notosans-jp"
-import "typeface-noto-serif-jp"
-import "typeface-zilla-slab"
+import TopNavMoblie from "@/components/organisms/navbar/mobiletopnav"
+import Footerbar from "@/components/organisms/footerbar"
 import useIntersect from "@/utils/useintersect"
-import Hero from "./organisms/hero"
-
-const GlobalStyle = createGlobalStyle`
-  body{
-      font-family: Noto sans JP;
-      background-color: whitesmoke;
-  }
-`
+import Hero from "../organisms/hero"
 
 const Background = styled(animated(Img))`
   top: 0;
@@ -31,26 +18,24 @@ const Background = styled(animated(Img))`
 `
 
 const GridWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 120px minmax(calc(100vh - 240px), 1fr) 120px;
-  grid-template-columns:
-    minmax(120px, 160px)
-    minmax(600px, 1000px)
-    minmax(120px, 160px);
+  display: flex;
+  flex-direction: column;
+  grid-template-rows: 70px 1fr 80px;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    "leftnav topnav rightnav"
-    "....... content ......."
-    "....... footer ........";
+    "topnav"
+    "content"
+    "footer";
   justify-content: space-between;
 `
 
-const Container = styled.div<{ isIndex: boolean }>`
+const Container = styled.div`
   grid-area: content;
   display: flex;
   flex-flow: column;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: ${props => (props.isIndex ? "calc(105vh - 120px)" : "0")};
+  margin-top: 0;
 `
 
 const LocationName = styled.h3`
@@ -62,19 +47,18 @@ const LocationName = styled.h3`
   margin-bottom: 1.6rem;
 `
 
-const Layout: React.FC<any> = ({ title, image, children }) => {
+const LayoutMoblie: React.FC<any> = ({ title, image, children }) => {
   const target = React.useRef(null)
   const intersect = useIntersect(target, 0.05, false, title != "index")
   const spring = useSpring({ opacity: intersect ? 0.1 : 1 })
   return (
     <React.Fragment>
-      <GlobalStyle />
       {image && <Background fluid={image} style={spring} />}
       <GridWrapper>
-        <LeftNav toggle={intersect} />
-        <TopNav isVisible={!intersect} />
+        <TopNavMoblie isVisible={!intersect} />
         {title == "index" && <Hero />}
-        <Container isIndex={title == "index"} ref={target}>
+
+        <Container ref={target}>
           <main>
             {title != "index" && <LocationName> {title} </LocationName>}
             {children}
@@ -86,4 +70,4 @@ const Layout: React.FC<any> = ({ title, image, children }) => {
   )
 }
 
-export default Layout
+export default LayoutMoblie

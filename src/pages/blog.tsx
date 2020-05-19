@@ -12,7 +12,7 @@ const BlogIdx: React.FC<any> = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
-      <div>
+      <section>
         {posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -23,15 +23,11 @@ const BlogIdx: React.FC<any> = ({ data, location }) => {
               label={node.frontmatter.date}
               subtitle={node.frontmatter.subtitle}
             >
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              {node.frontmatter.description || node.excerpt}
             </Card>
           )
         })}
-      </div>
+      </section>
       <Bio />
     </Layout>
   )

@@ -1,14 +1,17 @@
 import React from "react"
 import styled from "styled-components"
-import TopMessage from "../molecules/topmessage"
+import { TopMessage, TopMessageMobile } from "../molecules/topmessage"
 import Divider from "../atoms/divider"
+import { useMediaQuery } from "react-responsive"
 
 const Hero: React.FC = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  })
   return (
     <Container>
-      <Flex flex={3} />
+      <Flex flex={4}>{isMobile ? <TopMessageMobile /> : <TopMessage />}</Flex>
       <Flex flex={1}>
-        <TopMessage />
         <Divider />
       </Flex>
     </Container>

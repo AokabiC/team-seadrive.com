@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
 import Anchor from "@/components/atoms/anchor"
 
-const LogoImage = () => {
+export const LogoImage = () => {
   const data = useStaticQuery(LogoQuery)
   return (
     <Anchor.In to="/">
@@ -13,8 +13,22 @@ const LogoImage = () => {
           marginRight: 0,
           marginBottom: 0,
         }}
-        imgStyle={{
-          borderRadius: `50%`,
+        fadeIn={true}
+      />
+    </Anchor.In>
+  )
+}
+
+export const LogoImageMobile = () => {
+  const data = useStaticQuery(LogoQuery)
+  return (
+    <Anchor.In to="/">
+      <Image
+        fixed={data.logoMobile.childImageSharp.fixed}
+        style={{
+          marginRight: 0,
+          marginBottom: 0,
+          zIndex: 2,
         }}
         fadeIn={true}
       />
@@ -31,7 +45,12 @@ const LogoQuery = graphql`
         }
       }
     }
+    logoMobile: file(absolutePath: { regex: "/Team_SeAdrive_logo.png/" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed_noBase64
+        }
+      }
+    }
   }
 `
-
-export default LogoImage

@@ -17,18 +17,18 @@ const Ring = styled(animated.circle)`
 
 const ChildWrapper = styled.div`
   position: absolute;
-  left: 0.758em;
-  top: 0.55em;
+  left: 0.755em;
+  top: 0.6em;
   font-size: 1.2rem;
 `
 
 const Container = styled(animated.div)`
   position: relative;
-  color: blueviolet;
-  stroke: blueviolet;
+  color: white;
+  stroke: white;
 `
 
-const CircleButton: React.FC<any> = ({ toggle, to, children }) => {
+export const CircleButton: React.FC<any> = ({ toggle, to, children }) => {
   const [hover, setHover] = useState(false)
 
   const offsetSpring = useSpring({
@@ -64,4 +64,13 @@ const CircleButton: React.FC<any> = ({ toggle, to, children }) => {
   )
 }
 
-export default CircleButton
+export const CircleButtonMobile: React.FC<any> = ({ to, children }) => (
+  <Anchor.Ext href={to} target="_blank">
+    <Container>
+      <ChildWrapper>{children}</ChildWrapper>
+      <SVGWrapper>
+        <Ring cx="1.5rem" cy="1.5rem" r="1.2rem" strokeDashoffset={75} />
+      </SVGWrapper>
+    </Container>
+  </Anchor.Ext>
+)

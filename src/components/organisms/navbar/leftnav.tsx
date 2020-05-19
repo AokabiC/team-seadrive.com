@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import LogoImage from "@/components/atoms/logo"
+import { LogoImage } from "@/components/atoms/logo"
 import { useSpring, useTrail, animated } from "react-spring"
 import { Link } from "gatsby"
-import LinkIconList from "../molecules/linkiconlist"
+import { LinkIconList } from "@/components/molecules/linkiconlist"
 
 const Base = styled.header`
   grid-area: leftnav;

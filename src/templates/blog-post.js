@@ -25,8 +25,35 @@ const Title = styled.h2`
 const Paragraph = styled.p`
     text-indent: 0em;
     margin-bottom: 1.5rem;
-    font-family: Noto serif JP;
     color: black;
+`
+
+const Hr = styled.hr`
+	background-color: #fff;
+	border-top: 1px dashed #8c8b8b;
+    margin-bottom: 2rem;
+`
+
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+`
+
+const THead = styled.thead`
+    background-color: lightslategray;
+    color: white;
+    padding: .5rem;
+`
+
+const Tr = styled.tr`
+  text-align: center;
+  padding: .5rem;
+  border:solid 1px white;
+`
+
+const Td = styled.td`
+    border:solid 1px white;
 `
 
 const renderAst = new RehypeReact({
@@ -38,6 +65,11 @@ const renderAst = new RehypeReact({
       h4: Heading.H4,
       p: Paragraph,
       a: Anchor.Ext,
+      hr: Hr,
+      table: Table,
+      thead: THead,
+      tr: Tr,
+      td: Td
     }
   }).Compiler
 
@@ -60,7 +92,7 @@ class BlogPostTemplate extends React.Component {
         {
             renderAst(post.htmlAst)
         }
-        <hr/>
+        <Hr/>
         {/* <Bio /> */}
 
         <ul

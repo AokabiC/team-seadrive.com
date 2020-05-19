@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { animated, useSprings } from "react-spring"
 
@@ -45,8 +45,8 @@ const BurgerButton: React.FC<any> = ({ open, onClick }) => {
 
   return (
     <ToggleButtonContainer onClick={onClick}>
-      {springs.map(props => (
-        <ToggleButtonBar style={props} />
+      {springs.map((props, index) => (
+        <ToggleButtonBar style={props} key={index} />
       ))}
     </ToggleButtonContainer>
   )

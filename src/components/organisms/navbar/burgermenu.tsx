@@ -48,8 +48,10 @@ const BurgerMenu: React.FC = () => {
   return (
     <div>
       <Container style={spring}>
-        {items.map(item => (
-          <BurgerLink to={item.to}>{item.text}</BurgerLink>
+        {items.map((item, index) => (
+          <BurgerLink to={item.to} key={index}>
+            {item.text}
+          </BurgerLink>
         ))}
         <LinkIconListMobile />
         <EmailWrapper>

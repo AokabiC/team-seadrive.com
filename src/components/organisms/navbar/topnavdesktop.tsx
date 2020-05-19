@@ -48,7 +48,7 @@ export const TopNavDesktop = ({ isVisible }: any) => {
   return (
     <Base>
       {trail.map(({ y, ...rest }, index) => (
-        <NavLinkWrapper>
+        <NavLinkWrapper key={index}>
           <NavLink
             to={items[index].to}
             style={{
@@ -56,6 +56,7 @@ export const TopNavDesktop = ({ isVisible }: any) => {
               ...rest,
               transform: y.to(y => `translateY(${y}px)`),
             }}
+            key={index}
           >
             {items[index].text}
           </NavLink>

@@ -2,4 +2,11 @@
 
 [team-seadrive.com](https://team-seadrive.com/)
 
-Made with [GatsbyJS](https://www.gatsbyjs.org/)
+This is my portfolio site!
+
+Made with ...
++ React / React Hooks
++ [GatsbyJS](https://www.gatsbyjs.org/)
++ Typescript
++ [react-spring](https://www.react-spring.io/)
++ GitHub Pages

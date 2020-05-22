@@ -1,7 +1,7 @@
 import React from "react"
-import SEO from "../components/seo"
-import Layout from "../components/layout"
-import { Ul, Dt, Dd, Li } from "../components/atoms/list"
+import SEO from "@/components/atoms/seo"
+import Layout from "@/components/layout"
+import { Ul, Dt, Dd, Li } from "@/components/atoms/list"
 
 // TODO: https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb で型を縛る
 const About: React.FC<any> = ({ location }) => {

@@ -1,8 +1,8 @@
 import React from "react"
-import Layout from "../components/layout"
-import Anchor from "../components/atoms/anchor"
-import SEO from "../components/seo"
-import { Ul, Li, Dt, Dd } from "../components/atoms/list"
+import Layout from "@/components/layout"
+import Anchor from "@/components/atoms/anchor"
+import SEO from "@/components/atoms/seo"
+import { Ul, Li, Dt, Dd } from "@/components/atoms/list"
 
 const Works: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Works"

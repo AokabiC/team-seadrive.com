@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/molecules/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Card from "../components/molecules/card"
+import Bio from "@/components/molecules/bio"
+import Layout from "@/components/layout"
+import SEO from "@/components/atoms/seo"
+import Card from "@/components/molecules/card"
 
 const BlogIdx: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"

@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/molecules/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Card from "../components/molecules/card"
-import Links from "../components/links"
+import Bio from "@/components/molecules/bio"
+import Layout from "@/components/layout"
+import SEO from "@/utils/seo"
+import Card from "@/components/molecules/card"
+import Links from "@/components/links"
 import styled from "styled-components"
 
 const Base = styled.div`

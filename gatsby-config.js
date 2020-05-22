@@ -1,16 +1,20 @@
 module.exports = {
   siteMetadata: {
     title: `team-seadrive.com`,
+    titleTemplate: `%s | team-seadrive.com`,
+    lang: `ja`,
     author: `AokabiC`,
-    description: `碧黴(あおかび)の運営する個人サークル「SeA:」の公式Webサイト`,
+    description: `碧黴(あおかび)のサークル「team-seadrive.com」公式Webサイト`,
     siteUrl: `https://team-seadrive.com`,
     social: {
       twitter: `AokabiC`,
     },
-    icon: `content/assets/Team_SeAdrive_logo.png`,
+    defaultOgpImage: `/images/ogp_default.png`,
+    icon: `/content/assets/Team_SeAdrive_logo.png`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

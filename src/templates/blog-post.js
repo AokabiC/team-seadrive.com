@@ -3,10 +3,10 @@ import RehypeReact from "rehype-react"
 import { graphql } from "gatsby"
 import Color from "../utils/color"
 import styled from "styled-components"
-import Anchor from "../components/atoms/anchor"
-import Heading from "../components/atoms/heading"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Anchor from "@/components/atoms/anchor"
+import Heading from "@/components/atoms/heading"
+import Layout from "@/components/layout"
+import SEO from "@/utils/seo"
 require(`katex/dist/katex.min.css`)
 
 const Label = styled.span`

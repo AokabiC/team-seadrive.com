@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "@/components/atoms/seo"
+import SEO from "@/utils/seo"
 import Layout from "@/components/layout"
 import { Ul, Dt, Dd, Li } from "@/components/atoms/list"
 

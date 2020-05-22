@@ -6,7 +6,7 @@ import styled from "styled-components"
 import Anchor from "@/components/atoms/anchor"
 import Heading from "@/components/atoms/heading"
 import Layout from "@/components/layout"
-import SEO from "@/components/atoms/seo"
+import SEO from "@/utils/seo"
 require(`katex/dist/katex.min.css`)
 
 const Label = styled.span`

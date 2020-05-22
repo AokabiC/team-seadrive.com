@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Bio from "@/components/molecules/bio"
 import Layout from "@/components/layout"
-import SEO from "@/components/atoms/seo"
+import SEO from "@/utils/seo"
 import Card from "@/components/molecules/card"
 
 const BlogIdx: React.FC<any> = ({ data, location }) => {

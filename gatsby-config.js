@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `team-seadrive.com`,
     titleTemplate: `%s | team-seadrive.com`,
+    lang: `ja`,
     author: `AokabiC`,
     description: `碧黴(あおかび)のサークル「team-seadrive.com」公式Webサイト`,
     siteUrl: `https://team-seadrive.com`,

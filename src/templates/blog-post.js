@@ -56,6 +56,13 @@ const Td = styled.td`
     border:solid 1px white;
 `
 
+const Img = styled.img`
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+    width: 100%;
+`
+
 const renderAst = new RehypeReact({
     createElement: React.createElement,
     components: {
@@ -69,7 +76,8 @@ const renderAst = new RehypeReact({
       table: Table,
       thead: THead,
       tr: Tr,
-      td: Td
+      td: Td,
+      img: Img
     }
   }).Compiler
 

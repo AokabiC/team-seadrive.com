@@ -2,15 +2,6 @@ const React = require("react")
 
 exports.onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
-    <React.Fragment>
-      <div id="fb-root"></div>
-      <script
-        async
-        defer
-        crossOrigin="anonymous"
-        src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v7.0"
-      ></script>
-    </React.Fragment>,
     <script
       async
       src="https://platform.twitter.com/widgets.js"

@@ -16,32 +16,13 @@ const Container = styled.ul`
 export const Share: React.FC = ({ title, url }: any) => (
   <Container>
     <li>
-      <div
-        className="fb-share-button"
-        style={{ transform: "translateY(-4px)" }}
-        data-href={url}
-        data-layout="button"
-        data-size="small"
-      >
-        <a
-          target="_blank"
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-          className="fb-xfbml-parse-ignore"
-        >
-          シェア
-        </a>
-      </div>
-    </li>
-    <li>
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         className="twitter-share-button"
         data-text={title}
         data-lang="en"
         data-show-count="false"
-      >
-        Tweet
-      </a>
+      ></a>
     </li>
     <li>
       <a

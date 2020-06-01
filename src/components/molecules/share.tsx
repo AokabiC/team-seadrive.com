@@ -13,13 +13,13 @@ const Container = styled.ul`
   }
 `
 
-export const Share: React.FC = ({ title, url }: any) => (
+export const Share: React.FC = ({ title }: any) => (
   <Container>
     <li>
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         className="twitter-share-button"
-        data-text={title}
+        data-text={title + " | "}
         data-lang="en"
         data-show-count="false"
       ></a>

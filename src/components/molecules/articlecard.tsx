@@ -34,10 +34,8 @@ const ArticleCard: React.FC<Props> = ({ slug, frontmatter }) => {
       <Header>
         <Date>{frontmatter.date}</Date>
         <Tags>
-          <FontAwesomeIcon icon={faTags} />
-          {frontmatter.tags.map(tag => (
-            <a>{tag}</a>
-          ))}
+          {/* <FontAwesomeIcon icon={faTags} /> */}
+          {frontmatter.tags && frontmatter.tags.map(tag => <a>{tag}</a>)}
         </Tags>
       </Header>
       <Content>{frontmatter.description}</Content>
@@ -82,12 +80,10 @@ const Date = styled.span`
 const Tags = styled.div`
   color: ${Color.text_gray};
   a {
-    background: ${Color.text_gray};
-    color: white;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    margin-left: 0.4rem;
-    border-radius: 0.4rem;
+    margin-left: 0.5rem;
+    &::before {
+      content: "#";
+    }
   }
 `
 

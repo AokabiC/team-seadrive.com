@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Bio from "@/components/molecules/bio"
 import Layout from "@/components/layout"
 import SEO from "@/utils/seo"
-import Card from "@/components/molecules/card"
+import ArticleCard from "@/components/molecules/articlecard"
 
 const BlogIdx: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"
@@ -14,17 +14,12 @@ const BlogIdx: React.FC<any> = ({ data, location }) => {
       <SEO title="Blog" />
       <section>
         {posts.map(({ node }: any) => {
-          const title = node.frontmatter.title || node.fields.slug
           return (
-            <Card
+            <ArticleCard
               key={node.fields.slug}
-              to={node.fields.slug}
-              title={title}
-              label={node.frontmatter.date}
-              subtitle={node.frontmatter.subtitle}
-            >
-              {node.frontmatter.description || node.excerpt}
-            </Card>
+              slug={node.fields.slug}
+              frontmatter={node.frontmatter}
+            />
           )
         })}
       </section>
@@ -54,6 +49,7 @@ export const pageQuery = graphql`
             title
             subtitle
             description
+            tags
           }
         }
       }

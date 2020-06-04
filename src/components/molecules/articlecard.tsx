@@ -6,9 +6,6 @@ import Button from "../atoms/button"
 import Anchor from "@/components/atoms/anchor"
 import useIntersect from "@/utils/useintersect"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTags } from "@fortawesome/free-solid-svg-icons"
-
 interface Props {
   slug: string
   frontmatter: {
@@ -34,8 +31,10 @@ const ArticleCard: React.FC<Props> = ({ slug, frontmatter }) => {
       <Header>
         <Date>{frontmatter.date}</Date>
         <Tags>
-          {/* <FontAwesomeIcon icon={faTags} /> */}
-          {frontmatter.tags && frontmatter.tags.map(tag => <a>{tag}</a>)}
+          {frontmatter.tags &&
+            frontmatter.tags.map(tag => (
+              <Anchor.In to={`/tags/${tag}`}>{tag}</Anchor.In>
+            ))}
         </Tags>
       </Header>
       <Content>{frontmatter.description}</Content>
@@ -81,6 +80,7 @@ const Tags = styled.div`
   color: ${Color.text_gray};
   a {
     margin-left: 0.5rem;
+    color: ${Color.text_gray};
     &::before {
       content: "#";
     }

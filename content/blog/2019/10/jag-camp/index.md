@@ -1,6 +1,6 @@
 ---
 title: JAG夏合宿2019に参加しました
-subtitle: 参加記
+tags: ["参加記", "競技プログラミング"]
 date: "2019-10-04 11:04:00"
 description: ACM-ICPC OB・OGの会(JAG)主催の強化夏合宿にAobayama_dropoutのメンバーとして参加しました。
 ---

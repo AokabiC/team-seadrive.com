@@ -33,7 +33,7 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
 export default BlogIndexTemplate
 
 export const pageQuery = graphql`
-  query($tag: String!) {
+  query($tag: [String!]) {
     site {
       siteMetadata {
         title
@@ -43,7 +43,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: $tag } } }
     ) {
       edges {
         node {

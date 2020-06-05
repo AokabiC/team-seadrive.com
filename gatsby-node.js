@@ -45,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog posts pages.
+    // ブログ記事ごとのページを生成
     const posts = result.data.allMarkdownRemark.edges
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -67,14 +67,22 @@ exports.createPages = ({ graphql, actions }) => {
       const edgeTags = edge.node.frontmatter.tags
       return edgeTags ? tags.concat(edge.node.frontmatter.tags) : tags
     }, []))
+    // tagごとの一覧ページを作成
     tags.forEach(tag => {
       createPage({
         path: `/tags/${tag}`,
         component: blogIndex,
         context: {
-          tag,
+          tag: [tag],
         },
       })
+    })
+    createPage({
+        path: `/blog`,
+        component: blogIndex,
+        context: {
+            tag: [...tags]
+        }
     })
 
     return null

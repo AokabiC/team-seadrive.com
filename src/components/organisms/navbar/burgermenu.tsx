@@ -12,7 +12,7 @@ const Container = styled(animated.div)`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   z-index: 1;
   opacity: 0.9;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -20,8 +20,9 @@ const Container = styled(animated.div)`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  padding-top: calc(10% + 50vh);
+  padding-bottom: calc(10% + 50vh);
+  margin-top: -50vh;
 `
 
 const BurgerLink = styled(NavLink)`

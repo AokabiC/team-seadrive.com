@@ -66,13 +66,15 @@ const Title = styled.h3`
 
 const Header = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 `
 
-const Date = styled.span`
+const Date = styled.div`
   border-radius: 5rem;
   padding: 0.1rem 0.4rem;
   margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
   background: ${Color.base_light};
 `
 

@@ -70,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
     // tagごとの一覧ページを作成
     tags.forEach(tag => {
       createPage({
-        path: `/tags/${tag}`,
+        path: `/tags/${tag}/`,
         component: blogIndex,
         context: {
           tag: [tag],
@@ -78,7 +78,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
     createPage({
-        path: `/blog`,
+        path: `/blog/`,
         component: blogIndex,
         context: {
             tag: [...tags]

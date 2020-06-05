@@ -5,6 +5,7 @@ import Bio from "@/components/molecules/bio"
 import Layout from "@/components/layout"
 import SEO from "@/utils/seo"
 import ArticleCard from "@/components/molecules/articlecard"
+import TagList from "@/components/organisms/taglist"
 
 const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"
@@ -13,6 +14,7 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <section>
+        <TagList />
         {posts.map(({ node }: any) => {
           return (
             <ArticleCard

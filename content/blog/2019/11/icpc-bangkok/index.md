@@ -1,6 +1,6 @@
 ---
 title: ICPC Asia Bangkok Regional 2019に出場しました
-subtitle: 参加記
+tags: ["参加記", "競技プログラミング"]
 date: "2019-11-09 12:04:00"
 description: 11/2-3にタイ・バンコクで開催されたICPC Asia Bangkok Regional 2019にAobayama_dropoutのメンバーとして参加しました。
 ---

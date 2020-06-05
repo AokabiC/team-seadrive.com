@@ -4,27 +4,24 @@ import { graphql } from "gatsby"
 import Bio from "@/components/molecules/bio"
 import Layout from "@/components/layout"
 import SEO from "@/utils/seo"
-import Card from "@/components/molecules/card"
+import ArticleCard from "@/components/molecules/articlecard"
+import TagList from "@/components/organisms/taglist"
 
-const BlogIdx: React.FC<any> = ({ data, location }) => {
+const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"
   const posts = data.allMarkdownRemark.edges
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <section>
+        <TagList />
         {posts.map(({ node }: any) => {
-          const title = node.frontmatter.title || node.fields.slug
           return (
-            <Card
+            <ArticleCard
               key={node.fields.slug}
-              to={node.fields.slug}
-              title={title}
-              label={node.frontmatter.date}
-              subtitle={node.frontmatter.subtitle}
-            >
-              {node.frontmatter.description || node.excerpt}
-            </Card>
+              slug={node.fields.slug}
+              frontmatter={node.frontmatter}
+            />
           )
         })}
       </section>
@@ -33,16 +30,21 @@ const BlogIdx: React.FC<any> = ({ data, location }) => {
   )
 }
 
-export default BlogIdx
+export default BlogIndexTemplate
 
 export const pageQuery = graphql`
-  query {
+  query($tag: [String!]) {
     site {
       siteMetadata {
         title
+        author
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 1000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: $tag } } }
+    ) {
       edges {
         node {
           excerpt
@@ -54,6 +56,7 @@ export const pageQuery = graphql`
             title
             subtitle
             description
+            tags
           }
         }
       }

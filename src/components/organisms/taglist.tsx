@@ -11,7 +11,7 @@ const TagList: React.FC<any> = () => {
     <Container>
       {tags.map((tag: any) => (
         <li key={tag.fieldValue}>
-          <Anchor.In to={`/tags/${tag.fieldValue}`}>
+          <Anchor.In to={`/tags/${tag.fieldValue}/`}>
             {`#${tag.fieldValue}`}
           </Anchor.In>
         </li>

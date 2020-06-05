@@ -33,9 +33,9 @@ const EmailWrapper = styled.div`
 `
 
 const items = [
-  { to: "/about", text: "About" },
-  { to: "/blog", text: "Blog" },
-  { to: "/works", text: "Works" },
+  { to: "/about/", text: "About" },
+  { to: "/blog/", text: "Blog" },
+  { to: "/works/", text: "Works" },
 ]
 
 const BurgerMenu: React.FC = () => {

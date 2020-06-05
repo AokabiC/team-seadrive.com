@@ -33,7 +33,7 @@ const ArticleCard: React.FC<Props> = ({ slug, frontmatter }) => {
         <Tags>
           {frontmatter.tags &&
             frontmatter.tags.map(tag => (
-              <Anchor.In to={`/tags/${tag}`}>{tag}</Anchor.In>
+              <Anchor.In to={`/tags/${tag}/`}>{tag}</Anchor.In>
             ))}
         </Tags>
       </Header>

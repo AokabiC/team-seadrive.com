@@ -30,9 +30,9 @@ const NavLink = styled(ALink)`
 `
 
 const items = [
-  { to: "/about", text: "About" },
-  { to: "/blog", text: "Blog" },
-  { to: "/works", text: "Works" },
+  { to: "/about/", text: "About" },
+  { to: "/blog/", text: "Blog" },
+  { to: "/works/", text: "Works" },
 ]
 
 export const TopNavDesktop = ({ isVisible }: any) => {

@@ -13,7 +13,7 @@ const Container = styled.ul`
   }
 `
 
-export const Share: React.FC = ({ title }: any) => (
+export const Share: React.FC<any> = ({ title }) => (
   <Container>
     <li>
       <a

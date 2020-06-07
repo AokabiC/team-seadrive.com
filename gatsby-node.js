@@ -16,7 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const blogIndex = path.resolve(`./src/templates/blog-index.tsx`)
   return graphql(
     `

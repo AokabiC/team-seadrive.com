@@ -36,15 +36,15 @@ module.exports = {
         plugins: [
           `gatsby-remark-code-titles`,
           `gatsby-remark-autolink-headers`,
-        //   {
-        //     resolve: 'gatsby-remark-toc',
-        //     options: {
-        //       header: '', // the custom header text
-        //       include: [
-        //         'content/**/*.md' // an include glob to match against
-        //       ]
-        //     }
-        //   },
+          //   {
+          //     resolve: 'gatsby-remark-toc',
+          //     options: {
+          //       header: '', // the custom header text
+          //       include: [
+          //         'content/**/*.md' // an include glob to match against
+          //       ]
+          //     }
+          //   },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -95,9 +95,9 @@ module.exports = {
         icon: `content/assets/Team_SeAdrive_logo.png`,
       },
     },
-    'gatsby-plugin-twitter',
-    'gatsby-redirect-from',
-    'gatsby-plugin-meta-redirect' // make sure this is always the last one
+    "gatsby-plugin-twitter",
+    "gatsby-redirect-from",
+    "gatsby-plugin-meta-redirect", // make sure this is always the last one
   ],
 }
 // require("ts-node").register();

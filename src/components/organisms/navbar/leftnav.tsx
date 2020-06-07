@@ -38,9 +38,10 @@ const NavLinkWrapper = styled.div`
 const ALink = animated(Link)
 const NavLink = styled(ALink)`
   text-decoration: none;
-  font-weight: 500;
   font-size: 1.2rem;
-  font-family: zilla slab;
+  font-family: mortise, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 `
 
 const items = [

@@ -16,6 +16,7 @@ const Layout: React.FC<any> = ({ title, children }) => {
   const isIntersect = useIntersect(target, 0.05, false, !isIndex)
   const spring = useSpring({ opacity: isIntersect ? 0.1 : 1 })
   const data = useStaticQuery(backgroundQuery)
+
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -59,8 +60,11 @@ export default Layout
 
 const GlobalStyle = createGlobalStyle`
   body{
-      font-family: "Noto Sans JP";
-      background-color: whitesmoke;
+    font-family: a-otf-ud-shin-go-pr6n,sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.8;
+    background-color: whitesmoke;
   }
 `
 
@@ -102,7 +106,7 @@ const GridWrapper = styled.div`
   display: grid;
   grid-template-columns:
     minmax(120px, 160px)
-    minmax(600px, 1000px)
+    minmax(600px, 900px)
     120px;
   grid-template-rows:
     120px
@@ -118,7 +122,7 @@ const GridWrapper = styled.div`
     /* NarrowDesktop */
     grid-template-columns:
       120px
-      minmax(600px, 1000px)
+      minmax(600px, 900px)
       0px;
     grid-column-gap: 30px;
   }
@@ -147,10 +151,11 @@ const Container = styled.div<{ marginTop: boolean }>`
 
 const LocationName = styled.h3`
   text-align: center;
-  font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.4rem;
-  font-family: zilla slab;
+  font-family: mortise, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   margin-bottom: 1.6rem;
 `
 

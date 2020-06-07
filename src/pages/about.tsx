@@ -34,6 +34,10 @@ const About: React.FC<any> = ({ location }) => {
       ],
     },
     { label: "資格など", text: ["応用情報技術者 (2019春)"] },
+    {
+      label: "お仕事 (イラスト / Web制作) のご依頼",
+      text: "team.seadrive[at]gmail.com までご連絡ください。",
+    },
   ]
 
   return (

@@ -4,7 +4,7 @@ tags: ["技術メモ", "GatsbyJS"]
 date: "2019-09-27T22:20:32.170Z"
 description: モダンな静的サイトジェネレータでブログを作ったので、その記録です。
 redirect_from:
-    - /001/
+	- /001/
 ---
 
 碧黴(あおかび)です。
@@ -28,16 +28,12 @@ CSSフレームワーク([Spectre.css](https://picturepan2.github.io/spectre/get
 
 結果的に、見つかったのは以下のあたり。
 
-+ VuePress
-
++ VuePress  
 + Gridsome
-
-    - これらはVue製のジェネレータ。
-
+  * これらはVue製のジェネレータ。
 + GatsbyJS
-
-    - React製のジェネレータ。
-
+  * React製のジェネレータ。
+  
 Githubのスター数、プラグインやスターター、Docsの充実っぷりもそうだが、公式サイトのレスポンスの良さに惹かれたのでGatsbyJSを採用した。超速い。
 Reactを触るいい機会にもなりそう、という魂胆もある。
 
@@ -66,7 +62,7 @@ Vueの場合は単一ファイルコンポ-ネント(.vueってファイル)に�
 
 ## ハマったこと
 
-#### Imageの挙動
+### Imageの挙動
 Gatsbyには画像を最適化してくれる(デバイスサイズに合わせた画像サイズ、読み込み前にスペースを確保してレイアウト崩れを防ぐ、とか)プラグインがある。スターターにも最初から入っていて、blog内に配置した画像を最適化してくれる。
 
 記事内の画像(Markdown内に配置した画像)は[gatsby-remark-images](https://www.gatsbyjs.org/packages/gatsby-remark-images/?=remark%20ima)によってレスポンシブに表示されるが、それ以外で最適化の恩恵を受けるにはgatsby-imageというプラグインを使う。GraphQL経由で画像を渡すが、このときに固定サイズ(Fixed)か動的に変化させる(Fluid)かを指定する([参照](https://www.gatsbyjs.org/docs/gatsby-image/#types-of-images-with-gatsby-image))。
@@ -76,14 +72,14 @@ Gatsbyには画像を最適化してくれる(デバイスサイズに合わせ�
 
 <br/>
 
-#### デプロイして確認すると一部のStyleが当たっていない
+### デプロイして確認すると一部のStyleが当たっていない
 これはGatsbyでstyled-componentsを使う場合の注意点っぽくて、[gatsby-plugin-styled-components](https://www.gatsbyjs.org/packages/gatsby-plugin-styled-components/)を導入しないとStyleの読み込み順がdevelop環境と異なる現象が起こるらしい？
 
 参考:[https://github.com/gatsbyjs/gatsby/issues/9911](https://github.com/gatsbyjs/gatsby/issues/9911)
 
 <br/>
 
-#### GitHub Pagesにデプロイしたタイミングで設定したドメインが上書きされる
+### GitHub Pagesにデプロイしたタイミングで設定したドメインが上書きされる
 
 ![GitHub Pagesの設定](4.jpg)
 

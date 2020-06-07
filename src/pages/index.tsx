@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import Bio from "@/components/molecules/bio"
 import Layout from "@/components/layout"
 import SEO from "@/utils/seo"
-import Links from "@/components/links"
 import styled from "styled-components"
 import ArticleCard from "@/components/molecules/articlecard"
 
@@ -31,7 +30,6 @@ const Index: React.FC<any> = ({ data, location }) => {
               )
             })}
           </section>
-          <Links />
         </Base>
         <Bio />
       </Layout>

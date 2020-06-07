@@ -108,6 +108,7 @@ const Label = styled.span`
 `
 
 const Title = styled.h2`
+  margin-bottom: 0.5rem;
   font-weight: 500;
   color: ${Color.text_black};
 `

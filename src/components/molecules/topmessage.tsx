@@ -21,7 +21,9 @@ const Text = styled(animated.div)`
   color: white;
   font-size: 3rem;
   font-weight: 500;
-  font-family: zilla slab;
+  font-family: mortise, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   letter-spacing: 0.5rem;
   will-change: transform, opacity;
   overflow: hidden;

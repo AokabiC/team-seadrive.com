@@ -15,46 +15,49 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
   const siteTitle = "Blog"
   const { previous, next } = pageContext
 
+  const trimFooterTitle = (str: string): string => {
+    return str.length > 18 ? `${str.slice(0, 17)}...` : str
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Title>{post.frontmatter.title}</Title>
-      <p>
-        <Label>
-          {post.frontmatter.date}
+      <Container>
+        <Title>{post.frontmatter.title}</Title>
+        <Subtitle>
+          <Label>{post.frontmatter.date}</Label>
           <Share title={post.frontmatter.title} />
-        </Label>
-      </p>
-      {renderAst(post.htmlAst)}
-      <Hr />
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-          margin: 0,
-        }}
-      >
-        <li>
-          {previous && (
-            <Anchor.In to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
+        </Subtitle>
+        <section>{renderAst(post.htmlAst)}</section>
+        <Share />
+        <Hr />
+        <Footer>
+          <div>
+            {previous && (
+              <Anchor.In to={previous.fields.slug} rel="prev">
+                <p>←</p>
+                {trimFooterTitle(previous.frontmatter.title)}
+              </Anchor.In>
+            )}
+          </div>
+          <div>
+            <Anchor.In to="/blog/" rel="prev">
+              記事一覧
             </Anchor.In>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Anchor.In to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Anchor.In>
-          )}
-        </li>
-      </ul>
+          </div>
+          <div>
+            {next && (
+              <Anchor.In to={next.fields.slug} rel="next">
+                <p>→</p>
+                {trimFooterTitle(next.frontmatter.title)}
+              </Anchor.In>
+            )}
+          </div>
+        </Footer>
+      </Container>
     </Layout>
   )
 }
@@ -83,51 +86,106 @@ export const pageQuery = graphql`
   }
 `
 
+const Container = styled.article`
+  width: 100%;
+  padding: 40px;
+  padding-bottom: 2rem;
+  background: white;
+  border-radius: 0.4rem;
+
+  @media (max-width: 860px) {
+    padding-left: 5px;
+    padding-right: 5px;
+    background: inherit;
+  }
+`
+
 const Label = styled.span`
   border-radius: 5rem;
   padding: 0.1rem 0.4rem;
-  margin-right: 0.4rem;
+  margin-right: 1rem;
   background: ${Color.base_light};
 `
 
 const Title = styled.h2`
-  /* margin-bottom: .5rem; */
   font-weight: 500;
   color: ${Color.text_black};
 `
 
-const Paragraph = styled.p`
-  text-indent: 0em;
-  margin-bottom: 1.5rem;
-  color: black;
+const Subtitle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 `
 
 const Hr = styled.hr`
-  background-color: #fff;
   border-top: 1px dashed #8c8b8b;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`
+
+const Footer = styled.div`
+  display: flex;
+
+  div {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    &:nth-child(2) {
+      text-align: center;
+      border-left: 1px dashed #8c8b8b;
+      border-right: 1px dashed #8c8b8b;
+    }
+    &:nth-child(3) {
+      text-align: right;
+    }
+  }
+`
+
+// markdown
+
+const Paragraph = styled.p`
+  text-indent: 0em;
+  margin-bottom: 1.5rem;
 `
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
+  thead {
+    background-color: gray;
+    color: white;
+    padding: 0.5rem;
+  }
+  tr {
+    text-align: center;
+    padding: 0.5rem;
+    border: solid 1px #8c8b8b;
+  }
+  td {
+    border: solid 1px #8c8b8b;
+  }
 `
 
-const THead = styled.thead`
-  background-color: lightslategray;
-  color: white;
-  padding: 0.5rem;
-`
-
-const Tr = styled.tr`
-  text-align: center;
-  padding: 0.5rem;
-  border: solid 1px white;
-`
-
-const Td = styled.td`
-  border: solid 1px white;
+const List = styled.ul`
+  list-style-type: none;
+  margin-left: 1em;
+  margin-bottom: 1rem;
+  ul {
+    margin-bottom: 0;
+  }
+  li {
+    &::before {
+      content: "- ";
+      margin-left: -1em;
+    }
+    p {
+      margin: 0;
+      /* pタグが挿入されるバグ? */
+      margin-top: -1.7rem;
+    }
+  }
 `
 
 const Img = styled.img`
@@ -146,11 +204,8 @@ const renderAst = new RehypeReact({
     h4: Heading.H4,
     p: Paragraph,
     a: Anchor.Ext,
-    hr: Hr,
     table: Table,
-    thead: THead,
-    tr: Tr,
-    td: Td,
+    ul: List,
     img: Img,
   },
 }).Compiler

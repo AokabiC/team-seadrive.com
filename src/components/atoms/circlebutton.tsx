@@ -4,7 +4,6 @@ import { useSpring, animated } from "react-spring"
 import Anchor from "./anchor"
 
 const SVGWrapper = styled.svg`
-  left: 0;
   width: 3rem;
   height: 3rem;
   transform: rotate(90deg);
@@ -17,8 +16,8 @@ const Ring = styled(animated.circle)`
 
 const ChildWrapper = styled.div`
   position: absolute;
-  left: 0.755em;
-  top: 0.6em;
+  left: 0.9rem;
+  top: 0.5rem;
   font-size: 1.2rem;
 `
 
@@ -69,7 +68,7 @@ export const CircleButtonMobile: React.FC<any> = ({ to, children }) => (
     <Container>
       <ChildWrapper>{children}</ChildWrapper>
       <SVGWrapper>
-        <Ring cx="1.5rem" cy="1.5rem" r="1.2rem" strokeDashoffset={75} />
+        <Ring cx="1.2rem" cy="1.2em" r="1.2rem" strokeDashoffset={75} />
       </SVGWrapper>
     </Container>
   </Anchor.Ext>

@@ -11,7 +11,7 @@ description: 11/16-17に横浜で開催されたICPCアジア地区横浜大会2
 なんかコンテスト感があまりない。準備も10分くらいで済ませて新幹線に乗車。例によってゆきのんが1分前に乗車する。  
 会場は去年と同じだったので、特に迷わず行けた。
 
-#### 開会式とpractice session
+### 開会式とpractice session
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">なぜAobayama_dropoutのチーム紹介文が空欄なのかというと、誰もsubmitしなかったからなんですねぇ〜〜〜〜(は?)</p>&mdash; 碧黴(あおかび)🦇4日目西O42a (@AokabiC) <a href="https://twitter.com/AokabiC/status/1195565973513728001?ref_src=twsrc%5Etfw">November 16, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -22,11 +22,11 @@ Cは言われてみれば二重階乗が組み合わせの総数になるみた�
 
 practiceで全完してお菓子エリアから他チームを眺めるのは気持ちがいいゾイ！
 
-#### 夜
+### 夜
 ABCのため特に中華街とかにも行かずホテルへ。Fを通したかった。
 
 ## 2日目
-#### コンテスト
+### コンテスト
 突然開始が5分早まってめちゃくちゃテンパる。
 
 今年はA, Bが難易度順らしい。Aを読む。だるそう……。  
@@ -50,14 +50,14 @@ Iはチームで出ていた方針としては二重辺連結成分分解->橋�
 
 5完16位。5完内では2位だったのでもう1完はしたかった(異常実装難易度セット感はあったけど)
 
-#### 懇親会
+### 懇親会
 
 企業賞が降ってきてめちゃくちゃ喜ぶ。
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ICPC Asia Yokohama Regional 16位でした。企業賞(LegalForce様)最高〜〜〜〜✌️✌️✌️ <a href="https://t.co/2QQbhFO3Ru">pic.twitter.com/2QQbhFO3Ru</a></p>&mdash; 碧黴(あおかび)🦇4日目西O42a (@AokabiC) <a href="https://twitter.com/AokabiC/status/1196075294651609088?ref_src=twsrc%5Etfw">November 17, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ICPCは初めて見る人も多いので懇親を深めたかったが、Googleのギャグ問題に爆散される。まあ話したことない強い人と一緒に考察できたりしたからそれはそれでよかったか。
 
-#### その後
+### その後
 ゲーセン組はあまりいなかった。みくにゃん&りあんさんとIIDXやjubeatをやったり、こたつがめが頓珍漢の宴AJ粘着しているのを眺めていた。
 
 えっ、企業見学で水族館に行くんですか？ぼくは大学に行きます……。

@@ -4,7 +4,7 @@ tags: ["技術メモ", "GatsbyJS"]
 date: "2019-09-27T22:20:32.170Z"
 description: モダンな静的サイトジェネレータでブログを作ったので、その記録です。
 redirect_from:
-    - /001/
+	- /001/
 ---
 
 碧黴(あおかび)です。
@@ -28,16 +28,12 @@ CSSフレームワーク([Spectre.css](https://picturepan2.github.io/spectre/get
 
 結果的に、見つかったのは以下のあたり。
 
-+ VuePress
-
++ VuePress  
 + Gridsome
-
-    - これらはVue製のジェネレータ。
-
+  * これらはVue製のジェネレータ。
 + GatsbyJS
-
-    - React製のジェネレータ。
-
+  * React製のジェネレータ。
+  
 Githubのスター数、プラグインやスターター、Docsの充実っぷりもそうだが、公式サイトのレスポンスの良さに惹かれたのでGatsbyJSを採用した。超速い。
 Reactを触るいい機会にもなりそう、という魂胆もある。
 

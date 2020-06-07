@@ -106,7 +106,7 @@ const GridWrapper = styled.div`
   display: grid;
   grid-template-columns:
     minmax(120px, 160px)
-    minmax(600px, 800px)
+    minmax(600px, 900px)
     120px;
   grid-template-rows:
     120px
@@ -122,7 +122,7 @@ const GridWrapper = styled.div`
     /* NarrowDesktop */
     grid-template-columns:
       120px
-      minmax(600px, 1000px)
+      minmax(600px, 900px)
       0px;
     grid-column-gap: 30px;
   }

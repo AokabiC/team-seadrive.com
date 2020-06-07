@@ -19,7 +19,6 @@ const Base = styled(animated.div)`
 
 const Title = styled.h3`
   margin-bottom: 0.5rem;
-  font-weight: 500;
   color: ${Color.text_black};
 `
 

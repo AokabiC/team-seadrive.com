@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled, { createGlobalStyle } from "styled-components"
@@ -151,7 +151,6 @@ const Container = styled.div<{ marginTop: boolean }>`
 
 const LocationName = styled.h3`
   text-align: center;
-  font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.4rem;
   font-family: mortise, sans-serif;

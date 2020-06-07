@@ -20,7 +20,6 @@ const Text = styled(animated.div)`
   line-height: 80px;
   color: white;
   font-size: 3rem;
-  font-weight: 500;
   font-family: mortise, sans-serif;
   font-weight: 400;
   font-style: normal;

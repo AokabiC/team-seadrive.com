@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Color from "../../utils/color"
 
 const BaseHeader = styled.span`
-    font-weight: 500;
+    font-weight: 300;
     color: ${Color.text_black};
     margin-top: 3rem;
     margin-bottom: 1.5rem;

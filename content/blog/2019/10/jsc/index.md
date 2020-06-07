@@ -21,7 +21,7 @@ Dのほうが簡単だったような気がしたが、5分くらい足りなか
 
 ![スクリーン](screen.jpg)
 
-#### コンテスト
+### コンテスト
 3時間コンテスト。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">……このコンテスト大丈夫？？？（コンテスト開始1時間が経過しました） <a href="https://twitter.com/hashtag/JSC2019?src=hash&amp;ref_src=twsrc%5Etfw">#JSC2019</a> <a href="https://t.co/FwAjSa0E2L">pic.twitter.com/FwAjSa0E2L</a></p>&mdash; chokudai(高橋 直大)🍆🍡 (@chokudai) <a href="https://twitter.com/chokudai/status/1178170594010882054?ref_src=twsrc%5Etfw">September 29, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -32,7 +32,7 @@ Dのほうが簡単だったような気がしたが、5分くらい足りなか
 
 なにこれ?
 
-#### 真面目に反省
+### 真面目に反省
 Aは制約がかなり特殊で、鳩ノ巣原理を使えば途中で探索が打ち切られて間に合うタイプの問題。値の範囲の制約が小さいことに気づいていたのに愚直投げなかったのには反省。  
 や、実はFFTでも間に合うんですが……
 
@@ -58,7 +58,7 @@ Bは書かれていることやって矛盾判定。残りの問題は正直歯�
 
 これめちゃくちゃおもしろかった。社会性。
 
-#### その後
+### その後
 いつもの。
 
 ![SDVX](sdvx.JPG)

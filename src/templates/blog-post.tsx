@@ -130,15 +130,31 @@ const Footer = styled.div`
 
   div {
     flex: 1;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
     &:nth-child(2) {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border-left: 1px dashed #8c8b8b;
       border-right: 1px dashed #8c8b8b;
     }
     &:nth-child(3) {
       text-align: right;
+    }
+  }
+
+  @media (max-width: 860px) {
+    flex-direction: column;
+
+    div {
+      &:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+        border-top: 1px dashed #8c8b8b;
+        border-bottom: 1px dashed #8c8b8b;
+      }
     }
   }
 `

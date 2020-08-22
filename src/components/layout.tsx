@@ -163,8 +163,12 @@ const backgroundQuery = graphql`
   query {
     backgroundImage: file(absolutePath: { regex: "/img_bg.jpeg/" }) {
       childImageSharp {
-        fluid(quality: 100, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+        fluid(
+          quality: 100
+          maxWidth: 1920
+          traceSVG: { color: "#ffdede", threshold: 172 }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
@@ -172,15 +176,23 @@ const backgroundQuery = graphql`
       absolutePath: { regex: "/bg_narrowdesktop.jpeg/" }
     ) {
       childImageSharp {
-        fluid(quality: 100, maxWidth: 1400) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+        fluid(
+          quality: 100
+          maxWidth: 1400
+          traceSVG: { color: "#ffdede", threshold: 172 }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     backgroundImageMobile: file(absolutePath: { regex: "/bg_mobile.jpeg/" }) {
       childImageSharp {
-        fluid(quality: 100, maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+        fluid(
+          quality: 100
+          maxWidth: 800
+          traceSVG: { color: "#ffdede", threshold: 172 }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 
 const useIntersect = (
   target: React.RefObject<Element>,
-  threshold?: number,
+  option?: IntersectionObserverInit,
   once?: boolean,
   defaultIntersect?: boolean
 ) => {
@@ -14,7 +14,6 @@ const useIntersect = (
       return
     }
 
-    const options = { threshold }
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         setIntersect(entry.isIntersecting)
@@ -22,7 +21,7 @@ const useIntersect = (
           observer.unobserve(target.current)
         }
       })
-    }, options)
+    }, option)
     observer.observe(target.current)
 
     return () => {

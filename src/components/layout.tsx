@@ -13,7 +13,7 @@ import useIntersect from "@/utils/useintersect"
 const Layout: React.FC<any> = ({ title, children }) => {
   const target = React.useRef(null)
   const isIndex = title == "index"
-  const isIntersect = useIntersect(target, 0.05, false, !isIndex)
+  const isIntersect = useIntersect(target, { threshold: 0.05 }, false, !isIndex)
   const spring = useSpring({ opacity: isIntersect ? 0.1 : 1 })
   const data = useStaticQuery(backgroundQuery)
 

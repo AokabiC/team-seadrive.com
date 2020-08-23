@@ -22,14 +22,16 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
 
   useEffect(() => {
     if (intersect) {
-      setPageNumber(prevPage => prevPage + 1)
-      setEntities(prevEntities => [
-        ...prevEntities,
-        ...posts.slice(
-          (pageNumber - 1) * postsPerLoad,
-          pageNumber * postsPerLoad
-        ),
-      ])
+      setPageNumber(prevPage => {
+        setEntities(prevEntities => [
+          ...prevEntities,
+          ...posts.slice(
+            pageNumber * postsPerLoad,
+            (pageNumber + 1) * postsPerLoad
+          ),
+        ])
+        return prevPage + 1
+      })
     }
   }, [intersect])
 
@@ -47,7 +49,7 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
             />
           )
         })}
-        <Loader ref={target} />
+        {entities.length < posts.length && <Loader ref={target} />}
       </section>
       <Bio />
     </Layout>

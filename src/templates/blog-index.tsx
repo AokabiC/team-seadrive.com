@@ -13,7 +13,7 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"
   const posts = data.allMarkdownRemark.edges
   const [pageNumber, setPageNumber] = useState(1)
-  const postsPerLoad = 5
+  const postsPerLoad = 10
   const [entities, setEntities] = useState([
     ...posts.slice((pageNumber - 1) * postsPerLoad, pageNumber * postsPerLoad),
   ])

@@ -45,7 +45,7 @@ const Footer = styled.div``
 
 const Card: React.FC<any> = ({ title, label, subtitle, to, children }) => {
   const target = React.useRef(null)
-  const intersect = useIntersect(target, 0.2, true)
+  const intersect = useIntersect(target, { threshold: 0.2 }, true)
   const spring = useSpring({
     opacity: intersect ? 1 : 0,
     transform: intersect ? "0" : "translateY(60px)",

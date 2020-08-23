@@ -18,7 +18,10 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
     ...posts.slice((pageNumber - 1) * postsPerLoad, pageNumber * postsPerLoad),
   ])
   const target = useRef(null)
-  const intersect = useIntersect(target, 0.1)
+  const intersect = useIntersect(target, {
+    threshold: 0.1,
+    rootMargin: "0px 0px 50% 0px",
+  })
 
   useEffect(() => {
     if (intersect) {

@@ -16,7 +16,7 @@ interface Props {
   }
 }
 
-const ArticleCard: React.FC<Props> = ({ slug, frontmatter }) => {
+const ArticleCard = React.memo(({ slug, frontmatter }: Props) => {
   const target = React.useRef(null)
   const intersect = useIntersect(target, 0.2, true)
   const spring = useSpring({
@@ -43,7 +43,7 @@ const ArticleCard: React.FC<Props> = ({ slug, frontmatter }) => {
       </Footer>
     </Base>
   )
-}
+})
 
 export default ArticleCard
 

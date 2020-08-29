@@ -29,23 +29,6 @@ export const Share: React.FC<any> = ({ title }) => {
           data-show-count="false"
         ></a>
       </li>
-      <li>
-        <a
-          href="https://b.hatena.ne.jp/entry/"
-          className="hatena-bookmark-button"
-          data-hatena-bookmark-layout="basic-label"
-          data-hatena-bookmark-lang="en"
-          title="このエントリーをはてなブックマークに追加"
-        >
-          <img
-            src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-            alt="このエントリーをはてなブックマークに追加"
-            width="20"
-            height="20"
-            style={{ border: "none" }}
-          />
-        </a>
-      </li>
     </Container>
   )
 }

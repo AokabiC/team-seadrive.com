@@ -8,12 +8,6 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
       charSet="utf-8"
     />,
     <script
-      type="text/javascript"
-      src="https://b.st-hatena.com/js/bookmark_button.js"
-      charSet="utf-8"
-      async="async"
-    ></script>,
-    <script
       dangerouslySetInnerHTML={{
         __html: `
         (function(d) {

@@ -1,17 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-
-const Container = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  list-style: none;
-
-  li {
-    height: 20px;
-    padding-right: 0.5rem;
-  }
-`
+import { faShareAlt } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Color from "@/utils/color"
 
 export const Share: React.FC<any> = ({ title }) => (
   <Container>
@@ -41,5 +32,40 @@ export const Share: React.FC<any> = ({ title }) => (
         />
       </a>
     </li>
+    {navigator.share && (
+      <li>
+        <ShareButton
+          onClick={() => {
+            navigator.share({ text: title + " | ", url: location.href })
+          }}
+        >
+          <FontAwesomeIcon icon={faShareAlt} />
+        </ShareButton>
+      </li>
+    )}
   </Container>
 )
+
+const Container = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+
+  li {
+    height: 20px;
+    padding-right: 0.4rem;
+  }
+`
+
+const ShareButton = styled.div`
+  background: ${Color.primary_dark};
+  padding: 0 0.3rem;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: white;
+  &:after {
+    content: "Share";
+    padding-left: 0.2rem;
+  }
+`

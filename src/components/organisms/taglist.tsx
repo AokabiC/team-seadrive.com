@@ -1,10 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import { graphql, useStaticQuery, navigate } from "gatsby"
 import color from "@/utils/color"
-import { useLocation } from "@reach/router"
-import queryString from "query-string"
 
 const Tag = styled.div<{ toggle: boolean }>`
   border-radius: 0.2rem;
@@ -14,38 +12,29 @@ const Tag = styled.div<{ toggle: boolean }>`
   color: ${color.primary_dark};
 `
 
-const TagList: React.FC<any> = () => {
+const TagList: React.FC<any> = ({ selectedTags }) => {
   const data = useStaticQuery(TagQuery)
   const tags = data.allMarkdownRemark.group
-  const location = useLocation()
-  const query = location.search ? queryString.parse(location.search) : null
-  const selectedTags =
-    query != null && typeof query.q === "string" ? query.q.split(" ") : []
-  const [toggle, setToggle] = useState(
-    new Map<string, boolean>(selectedTags.map(tag => [tag, true]))
-  )
+  console.log(selectedTags)
 
   return (
     <Container>
       {tags.map((tag: any) => (
         <li key={tag.fieldValue}>
           <Tag
-            toggle={
-              toggle.get(tag.fieldValue) ? toggle.get(tag.fieldValue)! : false
-            }
+            toggle={selectedTags.includes(tag.fieldValue)}
             onClick={() => {
-              setToggle(prev => {
-                prev.set(tag.fieldValue, !toggle.get(tag.fieldValue))
-                const selectedTags = [...toggle.keys()]
-                  .filter(key => {
-                    return toggle.get(key)
-                  })
-                  .join("+")
-                const url =
-                  "/blog/" + (selectedTags ? `?q=${selectedTags}` : "")
-                navigate(url)
-                return prev
-              })
+              const nextSelectedTags = selectedTags.filter(
+                selectedTag => selectedTag != tag.fieldValue
+              )
+              if (!selectedTags.includes(tag.fieldValue))
+                nextSelectedTags.push(tag.fieldValue)
+              const url =
+                "/blog/" +
+                (nextSelectedTags.length > 0
+                  ? `?q=${nextSelectedTags.join("+")}`
+                  : "")
+              navigate(url)
             }}
           >
             {`#${tag.fieldValue}`}

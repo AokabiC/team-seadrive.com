@@ -60,7 +60,7 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <section>
-        <TagList />
+        <TagList selectedTags={state.selectedTags} />
         {state.filteredPosts
           .slice(0, state.renderedPostsLength)
           .map(({ node }, index) => {

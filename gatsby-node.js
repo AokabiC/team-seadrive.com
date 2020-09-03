@@ -67,16 +67,7 @@ exports.createPages = ({ graphql, actions }) => {
       const edgeTags = edge.node.frontmatter.tags
       return edgeTags ? tags.concat(edge.node.frontmatter.tags) : tags
     }, []))
-    // tagごとの一覧ページを作成
-    tags.forEach(tag => {
-      createPage({
-        path: `/tags/${tag}/`,
-        component: blogIndex,
-        context: {
-          tag: [tag],
-        },
-      })
-    })
+
     createPage({
         path: `/blog/`,
         component: blogIndex,

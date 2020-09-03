@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
-import { graphql, useStaticQuery } from "gatsby"
-import Anchor from "../atoms/anchor"
+import { graphql, useStaticQuery, navigate } from "gatsby"
 import color from "@/utils/color"
+import { useLocation } from "@reach/router"
+import queryString from "query-string"
 
-const Tag = styled(Anchor.In)<{ toggle: boolean }>`
+const Tag = styled.div<{ toggle: boolean }>`
   border-radius: 0.2rem;
   padding: 0 0.2rem;
   background: ${props =>
@@ -16,7 +17,13 @@ const Tag = styled(Anchor.In)<{ toggle: boolean }>`
 const TagList: React.FC<any> = () => {
   const data = useStaticQuery(TagQuery)
   const tags = data.allMarkdownRemark.group
-  const [toggle, setToggle] = useState(new Map<string, boolean>())
+  const location = useLocation()
+  const query = location.search ? queryString.parse(location.search) : null
+  const selectedTags =
+    query != null && typeof query.q === "string" ? query.q.split(" ") : []
+  const [toggle, setToggle] = useState(
+    new Map<string, boolean>(selectedTags.map(tag => [tag, true]))
+  )
 
   return (
     <Container>
@@ -27,9 +34,19 @@ const TagList: React.FC<any> = () => {
               toggle.get(tag.fieldValue) ? toggle.get(tag.fieldValue)! : false
             }
             onClick={() => {
-              setToggle(toggle.set(tag.fieldValue, !toggle.get(tag.fieldValue)))
+              setToggle(prev => {
+                prev.set(tag.fieldValue, !toggle.get(tag.fieldValue))
+                const selectedTags = [...toggle.keys()]
+                  .filter(key => {
+                    return toggle.get(key)
+                  })
+                  .join("+")
+                const url =
+                  "/blog/" + (selectedTags ? `?q=${selectedTags}` : "")
+                navigate(url)
+                return prev
+              })
             }}
-            to={"/blog/"}
           >
             {`#${tag.fieldValue}`}
           </Tag>

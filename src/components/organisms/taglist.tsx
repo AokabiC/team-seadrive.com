@@ -15,7 +15,6 @@ const Tag = styled.div<{ toggle: boolean }>`
 const TagList: React.FC<any> = ({ selectedTags }) => {
   const data = useStaticQuery(TagQuery)
   const tags = data.allMarkdownRemark.group
-  console.log(selectedTags)
 
   return (
     <Container>

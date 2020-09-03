@@ -8,15 +8,37 @@ import ArticleCard from "@/components/molecules/articlecard"
 import TagList from "@/components/organisms/taglist"
 import useIntersect from "@/utils/useintersect"
 import { Loader } from "@/components/atoms/loader"
+import { useLocation } from "@reach/router"
+import queryString from "query-string"
 
 const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
   const siteTitle = "Blog"
   const posts = data.allMarkdownRemark.edges
-  const [pageNumber, setPageNumber] = useState(1)
+  const loc = useLocation()
   const postsPerLoad = 10
-  const [entities, setEntities] = useState([
-    ...posts.slice((pageNumber - 1) * postsPerLoad, pageNumber * postsPerLoad),
-  ])
+  const [state, setState] = useState({
+    filteredPosts: [...posts],
+    renderedPostsLength: 10,
+    selectedTags: [""],
+  })
+
+  useEffect(() => {
+    const query = queryString.parse(loc.search)
+    const selectedTags =
+      query != null && typeof query.q === "string" ? query.q.split(" ") : []
+    setState({
+      filteredPosts: [
+        ...posts.filter(
+          post =>
+            selectedTags.length == 0 ||
+            selectedTags.every(tag => post.node.frontmatter.tags.includes(tag))
+        ),
+      ],
+      renderedPostsLength: 10,
+      selectedTags,
+    })
+  }, [loc])
+
   const target = useRef(null)
   const intersect = useIntersect(target, {
     threshold: 0.1,
@@ -25,15 +47,11 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
 
   useEffect(() => {
     if (intersect) {
-      setPageNumber(prevPage => {
-        setEntities(prevEntities => [
-          ...prevEntities,
-          ...posts.slice(
-            pageNumber * postsPerLoad,
-            (pageNumber + 1) * postsPerLoad
-          ),
-        ])
-        return prevPage + 1
+      setState(prev => {
+        return {
+          ...prev,
+          renderedPostsLength: prev.renderedPostsLength + postsPerLoad,
+        }
       })
     }
   }, [intersect])
@@ -43,16 +61,18 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
       <SEO title="Blog" />
       <section>
         <TagList />
-        {entities.map(({ node }, index) => {
-          return (
-            <ArticleCard
-              key={index}
-              slug={node.fields.slug}
-              frontmatter={node.frontmatter}
-            />
-          )
-        })}
-        {entities.length < posts.length && <Loader ref={target} />}
+        {state.filteredPosts
+          .slice(0, state.renderedPostsLength)
+          .map(({ node }, index) => {
+            return (
+              <ArticleCard
+                key={index}
+                slug={node.fields.slug}
+                frontmatter={node.frontmatter}
+              />
+            )
+          })}
+        {state.renderedPostsLength < posts.length && <Loader ref={target} />}
       </section>
       <Bio />
     </Layout>

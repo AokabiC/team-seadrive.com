@@ -1,6 +1,6 @@
 ---
 title: GatsbyJS + Github Pages でブログを作った
-tags: ["技術メモ", "GatsbyJS"]
+tags: ["技術メモ", "React", "GatsbyJS"]
 date: "2019-09-27T22:20:32.170Z"
 description: モダンな静的サイトジェネレータでブログを作ったので、その記録です。
 redirect_from:

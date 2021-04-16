@@ -1,12 +1,9 @@
-import React from "react"
-import {
-  CircleButton,
-  CircleButtonMobile,
-} from "@/components/atoms/circlebutton"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons"
-import { faPaintBrush } from "@fortawesome/free-solid-svg-icons"
-import styled from "styled-components"
+import React from "react";
+import { CircleButton, CircleButtonMobile } from "src_old/atoms/circlebutton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faPaintBrush } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
 
 const Container = styled.nav`
   display: flex;
@@ -15,7 +12,7 @@ const Container = styled.nav`
   justify-content: space-between;
   width: 60px;
   height: 20vh;
-`
+`;
 
 const items = [
   {
@@ -33,7 +30,7 @@ const items = [
     link: "https://github.com/AokabiC",
     icon: faGithub,
   },
-]
+];
 
 export const LinkIconList: React.FC<any> = ({ toggle }) => {
   return (
@@ -44,14 +41,14 @@ export const LinkIconList: React.FC<any> = ({ toggle }) => {
         </CircleButton>
       ))}
     </Container>
-  )
-}
+  );
+};
 
 const ContainerMobile = styled(Container)`
   flex-direction: row;
   width: 60%;
   height: auto;
-`
+`;
 
 export const LinkIconListMobile: React.FC<any> = ({ toggle }) => {
   return (
@@ -62,5 +59,5 @@ export const LinkIconListMobile: React.FC<any> = ({ toggle }) => {
         </CircleButtonMobile>
       ))}
     </ContainerMobile>
-  )
-}
+  );
+};

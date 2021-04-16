@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { TopMessageDesktop, TopMessageMobile } from "../molecules/topmessage"
-import Divider from "../atoms/divider"
+import React from "react";
+import styled from "styled-components";
+import { TopMessageDesktop, TopMessageMobile } from "../molecules/topmessage";
+import Divider from "../atoms/divider";
 
 export const Hero: React.FC = () => (
   <Container>
@@ -13,7 +13,7 @@ export const Hero: React.FC = () => (
       <Divider />
     </Flex>
   </Container>
-)
+);
 
 const Container = styled.div`
   grid-row: 1/4;
@@ -21,9 +21,8 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-flow: column;
-`
+`;
 
 const Flex = styled.div<{ flex: number }>`
-  flex: ${props => props.flex};
-`
-
+  flex: ${(props) => props.flex};
+`;

@@ -1,5 +1,5 @@
-import Color from "@/utils/color"
-import styled, { keyframes } from "styled-components"
+import Color from "src_old/utils/color";
+import styled, { keyframes } from "styled-components";
 
 const drop = keyframes`
  0% {
@@ -18,7 +18,7 @@ const drop = keyframes`
     box-shadow: 0 2.5rem 0 0;
     opacity: 0;
   }
-`
+`;
 
 export const Loader = styled.div`
   color: ${Color.primary_dark};
@@ -53,4 +53,4 @@ export const Loader = styled.div`
     left: 1rem;
     animation-delay: 0.2s;
   }
-`
+`;

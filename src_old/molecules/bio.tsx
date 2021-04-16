@@ -1,8 +1,8 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import styled from "styled-components"
-import Anchor from "@/components/atoms/anchor"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
+import styled from "styled-components";
+import Anchor from "src_old/atoms/anchor";
 
 const Bio: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -23,8 +23,8 @@ const Bio: React.FC = () => {
         }
       }
     }
-  `)
-  const { author, social } = data.site.siteMetadata
+  `);
+  const { author, social } = data.site.siteMetadata;
 
   return (
     <Base>
@@ -38,8 +38,8 @@ const Bio: React.FC = () => {
         <p>Illustrator, Competitive programmer</p>
       </div>
     </Base>
-  )
-}
+  );
+};
 
 const Base = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const Base = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2rem;
-`
+`;
 
 const BioImage = styled(Image)`
   margin-bottom: 0;
@@ -55,6 +55,6 @@ const BioImage = styled(Image)`
   max-width: 80px;
   border-radius: 50%;
   flex-grow: 1;
-`
+`;
 
-export default Bio
+export default Bio;

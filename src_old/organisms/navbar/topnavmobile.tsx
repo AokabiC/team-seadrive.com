@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { LogoImage } from "@/components/atoms/logo"
-import BurgerMenu from "./burgermenu"
+import React from "react";
+import styled from "styled-components";
+import { LogoImage } from "src_old/atoms/logo";
+import BurgerMenu from "./burgermenu";
 
 const Base = styled.header`
   position: sticky;
@@ -25,7 +25,7 @@ const Base = styled.header`
   @media (max-width: 860px) {
     display: flex;
   }
-`
+`;
 
 export const TopNavMobile = () => {
   return (
@@ -33,5 +33,5 @@ export const TopNavMobile = () => {
       <LogoImage mobile />
       <BurgerMenu />
     </Base>
-  )
-}
+  );
+};

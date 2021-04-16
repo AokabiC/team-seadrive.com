@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { LogoImage } from "@/components/atoms/logo"
-import { useSpring, useTrail, animated } from "react-spring"
-import { Link } from "gatsby"
-import { LinkIconList } from "@/components/molecules/linkiconlist"
+import React from "react";
+import styled from "styled-components";
+import { LogoImage } from "src_old/atoms/logo";
+import { useSpring, useTrail, animated } from "react-spring";
+import { Link } from "gatsby";
+import { LinkIconList } from "src_old/molecules/linkiconlist";
 
 const Base = styled.header`
   grid-area: leftnav;
@@ -20,45 +20,45 @@ const Base = styled.header`
   @media (max-width: 860px) {
     display: none;
   }
-`
+`;
 
 const NavLinkList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-`
+`;
 
 const NavLinkWrapper = styled.div`
   display: flex; /* スライドインアニメーションに必要 */
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 2rem;
-`
+`;
 
-const ALink = animated(Link)
+const ALink = animated(Link);
 const NavLink = styled(ALink)`
   text-decoration: none;
   font-size: 1.2rem;
   font-family: mortise, sans-serif;
   font-weight: 400;
   font-style: normal;
-`
+`;
 
 const items = [
   { to: "/about/", text: "About" },
   { to: "/blog/", text: "Blog" },
   { to: "/works/", text: "Works" },
-]
+];
 
 export const LeftNav = ({ toggle }: any) => {
   const spring = useSpring({
     color: toggle ? "black" : "white",
-  })
+  });
 
   const trail = useTrail(items.length, {
     x: toggle ? 0 : 20,
     opacity: toggle ? 1 : 0,
-  })
+  });
 
   return (
     <Base>
@@ -71,7 +71,7 @@ export const LeftNav = ({ toggle }: any) => {
               style={{
                 ...spring,
                 ...rest,
-                transform: x.to(x => `translateX(${x}px)`),
+                transform: x.to((x) => `translateX(${x}px)`),
               }}
               key={index}
             >
@@ -82,5 +82,5 @@ export const LeftNav = ({ toggle }: any) => {
       </NavLinkList>
       <LinkIconList toggle={toggle} />
     </Base>
-  )
-}
+  );
+};

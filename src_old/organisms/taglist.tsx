@@ -1,20 +1,20 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 
-import { graphql, useStaticQuery, navigate } from "gatsby"
-import color from "@/utils/color"
+import { graphql, useStaticQuery, navigate } from "gatsby";
+import color from "src_old/utils/color";
 
 const Tag = styled.div<{ toggle: boolean }>`
   border-radius: 0.2rem;
   padding: 0 0.2rem;
-  background: ${props =>
+  background: ${(props) =>
     props.toggle ? "rgba(0,0,200,0.2)" : "rgba(0,0,0,0)"};
   color: ${color.primary_dark};
-`
+`;
 
 const TagList: React.FC<any> = ({ selectedTags }) => {
-  const data = useStaticQuery(TagQuery)
-  const tags = data.allMarkdownRemark.group
+  const data = useStaticQuery(TagQuery);
+  const tags = data.allMarkdownRemark.group;
 
   return (
     <Container>
@@ -24,16 +24,16 @@ const TagList: React.FC<any> = ({ selectedTags }) => {
             toggle={selectedTags.includes(tag.fieldValue)}
             onClick={() => {
               const nextSelectedTags = selectedTags.filter(
-                selectedTag => selectedTag != tag.fieldValue
-              )
+                (selectedTag) => selectedTag != tag.fieldValue
+              );
               if (!selectedTags.includes(tag.fieldValue))
-                nextSelectedTags.push(tag.fieldValue)
+                nextSelectedTags.push(tag.fieldValue);
               const url =
                 "/blog/" +
                 (nextSelectedTags.length > 0
                   ? `?q=${nextSelectedTags.join("+")}`
-                  : "")
-              navigate(url)
+                  : "");
+              navigate(url);
             }}
           >
             {`#${tag.fieldValue}`}
@@ -41,8 +41,8 @@ const TagList: React.FC<any> = ({ selectedTags }) => {
         </li>
       ))}
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.ul`
   list-style-type: none;
@@ -52,9 +52,9 @@ const Container = styled.ul`
   li {
     margin-right: 0.5rem;
   }
-`
+`;
 
-export default TagList
+export default TagList;
 
 const TagQuery = graphql`
   query {
@@ -70,4 +70,4 @@ const TagQuery = graphql`
       }
     }
   }
-`
+`;

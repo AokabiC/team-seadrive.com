@@ -1,60 +1,62 @@
-import React, { useState, useEffect, useRef } from "react"
-import { graphql } from "gatsby"
+import React, { useState, useEffect, useRef } from "react";
+import { graphql } from "gatsby";
 
-import Bio from "@/components/molecules/bio"
-import Layout from "@/components/layout"
-import SEO from "@/utils/seo"
-import ArticleCard from "@/components/molecules/articlecard"
-import TagList from "@/components/organisms/taglist"
-import useIntersect from "@/utils/useintersect"
-import { Loader } from "@/components/atoms/loader"
-import { useLocation } from "@reach/router"
-import queryString from "query-string"
+import Bio from "src_old/molecules/bio";
+import Layout from "src_old/layout";
+import SEO from "src_old/utils/seo";
+import ArticleCard from "src_old/molecules/articlecard";
+import TagList from "src_old/organisms/taglist";
+import useIntersect from "src_old/utils/useintersect";
+import { Loader } from "src_old/atoms/loader";
+import { useLocation } from "@reach/router";
+import queryString from "query-string";
 
 const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
-  const siteTitle = "Blog"
-  const posts = data.allMarkdownRemark.edges
-  const loc = useLocation()
-  const postsPerLoad = 10
+  const siteTitle = "Blog";
+  const posts = data.allMarkdownRemark.edges;
+  const loc = useLocation();
+  const postsPerLoad = 10;
   const [state, setState] = useState({
     filteredPosts: [...posts],
     renderedPostsLength: 10,
     selectedTags: [""],
-  })
+  });
 
   useEffect(() => {
-    const query = queryString.parse(loc.search)
+    const query = queryString.parse(loc.search);
     const selectedTags =
-      query != null && typeof query.q === "string" ? query.q.split(" ") : []
+      query != null && typeof query.q === "string" ? query.q.split(" ") : [];
     setState({
       filteredPosts: [
         ...posts.filter(
-          post =>
+          (post) =>
             selectedTags.length == 0 ||
-            selectedTags.every(tag => post.node.frontmatter.tags.includes(tag))
+            selectedTags.every((tag) =>
+              post.node.frontmatter.tags.includes(tag)
+            )
         ),
       ],
       renderedPostsLength: 10,
       selectedTags,
-    })
-  }, [loc])
+    });
+  }, [loc]);
 
-  const target = useRef(null)
+  const target = useRef(null);
   const intersect = useIntersect(target, {
     threshold: 0.1,
     rootMargin: "0px 0px 50% 0px",
-  })
+  });
 
   useEffect(() => {
     if (intersect) {
-      setState(prev => {
+      setState((prev) => {
         return {
           ...prev,
           renderedPostsLength: prev.renderedPostsLength + postsPerLoad,
-        }
-      })
+        };
+      });
     }
-  }, [intersect])
+  }, [intersect]);
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -70,16 +72,16 @@ const BlogIndexTemplate: React.FC<any> = ({ data, location }) => {
                 slug={node.fields.slug}
                 frontmatter={node.frontmatter}
               />
-            )
+            );
           })}
         {state.renderedPostsLength < posts.length && <Loader ref={target} />}
       </section>
       <Bio />
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndexTemplate
+export default BlogIndexTemplate;
 
 export const pageQuery = graphql`
   query($tag: [String!]) {
@@ -111,4 +113,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,11 +1,11 @@
-import React from "react"
-import Layout from "@/components/layout"
-import Anchor from "@/components/atoms/anchor"
-import SEO from "@/utils/seo"
-import { Ul, Li, Dt, Dd } from "@/components/atoms/list"
+import React from "react";
+import Layout from "src_old/layout";
+import Anchor from "src_old/atoms/anchor";
+import SEO from "src_old/utils/seo";
+import { Ul, Li, Dt, Dd } from "src_old/atoms/list";
 
 const Works: React.FC<any> = ({ data, location }) => {
-  const siteTitle = "Works"
+  const siteTitle = "Works";
 
   const items = [
     {
@@ -34,18 +34,18 @@ const Works: React.FC<any> = ({ data, location }) => {
         },
       ],
     },
-  ]
+  ];
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
       <section>
         <dl>
-          {items.map(item => (
+          {items.map((item) => (
             <React.Fragment>
               <Dt> {item.label} </Dt>
               <Dd>
                 <Ul>
-                  {item.links.map(elm =>
+                  {item.links.map((elm) =>
                     elm.link.indexOf("http") === -1 ? (
                       <Li>
                         <Anchor.In to={elm.link}>{elm.text}</Anchor.In>
@@ -63,7 +63,7 @@ const Works: React.FC<any> = ({ data, location }) => {
         </dl>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default Works
+export default Works;

@@ -1,28 +1,28 @@
-import React from "react"
-import styled from "styled-components"
-import { useSpring, animated } from "react-spring"
-import Color from "../../utils/color"
-import Button from "../atoms/button"
-import Anchor from "@/components/atoms/anchor"
-import useIntersect from "@/utils/useintersect"
+import React from "react";
+import styled from "styled-components";
+import { useSpring, animated } from "react-spring";
+import Color from "../utils/color";
+import Button from "../atoms/button";
+import Anchor from "src_old/atoms/anchor";
+import useIntersect from "src_old/utils/useintersect";
 
 interface Props {
-  slug: string
+  slug: string;
   frontmatter: {
-    title: string
-    date: string
-    tags: string[]
-    description: string
-  }
+    title: string;
+    date: string;
+    tags: string[];
+    description: string;
+  };
 }
 
 const ArticleCard = React.memo(({ slug, frontmatter }: Props) => {
-  const target = React.useRef(null)
-  const intersect = useIntersect(target, { threshold: 0.2 }, true)
+  const target = React.useRef(null);
+  const intersect = useIntersect(target, { threshold: 0.2 }, true);
   const spring = useSpring({
     opacity: intersect ? 1 : 0,
     transform: intersect ? "0" : "translateY(60px)",
-  })
+  });
   return (
     <Base style={spring} ref={target}>
       <Title>
@@ -32,7 +32,7 @@ const ArticleCard = React.memo(({ slug, frontmatter }: Props) => {
         <Date>{frontmatter.date}</Date>
         <Tags>
           {frontmatter.tags &&
-            frontmatter.tags.map(tag => (
+            frontmatter.tags.map((tag) => (
               <Anchor.In to={`/tags/${tag}/`}>{tag}</Anchor.In>
             ))}
         </Tags>
@@ -42,10 +42,10 @@ const ArticleCard = React.memo(({ slug, frontmatter }: Props) => {
         <Button to={slug}>See more…</Button>
       </Footer>
     </Base>
-  )
-})
+  );
+});
 
-export default ArticleCard
+export default ArticleCard;
 
 const Base = styled(animated.div)`
   background: ${Color.light};
@@ -56,19 +56,19 @@ const Base = styled(animated.div)`
   &:last-of-type {
     margin-bottom: 4rem;
   }
-`
+`;
 
 const Title = styled.h3`
   margin-bottom: 0.5rem;
   font-weight: 300;
   color: ${Color.text_black};
-`
+`;
 
 const Header = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 0.5rem;
-`
+`;
 
 const Date = styled.div`
   border-radius: 5rem;
@@ -76,7 +76,7 @@ const Date = styled.div`
   margin-right: 0.4rem;
   margin-bottom: 0.4rem;
   background: ${Color.base_light};
-`
+`;
 
 const Tags = styled.div`
   color: ${Color.text_gray};
@@ -87,10 +87,10 @@ const Tags = styled.div`
       content: "#";
     }
   }
-`
+`;
 
 const Content = styled.p`
   margin-bottom: 1rem;
-`
+`;
 
-const Footer = styled.div``
+const Footer = styled.div``;

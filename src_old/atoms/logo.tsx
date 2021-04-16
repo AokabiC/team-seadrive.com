@@ -1,10 +1,10 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import Anchor from "@/components/atoms/anchor"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "gatsby-image";
+import Anchor from "src_old/atoms/anchor";
 
 export const LogoImage: React.FC<any> = ({ mobile }) => {
-  const data = useStaticQuery(LogoQuery)
+  const data = useStaticQuery(LogoQuery);
   return (
     <Anchor.In to="/">
       <Image
@@ -20,8 +20,8 @@ export const LogoImage: React.FC<any> = ({ mobile }) => {
         fadeIn={true}
       />
     </Anchor.In>
-  )
-}
+  );
+};
 
 const LogoQuery = graphql`
   query LogoQuery {
@@ -40,4 +40,4 @@ const LogoQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,23 +1,23 @@
-import React from "react"
-import RehypeReact from "rehype-react"
-import { graphql } from "gatsby"
-import Color from "../utils/color"
-import styled from "styled-components"
-import Anchor from "@/components/atoms/anchor"
-import Heading from "@/components/atoms/heading"
-import Layout from "@/components/layout"
-import SEO from "@/utils/seo"
-import { Share } from "@/components/molecules/share"
-require(`katex/dist/katex.min.css`)
+import React from "react";
+import RehypeReact from "rehype-react";
+import { graphql } from "gatsby";
+import Color from "../utils/color";
+import styled from "styled-components";
+import Anchor from "src_old/atoms/anchor";
+import Heading from "src_old/atoms/heading";
+import Layout from "src_old/layout";
+import SEO from "src_old/utils/seo";
+import { Share } from "src_old/molecules/share";
+require(`katex/dist/katex.min.css`);
 
 const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = "Blog"
-  const { previous, next } = pageContext
+  const post = data.markdownRemark;
+  const siteTitle = "Blog";
+  const { previous, next } = pageContext;
 
   const trimFooterTitle = (str: string): string => {
-    return str.length > 18 ? `${str.slice(0, 17)}...` : str
-  }
+    return str.length > 18 ? `${str.slice(0, 17)}...` : str;
+  };
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -59,10 +59,10 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
         </Footer>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -84,7 +84,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
 const Container = styled.article`
   width: 100%;
@@ -98,32 +98,32 @@ const Container = styled.article`
     padding-right: 5px;
     background: inherit;
   }
-`
+`;
 
 const Label = styled.span`
   border-radius: 5rem;
   padding: 0.1rem 0.4rem;
   margin-right: 1rem;
   background: ${Color.base_light};
-`
+`;
 
 const Title = styled.h2`
   margin-bottom: 0.5rem;
   font-weight: 400;
   color: ${Color.text_black};
-`
+`;
 
 const Subtitle = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-`
+`;
 
 const Hr = styled.hr`
   border-top: 1px dashed #8c8b8b;
   margin-top: 2rem;
   margin-bottom: 1rem;
-`
+`;
 
 const Footer = styled.div`
   display: flex;
@@ -157,14 +157,14 @@ const Footer = styled.div`
       }
     }
   }
-`
+`;
 
 // markdown
 
 const Paragraph = styled.p`
   text-indent: 0em;
   margin-bottom: 1.5rem;
-`
+`;
 
 const Table = styled.table`
   width: 100%;
@@ -183,7 +183,7 @@ const Table = styled.table`
   td {
     border: solid 1px #8c8b8b;
   }
-`
+`;
 
 const List = styled.ul`
   list-style-type: none;
@@ -203,14 +203,14 @@ const List = styled.ul`
       margin-top: -1.7rem;
     }
   }
-`
+`;
 
 const Img = styled.img`
   margin-left: auto;
   margin-right: auto;
   max-width: 650px;
   width: 100%;
-`
+`;
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -225,4 +225,4 @@ const renderAst = new RehypeReact({
     ul: List,
     img: Img,
   },
-}).Compiler
+}).Compiler;

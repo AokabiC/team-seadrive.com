@@ -13,11 +13,12 @@ const About: React.FC<any> = ({ location }) => {
     { label: "名前", text: "碧黴(あおかび)" },
     {
       label: "所属",
-      text: "東北大学工学部 機械知能・航空工学科 4年 (2017/04 入学)",
+      text: "東北大学大学院 情報科学研究科システム情報科学専攻 M1",
     },
     {
       label: "略歴(情報関係)",
       text: [
+        "2021/03 : ACM-ICPC Asia Yokohama Regional 2020 10位(Aobayama_dropout)",
         "2020/01 : DISCO presents ディスカバリーチャンネルコードコンテスト2020本戦 出場",
         "2019/11 : ACM-ICPC Asia Yokohama Regional 2019 16位(Aobayama_dropout)",
         "2019/11 : ACM-ICPC Asia Bangkok Regional 2019 19位(Aobayama_dropout)",

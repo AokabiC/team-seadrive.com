@@ -1,21 +1,24 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled, { createGlobalStyle } from "styled-components"
-import { useSpring, animated } from "react-spring"
-import { TopNavDesktop } from "@/components/organisms/navbar/topnavdesktop"
-import { TopNavMobile } from "@/components/organisms/navbar/topnavmobile"
-import { LeftNav } from "@/components/organisms/navbar/leftnav"
-import Footerbar from "@/components/organisms/footerbar"
-import { Hero } from "@/components/organisms/hero"
-import useIntersect from "@/utils/useintersect"
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { useSpring, animated } from "react-spring";
+import { TopNavDesktop } from "src_old/organisms/navbar/topnavdesktop";
+import { TopNavMobile } from "src_old/organisms/navbar/topnavmobile";
+import { LeftNav } from "src_old/organisms/navbar/leftnav";
+import Footerbar from "src_old/organisms/footerbar";
+import { Hero } from "src_old/organisms/hero";
+import useIntersect from "src_old/utils/useintersect";
 
 const Layout: React.FC<any> = ({ title, children }) => {
-  const target = React.useRef(null)
-  const isIndex = title == "index"
-  const isIntersect = useIntersect(target, { threshold: 0.05 }, false, !isIndex)
-  const spring = useSpring({ opacity: isIntersect ? 0.1 : 1 })
-  const data = useStaticQuery(backgroundQuery)
+  const target = React.useRef(null);
+  const isIndex = title == "index";
+  const isIntersect = useIntersect(
+    target,
+    { threshold: 0.05 },
+    false,
+    !isIndex
+  );
+  const spring = useSpring({ opacity: isIntersect ? 0.1 : 1 });
+  const data = useStaticQuery(backgroundQuery);
 
   return (
     <React.Fragment>
@@ -53,10 +56,10 @@ const Layout: React.FC<any> = ({ title, children }) => {
         <Footerbar />
       </GridWrapper>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -66,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.8;
     background-color: whitesmoke;
   }
-`
+`;
 
 const Background = styled(animated(Img))`
   top: 0;
@@ -80,7 +83,7 @@ const Background = styled(animated(Img))`
   @media (max-width: 1600px) {
     display: none;
   }
-`
+`;
 
 const BackgroundNarrow = styled(Background)`
   display: none;
@@ -92,7 +95,7 @@ const BackgroundNarrow = styled(Background)`
   @media (max-width: 860px) {
     display: none;
   }
-`
+`;
 
 const BackgroundMobile = styled(Background)`
   display: none;
@@ -100,7 +103,7 @@ const BackgroundMobile = styled(Background)`
   @media (max-width: 860px) {
     display: block;
   }
-`
+`;
 
 const GridWrapper = styled.div`
   display: grid;
@@ -133,7 +136,7 @@ const GridWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
   }
-`
+`;
 
 const Container = styled.div<{ marginTop: boolean }>`
   grid-area: content;
@@ -142,12 +145,12 @@ const Container = styled.div<{ marginTop: boolean }>`
   align-items: stretch;
   padding-left: 15px;
   padding-right: 15px;
-  margin-top: ${props => (props.marginTop ? "calc(105vh - 120px)" : "0")};
+  margin-top: ${(props) => (props.marginTop ? "calc(105vh - 120px)" : "0")};
 
   @media (max-width: 860px) {
     margin-top: 0;
   }
-`
+`;
 
 const LocationName = styled.h3`
   text-align: center;
@@ -157,7 +160,7 @@ const LocationName = styled.h3`
   font-weight: 400;
   font-style: normal;
   margin-bottom: 1.6rem;
-`
+`;
 
 const backgroundQuery = graphql`
   query {
@@ -197,4 +200,4 @@ const backgroundQuery = graphql`
       }
     }
   }
-`
+`;

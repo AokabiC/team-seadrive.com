@@ -1,19 +1,19 @@
-import React from "react"
-import styled from "styled-components"
-import { faShareAlt } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Color from "@/utils/color"
+import React from "react";
+import styled from "styled-components";
+import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Color from "src_old/utils/color";
 
 export const Share: React.FC<any> = ({ title }) => {
   const isSupportWebShareAPI =
-    typeof navigator !== `undefined` && navigator.share
+    typeof navigator !== `undefined` && navigator.share;
   return (
     <Container>
       {isSupportWebShareAPI && (
         <li>
           <ShareButton
             onClick={() => {
-              navigator.share({ url: location.href })
+              navigator.share({ url: location.href });
             }}
           >
             <FontAwesomeIcon icon={faShareAlt} />
@@ -30,8 +30,8 @@ export const Share: React.FC<any> = ({ title }) => {
         ></a>
       </li>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.ul`
   display: flex;
@@ -43,7 +43,7 @@ const Container = styled.ul`
     align-items: center;
     padding-right: 0.5rem;
   }
-`
+`;
 
 const ShareButton = styled.div`
   background: ${Color.primary_dark};
@@ -55,4 +55,4 @@ const ShareButton = styled.div`
     content: "Share";
     padding-left: 0.4rem;
   }
-`
+`;

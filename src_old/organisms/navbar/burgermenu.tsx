@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { animated, useSpring } from "react-spring"
-import BurgerButton from "../../atoms/burgerbutton"
-import NavLink from "@/components/atoms/navlink"
-import { LinkIconListMobile } from "@/components/molecules/linkiconlist"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import React, { useState } from "react";
+import styled from "styled-components";
+import { animated, useSpring } from "react-spring";
+import BurgerButton from "../../atoms/burgerbutton";
+import NavLink from "src_old/atoms/navlink";
+import { LinkIconListMobile } from "src_old/molecules/linkiconlist";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled(animated.div)`
   position: fixed;
@@ -23,28 +23,28 @@ const Container = styled(animated.div)`
   padding-top: calc(10% + 50vh);
   padding-bottom: calc(10% + 50vh);
   margin-top: -50vh;
-`
+`;
 
 const BurgerLink = styled(NavLink)`
   color: white;
-`
+`;
 
 const EmailWrapper = styled.div`
   color: white;
-`
+`;
 
 const items = [
   { to: "/about/", text: "About" },
   { to: "/blog/", text: "Blog" },
   { to: "/works/", text: "Works" },
-]
+];
 
 const BurgerMenu: React.FC = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const spring = useSpring({
     transform: open ? "translateX(0%)" : "translateX(100%)",
-  })
+  });
 
   return (
     <div>
@@ -63,11 +63,11 @@ const BurgerMenu: React.FC = () => {
       <BurgerButton
         open={open}
         onClick={() => {
-          setOpen(!open)
+          setOpen(!open);
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default BurgerMenu
+export default BurgerMenu;

@@ -1,11 +1,11 @@
-import React from "react"
-import SEO from "@/utils/seo"
-import Layout from "@/components/layout"
-import { Ul, Dt, Dd, Li } from "@/components/atoms/list"
+import React from "react";
+import SEO from "src_old/utils/seo";
+import Layout from "src_old/layout";
+import { Ul, Dt, Dd, Li } from "src_old/atoms/list";
 
 // TODO: https://qiita.com/Takepepe/items/144209f860fbe4d5e9bb で型を縛る
 const About: React.FC<any> = ({ location }) => {
-  const siteTitle = "About"
+  const siteTitle = "About";
 
   // 略歴をここに書く
   // textにArrayを入れるとliになる
@@ -39,37 +39,37 @@ const About: React.FC<any> = ({ location }) => {
       label: "お仕事 (イラスト / Web制作) のご依頼",
       text: "team.seadrive[at]gmail.com までご連絡ください。",
     },
-  ]
+  ];
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} />
       <section>
         <dl>
-          {biography.map(data => {
-            let content
+          {biography.map((data) => {
+            let content;
             if (typeof data.text === "string") {
-              content = data.text
+              content = data.text;
             } else {
               content = (
                 <Ul>
-                  {data.text.map(elm => (
+                  {data.text.map((elm) => (
                     <Li>{elm}</Li>
                   ))}
                 </Ul>
-              )
+              );
             }
             return (
               <>
                 <Dt>{data.label}</Dt>
                 <Dd>{content}</Dd>
               </>
-            )
+            );
           })}
         </dl>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
-export default About
+export default About;

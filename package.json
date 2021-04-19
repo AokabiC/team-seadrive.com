@@ -11,11 +11,12 @@
     "deploy": "next build && echo \"team-seadrive.com\" > public/CNAME && gh-pages -d public"
   },
   "dependencies": {
+    "@emotion/react": "11.1.5",
+    "@emotion/styled": "11.1.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
-    "babel-plugin-styled-components": "^1.10.6",
     "color": "^3.1.3",
     "gray-matter": "^4.0.2",
     "highlight.js": "^10.7.2",
@@ -24,15 +25,14 @@
     "react-dom": "^17.0.2",
     "remark": "^13.0.0",
     "remark-highlight.js": "^6.0.0",
-    "remark-html": "^13.0.1",
-    "styled-components": "^5.2.3"
+    "remark-html": "^13.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.15",
     "@types/color": "^3.0.1",
     "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "@types/styled-components": "^5.1.0",
     "gh-pages": "^3.1.0",
     "react-is": "^17.0.2",
     "sort-package-json": "^1.49.0",

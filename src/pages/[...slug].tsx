@@ -2,10 +2,13 @@ import { getAllPosts, getPostContent, Post } from "api/getPost";
 import { GetStaticPaths, GetStaticProps } from "next";
 import remark from "remark";
 import html from "remark-html";
+import { BlogPostTemplate } from "templates/BlogTemplate";
 const highlight = require("remark-highlight.js");
 
 const Blog = ({ content }: Post) => (
-  <div dangerouslySetInnerHTML={{ __html: content }} />
+  <BlogPostTemplate>
+    <div dangerouslySetInnerHTML={{ __html: content }} />
+  </BlogPostTemplate>
 );
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

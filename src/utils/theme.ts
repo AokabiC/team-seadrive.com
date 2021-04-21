@@ -6,8 +6,9 @@ const accentColor = Color("#5e5ad4");
 const cautionColor = Color("#e53e3e");
 
 export const theme = {
-  breakpoint: {
-    lg: 1024,
+  mediaQuery: {
+    md: `@media (min-width: ${860}px)`,
+    lg: `@media (min-width: ${1600}px)`,
   },
   color: {
     background: whiteColor.hex(),
@@ -40,16 +41,20 @@ export const theme = {
     md: `0px 6px 10px 0px ${blackColor.alpha(0.1).string()}`,
   },
   space: {
-    unit: 8,
-    sm: 8,
-    md: 16,
-    lg: 64,
+    xs: "0.5em",
+    sm: "1em",
+    md: "2em",
+  },
+  layout: {
+    md: "120px",
+    lg: "160px",
+    contentMaxWidth: "900px",
+    contentMinWidth: "600px",
   },
   borderRadius: {
-    sm: 4,
-    md: 8,
-    lg: 24,
-    full: 100000,
+    sm: "4px",
+    md: "8px",
+    full: "100000px",
   },
   borderWidth: {
     md: 1,
@@ -60,7 +65,8 @@ export const theme = {
       .join(","),
   },
   fontSize: {
-    body: 14,
+    body: "1rem",
+    nav: "1.2rem",
   },
   lineHeight: {
     body: 1.5,

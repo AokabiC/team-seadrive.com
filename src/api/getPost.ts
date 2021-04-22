@@ -5,14 +5,14 @@ import { readdirRecursive } from "utils/readdirRecursive";
 
 // import { BlogPost, BlogPostContent } from "./BlogPost";
 
-export const postsDirectory = path.join(process.cwd(), "content");
+export const postsDirectory = path.join(process.cwd(), "public", "content");
 
 export const getAllPosts = async () => {
-  const paths = await readdirRecursive(postsDirectory, [".md"]);
+  const paths = await readdirRecursive(postsDirectory, [".mdx"]);
   const slugs = paths.map((p) =>
     p
       .replace(postsDirectory, "")
-      .replace("index.md", "")
+      .replace("index.mdx", "")
       .split("/")
       .filter((s) => s.length > 0)
   );
@@ -23,7 +23,7 @@ export const getAllPosts = async () => {
 };
 
 export const getPostContent = async (slug: Array<string>): Promise<Post> => {
-  const postPath = path.join(postsDirectory, ...slug, "index.md");
+  const postPath = path.join(postsDirectory, ...slug, "index.mdx");
   const source = fs.readFileSync(postPath, "utf8");
   const { content, data } = matter(source);
 

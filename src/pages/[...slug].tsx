@@ -1,29 +1,25 @@
-import { getAllPosts, getPostContent, Post } from "api/getPost";
+import { getAllPosts, getPostContent } from "api/getPost";
+import { hydrate, renderToString } from "api/mdxServer";
 import { GetStaticPaths, GetStaticProps } from "next";
-import remark from "remark";
-import html from "remark-html";
 import { BlogPostTemplate } from "templates/BlogTemplate";
-const highlight = require("remark-highlight.js");
 
-const Blog = ({ content }: Post) => (
-  <BlogPostTemplate>
-    <div dangerouslySetInnerHTML={{ __html: content }} />
-  </BlogPostTemplate>
-);
+const Blog = (props: any) => {
+  const conten = hydrate(props.content, props.slug);
+  return <BlogPostTemplate>{conten}</BlogPostTemplate>;
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   // slug = ["path", "to", "post"]
   const slug = params?.slug as Array<string>;
   const post = await getPostContent(slug);
-  const vfile = await remark().use(highlight).use(html).process(post.content);
-  const content = vfile.toString();
+  const mdxSource = await renderToString(post.content, slug);
 
-  const props: Post = {
-    ...post,
-    content,
+  return {
+    props: {
+      ...post,
+      content: mdxSource,
+    },
   };
-
-  return { props };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

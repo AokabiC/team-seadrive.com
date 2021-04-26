@@ -71,4 +71,7 @@ export const theme = {
   lineHeight: {
     body: 1.5,
   },
+  transitionSpeed: {
+    hover: "0.35s",
+  },
 };

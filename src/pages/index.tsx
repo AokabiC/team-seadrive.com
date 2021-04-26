@@ -1,9 +1,10 @@
 import { Button } from "atoms/Button";
 import React from "react";
+import { CommonLayout } from "templates/Common";
 
 const IndexPage = () => (
-  <div>
+  <CommonLayout>
     <Button>hi</Button>
-  </div>
+  </CommonLayout>
 );
 export default IndexPage;

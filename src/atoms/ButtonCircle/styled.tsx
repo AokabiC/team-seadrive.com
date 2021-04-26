@@ -1,16 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import React from "react";
 
 const buttonLength = "2.8em";
-
-export const Container = styled.div(
-  css`
-    position: relative;
-    width: ${buttonLength};
-    height: ${buttonLength};
-  `
-);
 
 export const Button = styled.button(
   css`
@@ -35,11 +28,28 @@ const SvgContainer = styled.svg(css`
   transform: rotate(90deg);
 `);
 
-const SvgCircle = styled.circle(css`
-  stroke: black;
-  stroke-dasharray: 200 200;
-  fill: transparent;
-`);
+const SvgCircle = styled.circle(
+  ({ theme }) => css`
+    stroke: black;
+    fill: transparent;
+    stroke-dasharray: 0 1000;
+    transition: stroke-dasharray ${theme.transitionSpeed.hover} ease-in-out;
+  `
+);
+
+export const Container = styled.div(
+  css`
+    position: relative;
+    width: ${buttonLength};
+    height: ${buttonLength};
+    &:hover {
+      ${SvgCircle} {
+        /* Circumference */
+        stroke-dasharray: calc(2 * 3.14 * ${buttonLength} * 0.45) 1000;
+      }
+    }
+  `
+);
 
 export const Circle: React.FC = () => (
   <SvgContainer>

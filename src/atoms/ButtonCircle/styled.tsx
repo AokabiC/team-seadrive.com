@@ -18,6 +18,12 @@ export const Button = styled.button(
     display: flex;
     align-items: center;
     justify-content: center;
+
+    & > * {
+      // next/imageとの併用でfont-awesomeのサイズの
+      // font-sizeでの指定が効かなくなる
+      width: calc(${buttonLength} * 0.4);
+    }
   `
 );
 

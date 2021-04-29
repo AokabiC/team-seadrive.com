@@ -4,6 +4,7 @@ import * as Styled from "./styled";
 
 const items = [
   { to: "/about/", text: "About" },
+  { to: "/skill/", text: "Skill" },
   { to: "/blog/", text: "Blog" },
   { to: "/works/", text: "Works" },
 ];

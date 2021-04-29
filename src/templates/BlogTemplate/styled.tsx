@@ -5,7 +5,7 @@ export const Container = styled.article(
   ({ theme }) => css`
     /* width: 100%; */
     padding: ${theme.space.md} ${theme.space.xs};
-    background: ${theme.color.background};
+    background: ${theme.color.surfacePrimary};
     border-radius: ${theme.borderRadius.md};
 
     ${theme.mediaQuery.md} {

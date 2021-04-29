@@ -1,11 +1,22 @@
 import { getAllPosts, getPostContent } from "api/getPost";
 import { hydrate, renderToString } from "api/mdxServer";
-import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import { BlogPostTemplate } from "templates/BlogTemplate";
 
-const Blog = (props: any) => {
-  const conten = hydrate(props.content, props.slug);
-  return <BlogPostTemplate>{conten}</BlogPostTemplate>;
+const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+  props
+) => {
+  const content = hydrate(props.content, props.slug);
+  return (
+    <BlogPostTemplate frontmatter={props.frontmatter}>
+      {content}
+    </BlogPostTemplate>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

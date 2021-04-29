@@ -1,12 +1,20 @@
+import { PostFrontmatter } from "api/getPost";
 import React from "react";
 import { CommonLayout } from "templates/Common";
 import * as Styled from "./styled";
 
-export const BlogPostTemplate: React.FC = ({ children }) => {
+interface Props {
+  frontmatter: PostFrontmatter;
+}
+
+export const BlogPostTemplate: React.FC<Props> = ({
+  children,
+  frontmatter,
+}) => {
   return (
     <CommonLayout>
       <Styled.Container>
-        <Styled.Title>aaa</Styled.Title>
+        <Styled.Title>{frontmatter.title}</Styled.Title>
         {children}
       </Styled.Container>
     </CommonLayout>

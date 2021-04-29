@@ -11,8 +11,8 @@ export const theme = {
     lg: `@media (min-width: ${1600}px)`,
   },
   color: {
-    background: whiteColor.hex(),
-    surfacePrimary: whiteColor.hex(),
+    background: "#F5F5F5",
+    surfacePrimary: whiteColor.fade(0.05).string(),
     surfaceSecondary: blackColor.fade(1 - 0.05).string(),
     surfaceTertiary: blackColor.fade(1 - 0.1).string(),
     surfaceQuaternary: blackColor.fade(1 - 0.2).string(),
@@ -25,7 +25,7 @@ export const theme = {
     textLowEmphasis: blackColor.fade(1 - 0.6).string(),
     textDisabled: blackColor.fade(1 - 0.3).string(),
     textHighEmphasisInverse: whiteColor.hex(),
-    textAccent: accentColor.mix(blackColor, 0.1).hex(),
+    textAccent: accentColor.hex(),
     textCaution: cautionColor.mix(blackColor, 0.1).hex(),
 
     borderHighEmphasis: blackColor.fade(1 - 0.6).string(),
@@ -41,6 +41,7 @@ export const theme = {
     md: `0px 6px 10px 0px ${blackColor.alpha(0.1).string()}`,
   },
   space: {
+    unit: "0.2em",
     xs: "0.5em",
     sm: "1em",
     md: "2em",
@@ -66,9 +67,16 @@ export const theme = {
   },
   fontSize: {
     body: "1rem",
-    nav: "1.2rem",
+    nav: "1.1rem",
+    heading: "1.2rem",
+  },
+  fontWeight: {
+    heading: 400,
   },
   lineHeight: {
     body: 1.5,
+  },
+  transitionSpeed: {
+    hover: "0.35s",
   },
 };

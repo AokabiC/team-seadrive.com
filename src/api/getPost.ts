@@ -28,6 +28,7 @@ export const getPostContent = async (slug: Array<string>): Promise<Post> => {
   const { content, data } = matter(source);
 
   const postFrontmatter: PostFrontmatter = {
+    title: data["title"] ?? "No title",
     tags: data["tags"] ?? [],
     date: data["date"] ?? "1970-01-01T00:00:00.000Z",
     description: data["description"] ?? "",
@@ -41,6 +42,7 @@ export const getPostContent = async (slug: Array<string>): Promise<Post> => {
 };
 
 interface PostFrontmatter {
+  title: string;
   tags: Array<string>;
   date: string;
   description: string;

@@ -3,16 +3,25 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { BlogIndex } from "organisms/BlogIndex";
 import { Hero } from "organisms/Hero";
 import React from "react";
+import { useIntersection } from "react-use";
 import { CommonLayout } from "templates/Common";
 
 const IndexPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   posts,
-}) => (
-  <CommonLayout>
-    <Hero />
-    <BlogIndex posts={posts} />
-  </CommonLayout>
-);
+}) => {
+  const intersectionRef = React.useRef(null);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.02,
+  });
+  return (
+    <CommonLayout>
+      <Hero isVisible={!intersection?.isIntersecting ?? false} />
+      <BlogIndex posts={posts} intersectionTarget={intersectionRef} />
+    </CommonLayout>
+  );
+};
 export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {

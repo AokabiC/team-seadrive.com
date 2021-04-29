@@ -4,11 +4,12 @@ import React from "react";
 
 interface Props {
   posts: Post[];
+  intersectionTarget?: React.MutableRefObject<HTMLDivElement | null>;
 }
 
-export const BlogIndex: React.FC<Props> = ({ posts }) => {
+export const BlogIndex: React.FC<Props> = ({ posts, intersectionTarget }) => {
   return (
-    <div>
+    <div ref={intersectionTarget}>
       {posts
         .sort((a, b) => {
           if (a.frontmatter.date < b.frontmatter.date) return 1;

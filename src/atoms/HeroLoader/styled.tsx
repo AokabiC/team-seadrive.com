@@ -33,16 +33,17 @@ const Container = styled.div(
 
 export const Loader: React.FC = () => {
   const conf: Array<[string, number]> = [
-    ["0s", 60],
-    ["0.06s", 100],
-    ["0.14s", 140],
-    ["0.24s", 180],
-    ["0.39s", 220],
+    ["0s", 160],
+    ["0.06s", 180],
+    ["0.14s", 200],
+    ["0.24s", 220],
+    ["0.39s", 240],
   ];
   return (
     <>
       {conf.map(([timing, hue]) => (
         <Container
+          key={timing}
           css={css`
             animation-delay: ${timing};
             background-image: linear-gradient(

@@ -41,7 +41,7 @@ export const getPostContent = async (slug: Array<string>): Promise<Post> => {
   };
 };
 
-interface PostFrontmatter {
+export interface PostFrontmatter {
   title: string;
   tags: Array<string>;
   date: string;

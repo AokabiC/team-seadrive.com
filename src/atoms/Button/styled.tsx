@@ -5,6 +5,8 @@ export const Button = styled.button(
   ({ theme }) => css`
     appearance: none;
     border: none;
+    cursor: pointer;
+    font-size: ${theme.fontSize.nav};
     background: ${theme.color.surfaceAccent};
     color: ${theme.color.textHighEmphasisInverse};
     border-radius: ${theme.borderRadius.sm};

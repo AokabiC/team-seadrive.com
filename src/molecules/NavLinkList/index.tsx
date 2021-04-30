@@ -26,10 +26,9 @@ export const NavLinkList: React.FC<Props> = ({ inverse }) => {
             transition: transform 0.35s ease-in-out;
             transition-delay: ${timing[idx]};
           `}
+          key={item.text}
         >
-          <Link href={item.to} key={item.text}>
-            {item.text}
-          </Link>
+          <Link href={item.to}>{item.text}</Link>
         </span>
       ))}
     </Styled.Container>

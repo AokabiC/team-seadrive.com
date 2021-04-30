@@ -46,7 +46,7 @@ export const ToggleButtonBar: React.FC<Props> = ({ open }) => {
 
   return (
     <>
-      {items.map(({ transform, opacity }) => (
+      {items.map(({ transform, opacity }, idx) => (
         <div
           css={(theme) => css`
             position: absolute;
@@ -60,6 +60,7 @@ export const ToggleButtonBar: React.FC<Props> = ({ open }) => {
             transition: transform ${theme.transitionSpeed.hover} ease-in-out,
               opacity ${theme.transitionSpeed.hover} ease-in-out;
           `}
+          key={idx}
         />
       ))}
     </>

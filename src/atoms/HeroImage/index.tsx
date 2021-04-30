@@ -25,11 +25,29 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
       `}
     >
       <Image
+        src="/images/hero/bg_md.jpeg"
+        layout="fill"
+        objectFit="cover"
+        quality={100}
+        onLoad={() => setLoaded(true)}
+        css={(theme) => css`
+          ${theme.mediaQuery.md} {
+            display: none !important;
+          }
+        `}
+      />
+      <Image
         src="/images/hero/bg_xl.jpeg"
         layout="fill"
         objectFit="cover"
         quality={100}
         onLoad={() => setLoaded(true)}
+        css={(theme) => css`
+          display: none !important;
+          ${theme.mediaQuery.md} {
+            display: initial !important;
+          }
+        `}
       />
     </Styled.Container>
   );

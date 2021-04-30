@@ -2,12 +2,14 @@ import { css, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Container = styled.div(css`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`);
+      display: initial;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  `);
 
 export const Move = keyframes`
   0% {
@@ -24,6 +26,10 @@ export const Move = keyframes`
 
 export const Arrow = styled.div(
   ({ theme }) => css`
+      display: none;
+
+    ${theme.mediaQuery.md} {
+      display: initial;
     width: 40px;
     height: 40px;
     opacity: 0;

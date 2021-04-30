@@ -6,7 +6,6 @@ const Text = styled.div(
   ({ theme }) => css`
     color: ${theme.color.textHighEmphasisInverse};
     font-size: 3rem;
-    /* letter-spacing: 0.5rem; */
     margin-right: 2rem;
     opacity: 0;
     transform: translateY(100%);
@@ -19,7 +18,7 @@ const Text = styled.div(
         opacity: 1;
         transform: translateY(0);
       }
-    `} 1s ease-in-out 0s 1 forwards;
+    `} 0.5s ease-in-out 0s 1 forwards;
   `
 );
 
@@ -28,11 +27,48 @@ export const Message: React.FC = () => {
   const timing = Array.from({ length: items.length }, (_, i) => `${i * 0.05}s`);
   return (
     <div
-      css={css`
+      css={(theme) => css`
+        display: none;
+
+        ${theme.mediaQuery.md} {
+          display: initial;
+          flex-grow: 6;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+        }
+      `}
+    >
+      {timing.map((t, idx) => (
+        <Text
+          key={t}
+          css={css`
+            animation-delay: ${t};
+          `}
+        >
+          {items[idx]}
+        </Text>
+      ))}
+    </div>
+  );
+};
+
+export const MessageMobile: React.FC = () => {
+  const items = ["team-", "seadrive", ".com"];
+  const timing = Array.from({ length: items.length }, (_, i) => `${i * 0.05}s`);
+  return (
+    <div
+      css={(theme) => css`
         flex-grow: 6;
         display: flex;
+        flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
+        letter-spacing: 0.5rem;
+
+        ${theme.mediaQuery.md} {
+          display: none;
+        }
       `}
     >
       {timing.map((t, idx) => (

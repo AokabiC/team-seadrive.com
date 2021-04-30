@@ -10,6 +10,7 @@ interface Props {
 export const HeroMessage: React.FC<Props> = ({ isVisible }) => {
   return (
     <Styled.Container>
+      <Styled.MessageMobile />
       <Styled.Message />
       <Styled.Line />
       <TopNavigateArrow isVisible={isVisible} />

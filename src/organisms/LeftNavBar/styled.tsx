@@ -7,7 +7,7 @@ interface ContainerProps {
 
 export const Container = styled.nav<ContainerProps>(
   ({ theme, inverse }) => css`
-    visibility: hidden;
+    display: none;
     stroke: ${inverse
       ? theme.color.textHighEmphasisInverse
       : theme.color.textMediumEmphasis};
@@ -18,7 +18,6 @@ export const Container = styled.nav<ContainerProps>(
       color ${theme.transitionSpeed.hover} ease-in-out;
 
     ${theme.mediaQuery.md} {
-      visibility: visible;
       grid-area: leftnav;
       position: sticky;
       top: 0;

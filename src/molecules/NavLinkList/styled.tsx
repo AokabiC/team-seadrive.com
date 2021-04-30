@@ -7,7 +7,8 @@ interface Props {
 
 export const Container = styled.div<Props>(
   ({ theme, inverse = false }) => css`
-    flex-basis: 16em;
+    flex-basis: 70%;
+    color: ${theme.color.textHighEmphasisInverse};
     font-size: ${theme.fontSize.nav};
     display: flex;
     align-items: stretch;
@@ -17,8 +18,13 @@ export const Container = styled.div<Props>(
     visibility: ${inverse ? "hidden" : "visible"};
     transition: opacity ${theme.transitionSpeed.hover} ease-in-out,
       visibility ${theme.transitionSpeed.hover} ease-in-out;
-    a:hover {
-      color: ${theme.color.textAccent};
+
+    ${theme.mediaQuery.md} {
+      flex-basis: 16em;
+      color: inherit;
+      a:hover {
+        color: ${theme.color.textAccent};
+      }
     }
   `
 );

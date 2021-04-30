@@ -14,7 +14,7 @@ const slide = keyframes`
 const Container = styled.div(
   ({ theme }) => css`
     position: fixed;
-    height: 100%;
+    height: 400%;
     top: 0;
     left: 0;
 

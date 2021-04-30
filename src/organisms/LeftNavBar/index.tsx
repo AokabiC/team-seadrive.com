@@ -5,9 +5,13 @@ import Image from "next/image";
 import React from "react";
 import * as Styled from "./styled";
 
-export const LeftNavBar: React.FC = () => {
+interface Props {
+  inverse?: boolean;
+}
+
+export const LeftNavBar: React.FC<Props> = ({ inverse = false }) => {
   return (
-    <Styled.Container>
+    <Styled.Container inverse={inverse}>
       <Link href="/">
         <Image
           src="/images/seadrive_logo_64x64.png"
@@ -17,7 +21,7 @@ export const LeftNavBar: React.FC = () => {
           height="64px"
         />
       </Link>
-      <NavLinkList />
+      <NavLinkList inverse={inverse} />
       <SocialLinkList />
     </Styled.Container>
   );

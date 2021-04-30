@@ -12,7 +12,7 @@ export const theme = {
   },
   color: {
     background: "#F5F5F5",
-    surfacePrimary: whiteColor.fade(0.05).string(),
+    surfacePrimary: whiteColor.string(),
     surfaceSecondary: blackColor.fade(1 - 0.05).string(),
     surfaceTertiary: blackColor.fade(1 - 0.1).string(),
     surfaceQuaternary: blackColor.fade(1 - 0.2).string(),
@@ -80,3 +80,14 @@ export const theme = {
     hover: "0.35s",
   },
 };
+
+export function stackColors(...colorStrings: string[]): string {
+  let stackedColor = Color.rgb(0, 0, 0, 0);
+  for (const colorString of colorStrings) {
+    const color = Color(colorString);
+    stackedColor = stackedColor.mix(color.alpha(1), color.alpha());
+  }
+  return stackedColor.alpha() === 1
+    ? stackedColor.hex()
+    : stackedColor.string();
+}

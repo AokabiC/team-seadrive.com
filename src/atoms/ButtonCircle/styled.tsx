@@ -18,6 +18,7 @@ export const Button = styled.button(
     display: flex;
     align-items: center;
     justify-content: center;
+    color: inherit;
 
     & > * {
       // next/imageとの併用でfont-awesomeのサイズの
@@ -36,7 +37,7 @@ const SvgContainer = styled.svg(css`
 
 const SvgCircle = styled.circle(
   ({ theme }) => css`
-    stroke: black;
+    stroke: inherit;
     fill: transparent;
     stroke-dasharray: 0 1000;
     transition: stroke-dasharray ${theme.transitionSpeed.hover} ease-in-out;

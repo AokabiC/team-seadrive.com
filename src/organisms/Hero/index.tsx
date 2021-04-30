@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { HeroImage } from "atoms/HeroImage";
 import { HeroLoader } from "atoms/HeroLoader";
-import { HeroMessage } from "atoms/HeroMessage";
+import { HeroMessage } from "molecules/HeroMessage";
 import React from "react";
 
 interface Props {
@@ -14,7 +14,7 @@ export const Hero: React.FC<Props> = ({ isVisible }) => {
     <>
       <HeroLoader />
       <HeroImage isVisible={isVisible} />
-      <HeroMessage />
+      <HeroMessage isVisible={isVisible} />
       <div
         css={css`
           height: 100vh;

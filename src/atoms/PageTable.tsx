@@ -17,6 +17,9 @@ export const List = styled.ul(
     margin-left: ${theme.fontSize.body};
     li {
       margin-bottom: ${theme.space.sm};
+      a {
+        color: ${theme.color.textAccent};
+      }
       &::before {
         content: "💎";
         margin-left: -${theme.fontSize.body};

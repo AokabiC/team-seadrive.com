@@ -29,7 +29,7 @@ export const Message: React.FC = () => {
   return (
     <div
       css={css`
-        flex-grow: 4;
+        flex-grow: 6;
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;

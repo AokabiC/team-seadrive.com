@@ -7,6 +7,8 @@ export const Container = styled.div(
     padding: ${theme.space.md};
     margin-bottom: ${theme.space.md};
     border-radius: ${theme.borderRadius.sm};
+    transition: opacity ${theme.transitionSpeed.hover} ease-in-out,
+      transform ${theme.transitionSpeed.hover} ease-in-out;
   `
 );
 

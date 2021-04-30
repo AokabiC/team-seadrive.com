@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Link } from "atoms/Link";
 import React from "react";
 import * as Styled from "./styled";
@@ -9,13 +11,26 @@ const items = [
   { to: "/works/", text: "Works" },
 ];
 
-export const NavLinkList: React.FC = () => {
+interface Props {
+  inverse?: boolean;
+}
+
+export const NavLinkList: React.FC<Props> = ({ inverse }) => {
+  const timing = Array.from({ length: items.length }, (_, i) => `${i * 0.05}s`);
   return (
-    <Styled.Container>
-      {items.map((item) => (
-        <Link href={item.to} key={item.text}>
-          {item.text}
-        </Link>
+    <Styled.Container inverse={inverse}>
+      {items.map((item, idx) => (
+        <span
+          css={css`
+            transform: ${inverse ? "translateX(-1rem)" : "translateX(0)"};
+            transition: transform 0.35s ease-in-out;
+            transition-delay: ${timing[idx]};
+          `}
+        >
+          <Link href={item.to} key={item.text}>
+            {item.text}
+          </Link>
+        </span>
       ))}
     </Styled.Container>
   );

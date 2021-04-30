@@ -5,6 +5,6 @@ export const Anchor = styled.a(
   ({ theme }) => css`
     text-decoration: none;
     cursor: pointer;
-    color: ${theme.color.textAccent};
+    /* color: ${theme.color.textAccent}; */
   `
 );

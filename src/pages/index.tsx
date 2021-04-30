@@ -16,7 +16,7 @@ const IndexPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     threshold: 0.02,
   });
   return (
-    <CommonLayout>
+    <CommonLayout inverse={!intersection?.isIntersecting ?? false}>
       <Hero isVisible={!intersection?.isIntersecting ?? false} />
       <BlogIndex posts={posts} intersectionTarget={intersectionRef} />
     </CommonLayout>

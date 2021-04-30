@@ -39,8 +39,12 @@ const SvgCircle = styled.circle(
   ({ theme }) => css`
     stroke: inherit;
     fill: transparent;
-    stroke-dasharray: 0 1000;
+    stroke-dasharray: 1000 1000;
     transition: stroke-dasharray ${theme.transitionSpeed.hover} ease-in-out;
+
+    ${theme.mediaQuery.md} {
+      stroke-dasharray: 0 1000;
+    }
   `
 );
 

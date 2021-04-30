@@ -12,14 +12,16 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
   const [loaded, setLoaded] = useState(false);
   const [wait, setWait] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      setWait(true);
-    }, 1000);
-  }, []);
+    if (loaded) {
+      setTimeout(() => {
+        setWait(true);
+      }, 500);
+    }
+  }, [loaded]);
   return (
     <Styled.Container
       css={css`
-        opacity: ${loaded && wait ? (isVisible ? 1 : 0.15) : 0};
+        opacity: ${wait ? (isVisible ? 1 : 0.15) : 0};
       `}
     >
       <Image

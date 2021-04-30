@@ -1,13 +1,20 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-export const Container = styled.nav`
-  grid-area: leftnav;
-  position: sticky;
-  top: 0;
+export const Container = styled.nav(
+  ({ theme }) => css`
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    z-index: 1;
+    background: rgba(245, 245, 245, 0.7);
+    display: flex;
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 100vh;
-`;
+    ${theme.mediaQuery.md} {
+      display: none;
+    }
+  `
+);

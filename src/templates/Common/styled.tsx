@@ -35,5 +35,6 @@ export const Wireframe = styled.div(
 export const Content = styled.div(
   ({ theme }) => css`
     grid-area: content;
+    margin: 72px ${theme.space.sm};
   `
 );

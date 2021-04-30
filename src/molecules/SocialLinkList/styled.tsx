@@ -2,12 +2,21 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 export const Container = styled.div(
-  css`
-    flex-basis: 12em;
+  ({ theme }) =>
+    css`
+      display: flex;
+      width: 50%;
+      align-items: stretch;
+      flex-direction: row;
+      justify-content: space-around;
+      stroke: ${theme.color.textHighEmphasisInverse};
+      color: ${theme.color.textHighEmphasisInverse};
 
-    display: flex;
-    align-items: stretch;
-    flex-direction: inherit;
-    justify-content: space-around;
-  `
+      ${theme.mediaQuery.md} {
+        flex-basis: 12em;
+        flex-direction: column;
+        stroke: inherit;
+        color: inherit;
+      }
+    `
 );

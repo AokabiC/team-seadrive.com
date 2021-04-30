@@ -1,14 +1,32 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { default as NextLink, LinkProps } from "next/link";
 import React, { PropsWithChildren } from "react";
-import * as Styled from "./styled";
 
 export const Link: React.FC<
-  PropsWithChildren<LinkProps> & { external?: boolean }
-> = ({ children, external = false, ...linkProps }) =>
+  PropsWithChildren<LinkProps> & { external?: boolean; notext?: boolean }
+> = ({ children, external = false, notext = false, ...linkProps }) =>
   external ? (
-    <Styled.Anchor target="_blank">{children}</Styled.Anchor>
+    <a
+      css={css`
+        text-decoration: none;
+        cursor: pointer;
+        line-height: ${notext ? 0 : `inherit`};
+      `}
+      target="_blank"
+    >
+      {children}
+    </a>
   ) : (
     <NextLink {...linkProps}>
-      <Styled.Anchor>{children}</Styled.Anchor>
+      <a
+        css={css`
+          text-decoration: none;
+          cursor: pointer;
+          line-height: ${notext ? 0 : `inherit`};
+        `}
+      >
+        {children}
+      </a>
     </NextLink>
   );

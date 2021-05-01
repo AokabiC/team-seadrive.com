@@ -66,6 +66,7 @@ export const theme = {
       .join(","),
   },
   fontSize: {
+    small: "0.7rem",
     body: "1rem",
     nav: "1.1rem",
     heading: "1.2rem",

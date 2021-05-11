@@ -13,6 +13,7 @@ export const Container = styled.div(
       color: ${theme.color.textHighEmphasisInverse};
 
       ${theme.mediaQuery.md} {
+        width: initial;
         flex-basis: 12em;
         flex-direction: column;
         stroke: inherit;

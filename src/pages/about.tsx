@@ -21,10 +21,10 @@ const AboutPage: NextPage = () => {
             );
           }
           return (
-            <>
+            <React.Fragment key={data.label}>
               <dt>{data.label}</dt>
               <dd>{content}</dd>
-            </>
+            </React.Fragment>
           );
         })}
       </Table>

@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { BurgerButton } from "atoms/BurgerButton";
 import { Link } from "atoms/Link";
 import Image from "next/image";
@@ -18,6 +20,9 @@ export const TopNavBar: React.FC = () => {
           layout="fixed"
           width="48px"
           height="48px"
+          css={css`
+            z-index: 1;
+          `}
         />
       </Link>
       <BurgerButton

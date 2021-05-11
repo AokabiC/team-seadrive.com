@@ -8,12 +8,12 @@ const WorksPage: NextPage = () => {
   return (
     <CommonLayout>
       {items.map((item) => (
-        <Table>
+        <Table key={item.label}>
           <dt> {item.label} </dt>
           <dd>
             <List>
               {item.links.map((e) => (
-                <li>
+                <li key={e.link}>
                   <Link href={e.link} external={e.link.indexOf("http") != -1}>
                     {e.text}
                   </Link>

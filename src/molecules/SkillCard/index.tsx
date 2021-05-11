@@ -2,15 +2,16 @@
 import { css } from "@emotion/react";
 import { PercentageBar } from "atoms/PercentageBar";
 import { Tag } from "atoms/Tag";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useIntersection } from "react-use";
 import * as Styled from "./styled";
 
 interface Props {
   name: string;
-  src: string;
-  tags: Array<string>;
-  value: number;
+  src?: string;
+  tags?: Array<string>;
+  value?: number;
 }
 
 export const SkillCard: React.FC<Props> = ({
@@ -41,33 +42,52 @@ export const SkillCard: React.FC<Props> = ({
       `}
     >
       <div
-        css={css`
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        `}
-      >
-        <img src={src} alt={name} height="50" />
-        <p>
-          {tags.map((tag) => (
-            <Tag key={tag} href={"/"}>
-              {tag}
-            </Tag>
-          ))}
-        </p>
-      </div>
-      <div
         css={(theme) => css`
           display: flex;
           justify-content: space-between;
-          font-size: ${theme.fontSize.small};
-          margin-bottom: 2px;
+          align-items: center;
+          margin: ${theme.space.xs} 0;
         `}
       >
-        <span>Novice</span>
-        <span>Advanced</span>
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
+          {src && <Image src={src} alt={name} height="32px" width="32px" />}
+          <Styled.Title>{name}</Styled.Title>
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-wrap: wrap;
+          `}
+        >
+          {tags &&
+            tags.map((tag) => (
+              <Tag key={tag} href={"/"}>
+                {tag}
+              </Tag>
+            ))}
+        </div>
       </div>
-      <PercentageBar value={value} />
+      {value && (
+        <>
+          <div
+            css={(theme) => css`
+              display: flex;
+              justify-content: space-between;
+              font-size: ${theme.fontSize.small};
+              margin-bottom: 2px;
+            `}
+          >
+            <span>Novice</span>
+            <span>Advanced</span>
+          </div>
+          <PercentageBar value={value} />
+        </>
+      )}
       <p>{children}</p>
     </Styled.Container>
   );

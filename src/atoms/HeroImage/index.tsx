@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as Styled from "./styled";
 
 interface Props {
@@ -10,22 +10,14 @@ interface Props {
 
 export const HeroImage: React.FC<Props> = ({ isVisible }) => {
   const [loaded, setLoaded] = useState(false);
-  const [wait, setWait] = useState(false);
-  useEffect(() => {
-    if (loaded) {
-      setTimeout(() => {
-        setWait(true);
-      }, 500);
-    }
-  }, [loaded]);
   return (
     <Styled.Container
       css={css`
-        opacity: ${wait ? (isVisible ? 1 : 0.15) : 0};
+        opacity: ${loaded ? (isVisible ? 1 : 0.15) : 0};
       `}
     >
       <Image
-        src="/images/hero/bg_md.jpeg"
+        src="/images/hero/bg_md.webp"
         layout="fill"
         objectFit="cover"
         quality={100}
@@ -37,7 +29,7 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
         `}
       />
       <Image
-        src="/images/hero/bg_xl.jpeg"
+        src="/images/hero/bg_xl.webp"
         layout="fill"
         objectFit="cover"
         quality={100}

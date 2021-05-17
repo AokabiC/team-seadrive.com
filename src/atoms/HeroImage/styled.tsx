@@ -7,8 +7,12 @@ export const Container = styled.div(
     top: 0;
     left: 0;
     width: 100vw;
-    height: 101vh;
+    height: 120vh;
     z-index: -100000;
+
+    ${theme.mediaQuery.md} {
+      height: 110vh;
+    }
 
     transition: opacity ${theme.transitionSpeed.hover} ease-in-out;
   `

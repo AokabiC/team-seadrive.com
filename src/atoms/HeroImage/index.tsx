@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { theme } from "utils/theme";
 import * as Styled from "./styled";
 
 interface Props {
@@ -10,45 +10,51 @@ interface Props {
 
 export const HeroImage: React.FC<Props> = ({ isVisible }) => {
   const [loaded, setLoaded] = useState(false);
-  const [wait, setWait] = useState(false);
+
   useEffect(() => {
-    if (loaded) {
-      setTimeout(() => {
-        setWait(true);
-      }, 500);
-    }
-  }, [loaded]);
+    setTimeout(() => setLoaded(true), 800);
+  }, []);
   return (
     <Styled.Container
       css={css`
-        opacity: ${wait ? (isVisible ? 1 : 0.15) : 0};
+        opacity: ${loaded ? (isVisible ? 1 : 0.15) : 0};
       `}
     >
-      <Image
-        src="/images/hero/bg_md.jpeg"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        onLoad={() => setLoaded(true)}
-        css={(theme) => css`
-          ${theme.mediaQuery.md} {
-            display: none !important;
+      <picture
+        css={css`
+          width: inherit;
+          height: inherit;
+          > * {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
           }
         `}
-      />
-      <Image
-        src="/images/hero/bg_xl.jpeg"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        onLoad={() => setLoaded(true)}
-        css={(theme) => css`
-          display: none !important;
-          ${theme.mediaQuery.md} {
-            display: initial !important;
-          }
-        `}
-      />
+      >
+        <source
+          type="image/webp"
+          media={`(max-width: ${theme.mediaQueryValue.md}px)`}
+          srcSet="/images/hero/bg_md.webp"
+        />
+        <source
+          type="image/webp"
+          media={`(min-width: ${theme.mediaQueryValue.md + 1}px)`}
+          srcSet="/images/hero/bg_xl.webp"
+        />
+        <source
+          media={`(max-width: ${theme.mediaQueryValue.md}px)`}
+          srcSet="/images/hero/bg_md.jpeg"
+        />
+        <source
+          media={`(min-width: ${theme.mediaQueryValue.md + 1}px)`}
+          srcSet="/images/hero/bg_xl.jpeg"
+        />
+        <img
+          src="/images/hero/bg_xl.jpeg"
+          onLoad={() => setLoaded(true)}
+          alt="background"
+        />
+      </picture>
     </Styled.Container>
   );
 };

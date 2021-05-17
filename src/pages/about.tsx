@@ -2,10 +2,12 @@ import { List, Table } from "atoms/PageTable";
 import { NextPage } from "next";
 import React from "react";
 import { CommonLayout } from "templates/Common";
+import { SEO } from "utils/Seo";
 
 const AboutPage: NextPage = () => {
   return (
     <CommonLayout>
+      <SEO title="About" />
       <Table>
         {biography.map((data) => {
           let content;

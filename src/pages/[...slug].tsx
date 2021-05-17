@@ -6,7 +6,9 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import React from "react";
 import { BlogPostTemplate } from "templates/BlogTemplate";
+import { SEO } from "utils/Seo";
 
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   props
@@ -14,6 +16,10 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   const content = hydrate(props.content, props.slug);
   return (
     <BlogPostTemplate frontmatter={props.frontmatter}>
+      <SEO
+        title={props.frontmatter?.title}
+        description={props.frontmatter?.description}
+      />
       {content}
     </BlogPostTemplate>
   );

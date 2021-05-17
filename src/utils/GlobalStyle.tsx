@@ -11,7 +11,9 @@ export const GlobalStyle: React.FC = () => {
           margin: 0;
           background-color: ${theme.color.background};
           color: ${theme.color.textMediumEmphasis};
+          font-style: normal;
           font-family: ${theme.fontFamily.body};
+          font-weight: ${theme.fontWeight.normal};
           font-size: ${theme.fontSize.body};
           line-height: ${theme.lineHeight.body};
           -webkit-font-smoothing: "antialiased";

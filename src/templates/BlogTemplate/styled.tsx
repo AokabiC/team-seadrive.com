@@ -12,6 +12,9 @@ export const Container = styled.article(
     ${theme.mediaQuery.md} {
       margin: 0;
     }
+    p {
+      margin-bottom: ${theme.space.md};
+    }
   `
 );
 

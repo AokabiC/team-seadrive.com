@@ -3,10 +3,12 @@ import { SkillCard } from "molecules/SkillCard";
 import { NextPage } from "next";
 import React from "react";
 import { CommonLayout } from "templates/Common";
+import { SEO } from "utils/Seo";
 
 const SkillPage: NextPage = () => {
   return (
     <CommonLayout>
+      <SEO title="Skill" />
       <ContentsHeading>Languages</ContentsHeading>
       <SkillCard
         name="TypeScript"

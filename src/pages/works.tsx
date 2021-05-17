@@ -3,10 +3,12 @@ import { List, Table } from "atoms/PageTable";
 import { NextPage } from "next";
 import React from "react";
 import { CommonLayout } from "templates/Common";
+import { SEO } from "utils/Seo";
 
 const WorksPage: NextPage = () => {
   return (
     <CommonLayout>
+      <SEO title="Works" />
       {items.map((item) => (
         <Table key={item.label}>
           <dt> {item.label} </dt>

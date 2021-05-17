@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { theme } from "utils/theme";
 import * as Styled from "./styled";
 
 interface Props {
@@ -10,35 +10,24 @@ interface Props {
 
 export const HeroImage: React.FC<Props> = ({ isVisible }) => {
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
   return (
     <Styled.Container
       css={css`
         opacity: ${loaded ? (isVisible ? 1 : 0.15) : 0};
       `}
     >
-      <Image
-        src="/images/hero/bg_md.webp"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        onLoad={() => setLoaded(true)}
-        css={(theme) => css`
-          ${theme.mediaQuery.md} {
-            display: none !important;
-          }
-        `}
-      />
-      <Image
+      <img
         src="/images/hero/bg_xl.webp"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        onLoad={() => setLoaded(true)}
-        css={(theme) => css`
-          display: none !important;
-          ${theme.mediaQuery.md} {
-            display: initial !important;
-          }
+        srcSet={`/images/hero/bg_md.webp ${theme.mediaQueryValue.md}w,
+                 /images/hero/bg_xl.webp ${theme.mediaQueryValue.lg}w,`}
+        css={css`
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
         `}
       />
     </Styled.Container>

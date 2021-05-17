@@ -10,6 +10,10 @@ export const theme = {
     md: `@media (min-width: ${860}px)`,
     lg: `@media (min-width: ${1600}px)`,
   },
+  mediaQueryValue: {
+    md: 860,
+    lg: 1600,
+  },
   color: {
     background: "#F5F5F5",
     surfacePrimary: whiteColor.string(),

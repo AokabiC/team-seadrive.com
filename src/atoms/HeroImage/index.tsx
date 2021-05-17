@@ -12,7 +12,7 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setLoaded(true);
+    setTimeout(() => setLoaded(true), 800);
   }, []);
   return (
     <Styled.Container
@@ -49,7 +49,11 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
           media={`(min-width: ${theme.mediaQueryValue.md + 1}px)`}
           srcSet="/images/hero/bg_xl.jpeg"
         />
-        <img src="/images/hero/bg_xl.jpeg" />
+        <img
+          src="/images/hero/bg_xl.jpeg"
+          onLoad={() => setLoaded(true)}
+          alt="background"
+        />
       </picture>
     </Styled.Container>
   );

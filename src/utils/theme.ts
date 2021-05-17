@@ -25,7 +25,7 @@ export const theme = {
     surfaceCautionLight: cautionColor.fade(1 - 0.05).string(),
 
     textHighEmphasis: blackColor.hex(),
-    textMediumEmphasis: blackColor.fade(1 - 0.7).string(),
+    textMediumEmphasis: blackColor.fade(1 - 0.8).string(),
     textLowEmphasis: blackColor.fade(1 - 0.6).string(),
     textDisabled: blackColor.fade(1 - 0.3).string(),
     textHighEmphasisInverse: whiteColor.hex(),
@@ -65,7 +65,7 @@ export const theme = {
     md: 1,
   },
   fontFamily: {
-    body: ["Noto Sans JP", "sans-serif"]
+    body: ["a-otf-ud-shin-go-pr6n", "sans-serif"]
       .map((e) => `'${e.replace("'", "\\'")}'`)
       .join(","),
   },
@@ -77,9 +77,10 @@ export const theme = {
   },
   fontWeight: {
     heading: 400,
+    normal: 300,
   },
   lineHeight: {
-    body: 1.5,
+    body: 1.8,
   },
   transitionSpeed: {
     hover: "0.35s",

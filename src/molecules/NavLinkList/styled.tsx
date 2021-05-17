@@ -11,7 +11,7 @@ export const Container = styled.div<Props>(
     color: ${theme.color.textHighEmphasisInverse};
     font-size: ${theme.fontSize.nav};
     display: flex;
-    align-items: stretch;
+    align-items: center;
     flex-direction: inherit;
     justify-content: space-around;
     opacity: ${inverse ? 0 : 1};
@@ -22,6 +22,7 @@ export const Container = styled.div<Props>(
     ${theme.mediaQuery.md} {
       flex-basis: 16em;
       color: inherit;
+      align-items: stretch;
       a:hover {
         color: ${theme.color.textAccent};
       }

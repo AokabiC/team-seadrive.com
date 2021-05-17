@@ -20,16 +20,37 @@ export const HeroImage: React.FC<Props> = ({ isVisible }) => {
         opacity: ${loaded ? (isVisible ? 1 : 0.15) : 0};
       `}
     >
-      <img
-        src="/images/hero/bg_xl.webp"
-        srcSet={`/images/hero/bg_md.webp ${theme.mediaQueryValue.md}w,
-                 /images/hero/bg_xl.webp ${theme.mediaQueryValue.lg}w,`}
+      <picture
         css={css`
           width: inherit;
           height: inherit;
-          object-fit: cover;
+          > * {
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+          }
         `}
-      />
+      >
+        <source
+          type="image/webp"
+          media={`(max-width: ${theme.mediaQueryValue.md}px)`}
+          srcSet="/images/hero/bg_md.webp"
+        />
+        <source
+          type="image/webp"
+          media={`(min-width: ${theme.mediaQueryValue.md + 1}px)`}
+          srcSet="/images/hero/bg_xl.webp"
+        />
+        <source
+          media={`(max-width: ${theme.mediaQueryValue.md}px)`}
+          srcSet="/images/hero/bg_md.jpeg"
+        />
+        <source
+          media={`(min-width: ${theme.mediaQueryValue.md + 1}px)`}
+          srcSet="/images/hero/bg_xl.jpeg"
+        />
+        <img src="/images/hero/bg_xl.jpeg" />
+      </picture>
     </Styled.Container>
   );
 };

@@ -7,7 +7,7 @@ export const Container = styled.div(
     top: 0;
     left: 0;
     width: 100vw;
-    height: 105vh;
+    height: 110vh;
     z-index: -100000;
 
     transition: opacity ${theme.transitionSpeed.hover} ease-in-out;

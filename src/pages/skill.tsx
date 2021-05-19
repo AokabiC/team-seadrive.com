@@ -12,7 +12,7 @@ const SkillPage: NextPage = () => {
       <ContentsHeading>Languages</ContentsHeading>
       <SkillCard
         name="TypeScript"
-        src="/ts-icon.svg"
+        src="/ts-icon.png"
         value={60}
         tags={["React", "Next.js", "Storybook"]}
       >
@@ -22,7 +22,7 @@ const SkillPage: NextPage = () => {
       </SkillCard>
       <SkillCard
         name="Python"
-        src="/python-icon.svg"
+        src="/python-icon.png"
         value={70}
         tags={["PyTorch", "Flask", "pytest", "Poetry"]}
       >
@@ -30,24 +30,19 @@ const SkillPage: NextPage = () => {
         LambdaなどのFaaSを用いたWebサイトクローラやTwitter
         botなどの小規模なアプリ開発を経験しています。スタートアップ企業での開発アルバイトでも書いています。
       </SkillCard>
-      <SkillCard
-        name="Golang"
-        src="/golang-icon.svg"
-        value={40}
-        tags={["Echo"]}
-      >
+      <SkillCard name="Golang" src="/go-icon.png" value={40} tags={["Echo"]}>
         趣味でAPIサーバーの開発に利用しています。言語仕様がシンプルかつ必要十分で書き方に悩むことが少なく、Clean
         Architectureとの相性が良いとも感じるので最近気に入っている言語です。
       </SkillCard>
       <SkillCard
         name="Rust"
-        src="/rust-lang-icon.svg"
+        src="/rust-icon.png"
         value={20}
         tags={["Actix-web"]}
       >
         一通り学んで、トレイトやパターンマッチングでのエラー処理などの関数型言語の影響を受けた言語機能が新鮮で洗練されていると感じた言語です。書く際にロジック以外に考慮すべき事項が多く、良くも悪くもパフォーマンス志向のシステムプログラミング言語だなぁという印象。
       </SkillCard>
-      <SkillCard name="HTML / CSS" src="/html5-icon.svg" value={70}>
+      <SkillCard name="HTML / CSS" src="/html5-icon.png" value={70}>
         CSS
         Animationが好きで、このサイトのすべてのアニメーションに用いられています。最近はWeb
         Accessibilityに興味があります。

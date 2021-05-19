@@ -39,7 +39,7 @@ export const SEO: React.FC<Props> = ({ description, image, title }) => {
 };
 
 const defaultSEO = {
-  title: "AokabiC's Porifolio",
+  title: "AokabiC's Portfolio",
   description: "碧黴(あおかび)のサークル team-seadrive.com のWebサイト。",
   image: "/images/ogp_default.png",
 };

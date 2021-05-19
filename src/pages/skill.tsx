@@ -33,7 +33,7 @@ const SkillPage: NextPage = () => {
       <SkillCard
         name="Golang"
         src="/golang-icon.svg"
-        value={30}
+        value={40}
         tags={["Echo"]}
       >
         趣味でAPIサーバーの開発に利用しています。言語仕様がシンプルかつ必要十分で書き方に悩むことが少なく、Clean
@@ -64,7 +64,7 @@ const SkillPage: NextPage = () => {
         tags={["GitHubFlow", "CleanArchitecture"]}
       >
         Clean
-        Architectureなどのドメイン駆動開発やテスト・変更に強い開発手法に興味があり、実際に趣味のアプリのバックエンドAPIサーバーの開発に用いています。
+        Architectureなどのドメイン駆動設計やテスト・変更に強い開発手法に興味があり、実際に趣味のアプリのバックエンドAPIサーバーの開発に用いています。
       </SkillCard>
       <SkillCard
         name="Platform as a Service"

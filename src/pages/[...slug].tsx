@@ -1,12 +1,14 @@
 import { getAllPosts, getPostContent } from "api/getPost";
 import { hydrate, renderToString } from "api/mdxServer";
+import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css";
 import {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
   NextPage,
 } from "next";
-import React from "react";
+import React, { useEffect } from "react";
 import { BlogPostTemplate } from "templates/BlogTemplate";
 import { SEO } from "utils/Seo";
 
@@ -14,6 +16,11 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   props
 ) => {
   const content = hydrate(props.content, props.slug);
+
+  useEffect(() => {
+    hljs.highlightAll();
+  });
+
   return (
     <BlogPostTemplate frontmatter={props.frontmatter}>
       <SEO

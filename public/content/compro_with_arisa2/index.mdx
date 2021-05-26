@@ -5,7 +5,7 @@ date: "2019-09-25T22:40:32.170Z"
 description: 技術書典7で頒布した「銀髪赤眼の後輩と学ぶ競技プログラミング2」のサポートページです。
 ---
 
-![cover](./cover.jpg)
+<img src="./cover.jpg" alt="cover" width="563px" height="800px" />
 
 技術書典 7 で頒布した「銀髪赤眼の後輩と学ぶ競技プログラミング 2」のサポートページです。
 
@@ -30,7 +30,8 @@ description: 技術書典7で頒布した「銀髪赤眼の後輩と学ぶ競技
 | p.53              | dp[i][j]=max(dp[i-1][j]+(j 以外の活動の幸福度))       | dp[i][k]=max(dp[i-1][j]+(j 以外の活動**k**の幸福度)) |
 
 p.23 図(本文と対応するようにしました)
-![4-4-2](./6.jpg)
+
+<img src="./6.jpg" alt="cover" width="800px" height="482px" />
 
 ## 1 章
 
@@ -40,7 +41,7 @@ p.23 図(本文と対応するようにしました)
 
 [Synthetic Kadomatsu](https://atcoder.jp/contests/abc119/submissions/7344288)
 
-```cpp:title=DFS
+```cpp title=DFS
 void dfs(int now(探索中の頂点番号)){
     for(int i=0; i<(now から伸びている辺の数); i++){
         next = (次に探索する頂点番号);
@@ -52,7 +53,7 @@ void dfs(int now(探索中の頂点番号)){
 All Green -
 [bit 全探索解](https://atcoder.jp/contests/abc104/submissions/7581080) / [next_permutation 解](https://atcoder.jp/contests/abc104/submissions/7704885)
 
-```cpp:title=二分探索
+```cpp title=二分探索
 int binary_search(int ok, int ng){
     while (abs(ok - ng) > 1) {
         int mid = (ok + ng) / 2;
@@ -65,7 +66,7 @@ int binary_search(int ok, int ng){
 
 [Widespread](https://atcoder.jp/contests/arc075/submissions/7439117)
 
-```cpp:title=Union-Find
+```cpp title=Union-Find
 struct UnionFind {
     vector<int> data;
     UnionFind(int size) : data(size, -1) { }
@@ -103,7 +104,7 @@ struct UnionFind {
 
 素数、コンテスト、素数 - [試し割り法解](https://atcoder.jp/contests/arc017/submissions/7454758) / [エラトステネスの篩解](https://atcoder.jp/contests/arc017/submissions/7455097)
 
-```cpp:title=GCD
+```cpp title=GCD
 LL gcd(LL a, LL b) {
     if(b == 0) return a;
     else return gcd(b, a%b);
@@ -116,7 +117,7 @@ LL gcd(LL a, LL b) {
 
 [Training Camp](https://atcoder.jp/contests/abc055/submissions/7464695)
 
-```cpp:title=拡張ユークリッドの互除法
+```cpp title=拡張ユークリッドの互除法
 LL extgcd(LL a, LL b, LL &x, LL &y) {
     if (b == 0) {
         x = 1;
@@ -142,7 +143,7 @@ int main(){
 
 いろはちゃんとマス目 - [拡張ユークリッドの互除法解](https://atcoder.jp/contests/abc042/submissions/7482116) / [フェルマーの小定理解](https://atcoder.jp/contests/abc042/submissions/7482725) / [modint](https://atcoder.jp/contests/abc042/submissions/7482885)
 
-```cpp:title=modint構造体
+```cpp title=modint構造体
 template<int mod>
 struct ModInt {
     int x;
@@ -217,7 +218,7 @@ struct ModInt {
 
 ## 3 章
 
-```cpp:title=スターリング数
+```cpp title=スターリング数
 const int mod = 1e9 + 7;
 using modint = ModInt<mod>;
 

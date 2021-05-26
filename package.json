@@ -6,9 +6,7 @@
   "author": "AokabiC <team.seadrive@gmail.com>",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "deploy": "next build && echo \"team-seadrive.com\" > public/CNAME && gh-pages -d public"
+    "start": "next dev"
   },
   "dependencies": {
     "@emotion/react": "11.4.0",

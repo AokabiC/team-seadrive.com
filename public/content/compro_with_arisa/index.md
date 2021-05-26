@@ -7,30 +7,32 @@ description: 技術書典6で頒布した「銀髪赤眼の後輩と学ぶ競技
 
 ![cover](./cover.jpg)
 
-技術書典6で頒布した「銀髪赤眼の後輩と学ぶ競技プログラミング」のサポートページです。
+技術書典 6 で頒布した「銀髪赤眼の後輩と学ぶ競技プログラミング」のサポートページです。
 
-2のサポートページは[こちら](/compro_with_arisa2/)。
+2 のサポートページは[こちら](/compro_with_arisa2/)。
 
-[誤植](/compro_with_arisa/#誤植) / [1章](/compro_with_arisa/#1章) / [2章](/compro_with_arisa/#2章) / [3章](/compro_with_arisa/#3章) / [4章](/compro_with_arisa/#4章)
+[誤植](/compro_with_arisa/#誤植) / [1 章](/compro_with_arisa/#1章) / [2 章](/compro_with_arisa/#2章) / [3 章](/compro_with_arisa/#3章) / [4 章](/compro_with_arisa/#4章)
 
 ## 誤植
-|ページ|誤|正|備考|
-|---|---|---|---|
-|p.28|引数 str - pos - 検索を…|(削除)| |
-|p.39|log(min A_i)回|log(max A_i)回| |
-|p.41|型 T は比較演算子 > が定義…|型 T は比較演算子 < が定義…|4/24追記|
-|p.44|for(int i=0; i=N; i++){|for(int i=0; i<N; i++){|4/24追記|
-|p.50|(101011 >> 2) -> 101100|(101011 << 2) -> 101100|6/7追記|
-|p.53|コード内 sum += stoll(… の下行|ans += sum; を追加| |
-|p.61|DFSの実装コード 最終行|} を追加| |
-|p.62|st.push(data); / st.front(); / st.pop()|st を que に変更|6/15追記|
-|p.67|void dfs(int now)|void dfs(string now)|3/6追記|
+
+| ページ | 誤                                      | 正                          | 備考      |
+| ------ | --------------------------------------- | --------------------------- | --------- |
+| p.28   | 引数 str - pos - 検索を…                | (削除)                      |           |
+| p.39   | log(min A_i)回                          | log(max A_i)回              |           |
+| p.41   | 型 T は比較演算子 > が定義…             | 型 T は比較演算子 < が定義… | 4/24 追記 |
+| p.44   | for(int i=0; i=N; i++){                 | for(int i=0; i<N; i++){     | 4/24 追記 |
+| p.50   | (101011 >> 2) -> 101100                 | (101011 << 2) -> 101100     | 6/7 追記  |
+| p.53   | コード内 sum += stoll(… の下行          | ans += sum; を追加          |           |
+| p.61   | DFS の実装コード 最終行                 | } を追加                    |           |
+| p.62   | st.push(data); / st.front(); / st.pop() | st を que に変更            | 6/15 追記 |
+| p.67   | void dfs(int now)                       | void dfs(string now)        | 3/6 追記  |
 
 p.57 図(わかりやすく改変しました)
 ![4-4-2](./4-4-2.png)
 
-## 1章
-```cpp:title=1.2
+## 1 章
+
+```cpp title=1.2
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -40,7 +42,7 @@ int main() {
 }
 ```
 
-```cpp:title=1.3
+```cpp title=1.3
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -55,7 +57,7 @@ int main(){
 }
 ```
 
-```cpp:title=1.5
+```cpp title=1.5
 int main(){
     int N;
     cin >> N;
@@ -73,8 +75,9 @@ int main(){
 }
 ```
 
-## 2章
-```cpp:title=2.2
+## 2 章
+
+```cpp title=2.2
 int main(){
     string A, B, C;
     cin >> A >> B >> C;
@@ -85,7 +88,7 @@ int main(){
 }
 ```
 
-```cpp:title=2.3
+```cpp title=2.3
 int main(){
         string S;
         cin >> S;
@@ -96,7 +99,7 @@ int main(){
 }
 ```
 
-```cpp:title=2.6
+```cpp title=2.6
 int main(){
         string N;
         cin >> N;
@@ -109,8 +112,9 @@ int main(){
 }
 ```
 
-## 3章
-```cpp:title=3.3
+## 3 章
+
+```cpp title=3.3
 int main(){
     int ans = 0;
     bool div_by_2 = true;
@@ -132,7 +136,7 @@ int main(){
 }
 ```
 
-```cpp:title=3.4
+```cpp title=3.4
 int main(){
     int A, B, C, X;
     cin >> A >> B >> C >> X;
@@ -150,7 +154,7 @@ int main(){
 }
 ```
 
-```cpp:title=3.6
+```cpp title=3.6
 int main() {
     int N, K;
     cin >> N >> K;
@@ -165,7 +169,7 @@ int main() {
 }
 ```
 
-```cpp:title=3.7
+```cpp title=3.7
 const int INF = 999999999;
 int main() {
     int N;
@@ -188,7 +192,7 @@ int main() {
 }
 ```
 
-```cpp:title=3.8
+```cpp title=3.8
 int main() {
     int N;
     cin >> N;
@@ -209,8 +213,9 @@ int main() {
 }
 ```
 
-## 4章
-```cpp:title=4.1
+## 4 章
+
+```cpp title=4.1
 int main() {
     int N;
     cin >> N;
@@ -260,7 +265,7 @@ int main() {
 }
 ```
 
-```cpp:title=4.3
+```cpp title=4.3
 stack<string> st;
 st.push("");
 // stが空でない限り
@@ -294,14 +299,13 @@ void dfs(string now){
 > 補足  
 > スタックによる実装と、再帰関数による実装では出力の順番が逆になります。
 > この違いについて考えてみます。  
-> スタックは"積む"操作であり、forループが終わるまで順に 1, 0 と積みます。
-> その後whileループで取り出されるのは、最後に積んだ0になります。  
-> 0に続く数字も同様に処理されるので、最終的には000, 001, 010, … の順番で取り出されます。  
+> スタックは"積む"操作であり、for ループが終わるまで順に 1, 0 と積みます。
+> その後 while ループで取り出されるのは、最後に積んだ 0 になります。  
+> 0 に続く数字も同様に処理されるので、最終的には 000, 001, 010, … の順番で取り出されます。  
 > 一方、再帰関数は"割り込む"操作です。最初に 1 を積みますが、その後 0 を積むのではなく先に 1 に続く数字を処理するのです。  
-> 結果、11 のあとに続けるのは 1 で、111ができたから出力、… といった具合に出力が逆転するのです。
+> 結果、11 のあとに続けるのは 1 で、111 ができたから出力、… といった具合に出力が逆転するのです。
 
-
-```cpp:title=4.4
+```cpp title=4.4
 int N, M;
 vector<int> visited;
 vector<vector<int>> G;
@@ -342,7 +346,7 @@ int main() {
 }
 ```
 
-```cpp:title=4.5
+```cpp title=4.5
 int W, H;
 vector<vector<char>> s;
 
@@ -397,7 +401,7 @@ int main() {
 }
 ```
 
-```cpp:title=4.6
+```cpp title=4.6
 // ##### 本誌に書けなかったダイクストラ法の実装です #####
 
 // 隣接リストでは相手の頂点番号だけ持っておけばよかったので、

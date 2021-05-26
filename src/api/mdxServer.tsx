@@ -1,3 +1,4 @@
+import { CodeBlock, Props as MarkdownCodeProps } from "atoms/CodeBlock";
 import { default as nmrHydrate } from "next-mdx-remote/hydrate";
 import { default as nmrRenderToString } from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
@@ -18,6 +19,8 @@ const componentsBuilder = (slug: Array<string>): MdxRemote.Components => ({
       const imgSrc = path.join("/content/", ...slug, props.src);
       return <Image {...props} src={imgSrc} />;
     },
+    pre: (props: any) => <div {...props} />,
+    code: (props: MarkdownCodeProps) => <CodeBlock {...props} />,
   },
 });
 

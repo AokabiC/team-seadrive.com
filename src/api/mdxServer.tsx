@@ -1,7 +1,5 @@
-import { CodeBlock, Props as MarkdownCodeProps } from "atoms/CodeBlock";
-import { default as nmrHydrate } from "next-mdx-remote/hydrate";
-import { default as nmrRenderToString } from "next-mdx-remote/render-to-string";
-import { MdxRemote } from "next-mdx-remote/types";
+import { CodeBlock } from "atoms/CodeBlock";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Image from "next/image";
 import path from "path";
 import React from "react";
@@ -13,29 +11,20 @@ interface MarkdownImgProps {
   height: number | string;
 }
 
-const componentsBuilder = (slug: Array<string>): MdxRemote.Components => ({
-  components: {
-    img: (props: MarkdownImgProps) => {
-      const imgSrc = path.join("/content/", ...slug, props.src);
-      return <Image {...props} src={imgSrc} />;
-    },
-    pre: (props: any) => <div {...props} />,
-    code: (props: MarkdownCodeProps) => <CodeBlock {...props} />,
-  },
-});
-
 export const hydrate = (
-  source: MdxRemote.Source,
-  slug: any
-): React.ReactNode => {
-  const components = componentsBuilder(slug);
-  return nmrHydrate(source, components);
-};
-
-export const renderToString = (
-  source: string,
+  source: MDXRemoteSerializeResult,
   slug: Array<string>
-): Promise<MdxRemote.Source> => {
-  const components = componentsBuilder(slug);
-  return nmrRenderToString(source, components);
+) => {
+  return (
+    <MDXRemote
+      {...source}
+      components={{
+        img: (props: MarkdownImgProps) => {
+          const imgSrc = path.join("/content/", ...slug, props.src);
+          return <Image {...props} src={imgSrc} />;
+        },
+        code: CodeBlock,
+      }}
+    />
+  );
 };

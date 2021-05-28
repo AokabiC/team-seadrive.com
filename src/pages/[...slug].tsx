@@ -1,13 +1,14 @@
 import { getAllPosts, getPostContent } from "api/getPost";
-import { hydrate, renderToString } from "api/mdxServer";
+import { hydrate } from "api/mdxServer";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import {
   GetStaticPaths,
-  GetStaticProps,
+  GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import { serialize } from "next-mdx-remote/serialize";
 import React, { useEffect } from "react";
 import { BlogPostTemplate } from "templates/BlogTemplate";
 import { SEO } from "utils/Seo";
@@ -15,7 +16,7 @@ import { SEO } from "utils/Seo";
 const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   props
 ) => {
-  const content = hydrate(props.content, props.slug);
+  const content = hydrate(props.source, props.slug);
 
   useEffect(() => {
     hljs.highlightAll();
@@ -32,16 +33,17 @@ const Blog: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   // slug = ["path", "to", "post"]
+
   const slug = params?.slug as Array<string>;
   const post = await getPostContent(slug);
-  const mdxSource = await renderToString(post.content, slug);
+  const mdxSource = await serialize(post.content);
 
   return {
     props: {
       ...post,
-      content: mdxSource,
+      source: mdxSource,
     },
   };
 };

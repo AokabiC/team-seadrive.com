@@ -46,12 +46,16 @@ const biography = [
   {
     label: "略歴(情報関係)",
     text: [
+      "2021/09 : ピクシブ株式会社 長期インターンシップ(6weeks)",
+      "2021/09 : 株式会社ディー・エヌ・エー インターンシップ(短期ソフトウェアエンジニアリングコース, 2days)",
+      "2021/08 : 合同会社DMM.com DMM GUILDインターンシップ(2weeks)",
+      "2021/08 : 株式会社アカツキ 就業型インターンシップ(Rails/AWSコース, 3weeks)",
       "2021/03 : ACM-ICPC Asia Yokohama Regional 2020 10位(Aobayama_dropout)",
       "2020/01 : DISCO presents ディスカバリーチャンネルコードコンテスト2020本戦 出場",
       "2019/11 : ACM-ICPC Asia Yokohama Regional 2019 16位(Aobayama_dropout)",
       "2019/11 : ACM-ICPC Asia Bangkok Regional 2019 19位(Aobayama_dropout)",
       "2019/09 : 第一回日本最強プログラマー学生選手権決勝 出場",
-      "2019/08 : モイ株式会社 ツイキャスサマーインターンシップ 参加",
+      "2019/08 : モイ株式会社 ツイキャスサマーインターンシップ (2weeks)",
       "2018/12 : ACM-ICPC Asia Yokohama Regional 2018 21位(Aobayama_dropout)",
       "2018/11 : CODE THANKS FESTIVAL 2018 出場",
     ],
@@ -64,7 +68,7 @@ const biography = [
   },
   { label: "資格など", text: ["応用情報技術者 (2019春)"] },
   {
-    label: "お仕事 (イラスト / Web制作) のご依頼",
-    text: "team.seadrive[at]gmail.com までご連絡ください。",
+    label: "連絡先",
+    text: "team.seadrive[at]gmail.com",
   },
 ];

@@ -37,7 +37,7 @@ export const PostCard: React.FC<Props> = ({ slug, frontmatter }) => {
       <Styled.Title>{frontmatter.title}</Styled.Title>
       <Chip>{frontmatter.date}</Chip>
       {frontmatter.tags.map((tag) => (
-        <Tag key={tag} href={"/"}>
+        <Tag key={tag} href={""}>
           {tag}
         </Tag>
       ))}

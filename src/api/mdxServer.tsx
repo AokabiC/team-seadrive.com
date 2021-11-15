@@ -1,4 +1,5 @@
 import { CodeBlock } from "atoms/CodeBlock";
+import { SpeakerDeck } from "atoms/SpeakerDeck";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Image from "next/image";
 import path from "path";
@@ -24,6 +25,7 @@ export const hydrate = (
           return <Image {...props} src={imgSrc} />;
         },
         code: CodeBlock,
+        SpeakerDeck: SpeakerDeck,
       }}
     />
   );

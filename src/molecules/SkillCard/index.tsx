@@ -44,9 +44,14 @@ export const SkillCard: React.FC<Props> = ({
       <div
         css={(theme) => css`
           display: flex;
+          flex-flow: column;
           justify-content: space-between;
-          align-items: center;
+          align-items: left;
           margin: ${theme.space.xs} 0;
+          ${theme.mediaQuery.md} {
+            flex-flow: row;
+            align-items: center;
+          }
         `}
       >
         <div
@@ -66,7 +71,7 @@ export const SkillCard: React.FC<Props> = ({
         >
           {tags &&
             tags.map((tag) => (
-              <Tag key={tag} href={"/"}>
+              <Tag key={tag} href={""}>
                 {tag}
               </Tag>
             ))}

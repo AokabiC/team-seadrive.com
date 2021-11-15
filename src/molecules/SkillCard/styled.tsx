@@ -14,7 +14,7 @@ export const Container = styled.div(
 
 export const Title = styled.h2(
   ({ theme }) => css`
-    margin: ${theme.space.sm} ${theme.space.xs};
+    margin: ${theme.space.xs};
     color: ${theme.color.textAccent};
     font-size: ${theme.fontSize.heading};
     font-weight: ${theme.fontWeight.heading};

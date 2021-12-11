@@ -8,13 +8,7 @@ module.exports = withMDX({
   images: {
     deviceSizes: [860, 1600, 1920],
   },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.node = {
-        fs: "empty",
-      };
-    }
-
+  webpack: (config, options) => {
     return config;
   },
 });

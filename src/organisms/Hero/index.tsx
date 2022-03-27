@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
 import { HeroImage } from "atoms/HeroImage";
 import { HeroLoader } from "atoms/HeroLoader";
 import { HeroMessage } from "molecules/HeroMessage";
@@ -14,12 +13,7 @@ export const Hero: React.FC<Props> = ({ isVisible }) => {
     <>
       <HeroLoader />
       <HeroImage isVisible={isVisible} />
-      <HeroMessage isVisible={isVisible} />
-      <div
-        css={css`
-          height: 100vh;
-        `}
-      />
+      <HeroMessage />
     </>
   );
 };

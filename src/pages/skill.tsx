@@ -10,6 +10,7 @@ const SkillPage: NextPage = () => {
     <CommonLayout>
       <SEO title="Skill" />
       <ContentsHeading>Languages</ContentsHeading>
+      <span>last modified: 2021-05-19</span>
       <SkillCard
         name="TypeScript"
         src="/ts-icon.png"

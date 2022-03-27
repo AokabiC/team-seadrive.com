@@ -10,6 +10,7 @@ export const Link: React.FC<
   return external ? (
     <a
       css={css`
+        color: inherit;
         text-decoration: none;
         cursor: pointer;
         line-height: ${notext ? 0 : `inherit`};

@@ -1,14 +1,10 @@
-const withMDX = require("@next/mdx")({
-  extension: /\.mdx$/,
-});
-
-module.exports = withMDX({
+module.exports = {
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "mdx"],
+  pageExtensions: ["ts", "tsx"],
   images: {
     deviceSizes: [860, 1600, 1920],
   },
   webpack: (config, options) => {
     return config;
   },
-});
+};

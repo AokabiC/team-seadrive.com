@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const Container = styled.div<Props>(
-  ({ theme, inverse = false }) => css`
+  ({ theme }) => css`
     flex-basis: 70%;
     color: ${theme.color.textHighEmphasisInverse};
     font-size: ${theme.fontSize.nav};
@@ -14,10 +14,7 @@ export const Container = styled.div<Props>(
     align-items: center;
     flex-direction: inherit;
     justify-content: space-around;
-    opacity: ${inverse ? 0 : 1};
-    visibility: ${inverse ? "hidden" : "visible"};
-    transition: opacity ${theme.transitionSpeed.hover} ease-in-out,
-      visibility ${theme.transitionSpeed.hover} ease-in-out;
+    transition: color ${theme.transitionSpeed.hover} ease-in-out;
 
     ${theme.mediaQuery.md} {
       flex-basis: 16em;
@@ -27,12 +24,5 @@ export const Container = styled.div<Props>(
         color: ${theme.color.textAccent};
       }
     }
-  `
-);
-
-export const AnimateWrapper = styled.span<Props>(
-  ({ theme, inverse = false }) => css`
-    transform: ${inverse ? `translateX(-0.8rem)` : `translateX(0)`};
-    transition: transform ${theme.transitionSpeed.hover} ease-in-out;
   `
 );

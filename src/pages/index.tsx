@@ -1,15 +1,11 @@
-import { getAllPosts } from "api/getPost";
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import { BlogIndex } from "organisms/BlogIndex";
+import { NextPage } from "next";
 import { Hero } from "organisms/Hero";
 import React from "react";
 import { useIntersection } from "react-use";
 import { CommonLayout } from "templates/Common";
 import { SEO } from "utils/Seo";
 
-const IndexPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  posts,
-}) => {
+const IndexPage: NextPage = () => {
   const intersectionRef = React.useRef(null);
   const intersection = useIntersection(intersectionRef, {
     root: null,
@@ -20,18 +16,7 @@ const IndexPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <CommonLayout inverse={!intersection?.isIntersecting ?? false}>
       <SEO />
       <Hero isVisible={!intersection?.isIntersecting ?? false} />
-      <BlogIndex posts={posts} intersectionTarget={intersectionRef} />
     </CommonLayout>
   );
 };
 export default IndexPage;
-
-export const getStaticProps: GetStaticProps = async () => {
-  // slug = ["path", "to", "post"]
-  const posts = await getAllPosts();
-  return {
-    props: {
-      posts,
-    },
-  };
-};

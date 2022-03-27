@@ -6,6 +6,7 @@ import * as Styled from "./styled";
 const items = [
   { to: "/about/", text: "About" },
   { to: "/skill/", text: "Skill" },
+  { to: "https://scrapbox.io/aokabic/", text: "Blog" },
   { to: "/works/", text: "Works" },
 ];
 
